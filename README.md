@@ -1,2 +1,3 @@
-# lithuanian-football-league-predictor
-# lithuanian-football-league-predictor
+# Lithuanian football league 'Optibet A lyga' match result predictor
+
+I am developing a machine learning model to predict the outcomes of football matches. The model’s performance will be evaluated based on its ability to accurately predict the winner and the result of each match. I will initially train the model using data from the past 5 years of the A-lyga Football League (https://alyga.lt/rezultatai/1?year=2022). Once the initial training is complete, I will implement a weekly retraining schedule where the model is updated every Monday using the most recent match results. The model will then make predictions for the upcoming weekend’s matches and its performance will be evaluated based on those predictions. I am committed to following ML-Ops best practices to ensure that my model is properly monitored and maintained in production.

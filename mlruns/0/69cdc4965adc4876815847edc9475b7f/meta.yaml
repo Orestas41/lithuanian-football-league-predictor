@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/69cdc4965adc4876815847edc9475b7f/artifacts
+end_time: 1683192454259
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 69cdc4965adc4876815847edc9475b7f
+run_name: wise-goose-97
+run_uuid: 69cdc4965adc4876815847edc9475b7f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683192227387
+status: 4
+tags: []
+user_id: orestas41

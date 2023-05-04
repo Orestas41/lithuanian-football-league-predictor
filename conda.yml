@@ -1,0 +1,11 @@
+name: components
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mlflow
+  - pyyaml=5.3.1
+  - hydra-core=1.1.0
+  - pip=22.0.4
+  - pip:
+      - wandb

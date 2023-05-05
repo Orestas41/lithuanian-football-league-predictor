@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/a604297a914a4adb8b8fe88e0d6c755e/artifacts
+end_time: 1683281014367
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a604297a914a4adb8b8fe88e0d6c755e
+run_name: fortunate-hound-58
+run_uuid: a604297a914a4adb8b8fe88e0d6c755e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683280980279
+status: 3
+tags: []
+user_id: orestas41

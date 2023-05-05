@@ -5,3 +5,5 @@ main:
 directories:
   input_folder_path: raw_data
   output_folder_path: final_data
+data_check:
+  kl_threshold: 0.2

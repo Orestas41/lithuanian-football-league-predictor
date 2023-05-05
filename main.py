@@ -8,7 +8,8 @@ import hydra
 from omegaconf import DictConfig
 
 _steps = [
-    "pre-processing"
+    "pre-processing",
+    "data_check"
 ]
 
 
@@ -36,8 +37,21 @@ def go(config: DictConfig):
                     "input_artifact": "trainingdata.csv:latest",
                     "output_artifact": "trainingdata.csv",
                     "output_type": "trainingdata",
-                    "output_description": "Merged and cleaned data",},
+                    "output_description": "Merged and cleaned data", },
             )
+
+        if "data_check" in active_steps:
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "data_check"),
+                "main",
+                parameters={
+                    "csv": "trainingdata.csv:latest",
+                    "ref": "trainingdata.csv:reference",
+                    "kl_threshold": config["data_check"]["kl_threshold"]}
+            )
+
 
 if __name__ == "__main__":
     go()

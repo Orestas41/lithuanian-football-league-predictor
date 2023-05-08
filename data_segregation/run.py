@@ -19,7 +19,10 @@ logger = logging.getLogger()
 
 def go(args):
 
-    run = wandb.init(job_type="data_segregation")
+    run = wandb.init(
+        project='project-FootballPredict',
+        group='development',
+        job_type="data_segregation")
     run.config.update(args)
 
     logger.info(f"Fetching artifact {args.input}")

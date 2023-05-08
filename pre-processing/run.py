@@ -33,7 +33,7 @@ def go(args):
     # Creating instance
     run = wandb.init(
         project='project-FootballPredict',
-        group='dev',
+        group='development',
         job_type="pre-processing")
     run.config.update(args)
 
@@ -46,10 +46,10 @@ def go(args):
         df = pd.read_csv(data_dir+'/'+input_folder_path+'/'+each_dataset)
         data = data.append(df)
     result = data.drop_duplicates()
-    result.to_csv(f'../{output_folder_path}/trainingdata.csv', index=True)
+    result.to_csv(f'../{output_folder_path}/raw_data.csv', index=True)
 
     logger.info("Creating dataframe")
-    df = pd.read_csv(f'../{output_folder_path}/trainingdata.csv')
+    df = pd.read_csv(f'../{output_folder_path}/raw_data.csv')
 
     logger.info("Removeing rows with missing values")
     df = df.dropna()
@@ -122,15 +122,15 @@ def go(args):
                  'Away-missing', 'Result', 'Unnamed: 0'], axis=1)
 
     logger.info("Saving dataframe as a csv file")
-    df.to_csv(f'../{output_folder_path}/trainingdata.csv', index=True)
+    df.to_csv(f'../{output_folder_path}/processed_data.csv', index=True)
 
-    logger.info("Uploading trainingdata.csv file to W&B")
+    logger.info("Uploading processed_data.csv file to W&B")
     artifact = wandb.Artifact(
         args.output_artifact,
         type=args.output_type,
         description=args.output_description,
     )
-    artifact.add_file(f'../{output_folder_path}/trainingdata.csv')
+    artifact.add_file(f'../{output_folder_path}/processed_data.csv')
     run.log_artifact(artifact)
 
 

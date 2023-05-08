@@ -35,9 +35,9 @@ def go(config: DictConfig):
                     "pre-processing"),
                 "main",
                 parameters={
-                    "input_artifact": "trainingdata.csv:latest",
-                    "output_artifact": "trainingdata.csv",
-                    "output_type": "trainingdata",
+                    "input_artifact": "raw_data.csv:latest",
+                    "output_artifact": "processed_data.csv",
+                    "output_type": "processed_data",
                     "output_description": "Merged and cleaned data", },
             )
 
@@ -48,8 +48,8 @@ def go(config: DictConfig):
                     "data_check"),
                 "main",
                 parameters={
-                    "csv": "trainingdata.csv:latest",
-                    "ref": "trainingdata.csv:reference",
+                    "csv": "processed_data.csv:latest",
+                    "ref": "processed_data.csv:reference",
                     "kl_threshold": config["data_check"]["kl_threshold"]}
             )
 
@@ -60,7 +60,7 @@ def go(config: DictConfig):
                     "data_segregation"),
                 "main",
                 parameters={
-                    "input": "trainingdata.csv:latest",
+                    "input": "processed_data.csv:latest",
                     "test_size": config["data_segregation"]["test_size"],
                     "random_seed": config["data_segregation"]["random_seed"]}
             )

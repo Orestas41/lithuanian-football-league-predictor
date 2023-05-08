@@ -1,0 +1,44 @@
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:71: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Home'][i] = df['Home-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:72: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Away'][i] = df['Away-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:78: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Home'][i] = df['Home-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:79: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Away'][i] = df['Away-missing'][i]
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 172, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 134, in go
+    run.log_artifact(artifact)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 345, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 335, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2775, in log_artifact
+    return self._log_artifact(
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2914, in _log_artifact
+    self._assert_can_log_artifact(artifact)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2972, in _assert_can_log_artifact
+    raise ValueError(
+ValueError: Artifact processed_data.csv already exists with type trainingdata; cannot create another with type processed_data

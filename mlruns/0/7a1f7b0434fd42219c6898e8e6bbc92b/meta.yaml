@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/7a1f7b0434fd42219c6898e8e6bbc92b/artifacts
+end_time: 1683551104161
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7a1f7b0434fd42219c6898e8e6bbc92b
+run_name: intrigued-fawn-23
+run_uuid: 7a1f7b0434fd42219c6898e8e6bbc92b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683551073806
+status: 3
+tags: []
+user_id: orestas41

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/14b510a241e446e69dfc0a09175a7c45/artifacts
+end_time: 1683549848410
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 14b510a241e446e69dfc0a09175a7c45
+run_name: hilarious-jay-308
+run_uuid: 14b510a241e446e69dfc0a09175a7c45
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683549809260
+status: 3
+tags: []
+user_id: orestas41

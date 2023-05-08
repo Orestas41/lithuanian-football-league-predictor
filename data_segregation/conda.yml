@@ -1,0 +1,11 @@
+name: data_segregation
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=22.0.4
+  - requests
+  - mlflow=1.23.0
+  - scikit-learn=1.0.2
+  - pip:
+      - wandb

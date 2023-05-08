@@ -12,19 +12,21 @@ import pandas as pd
 
 log_folder = os.getcwd()
 
-#logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
-logging.basicConfig(filename=f"../reports/logs/{log_folder.split('/')[-1]}-{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+logging.basicConfig(
+    filename=f"../reports/logs/{log_folder.split('/')[-1]}-{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
-#############Load config.json and get input and output paths
-with open('../config.yaml','r') as f:
+# Load config.json and get input and output paths
+with open('../config.yaml', 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
 
 # Setting-up the wandb experiment
 input_folder_path = config['directories']['input_folder_path']
 output_folder_path = config['directories']['output_folder_path']
-file_record=open(f"../reports/logs/ingestedfiles-{datetime.now().strftime('%Y-%m-%d')}.txt","w")
+file_record = open(
+    f"../reports/logs/ingestedfiles-{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
+
 
 def go(args):
 
@@ -43,8 +45,8 @@ def go(args):
         file_record.write(str(each_dataset)+'\n')
         df = pd.read_csv(data_dir+'/'+input_folder_path+'/'+each_dataset)
         data = data.append(df)
-    result=data.drop_duplicates()
-    result.to_csv(f'../{output_folder_path}/trainingdata.csv', index=True)    
+    result = data.drop_duplicates()
+    result.to_csv(f'../{output_folder_path}/trainingdata.csv', index=True)
 
     logger.info("Creating dataframe")
     df = pd.read_csv(f'../{output_folder_path}/trainingdata.csv')
@@ -56,7 +58,7 @@ def go(args):
     df['Date'] = pd.to_datetime(df['Date'], format="%Y-%m-%d, %H:%M")
 
     logger.info("Sorting dataframe by date")
-    df = df.sort_values(by='Date')     
+    df = df.sort_values(by='Date')
 
     logger.info("Setting Date column as index")
     df = df.set_index('Date')
@@ -69,13 +71,15 @@ def go(args):
             df['Home'][i] = df['Home-missing'][i]
             df['Away'][i] = df['Away-missing'][i]
 
-    logger.info("Checking the teams are on the correct side. Changing if incorrect")
+    logger.info(
+        "Checking the teams are on the correct side. Changing if incorrect")
     for i in range(len(df)):
         if df['Home'][i] != df['Home-missing'][i] and df['Away'][i] != df['Away-missing'][i]:
             df['Home'][i] = df['Home-missing'][i]
             df['Away'][i] = df['Away-missing'][i]
 
-    logger.info("Converting Results columns into separate columns for Home and Away goals")
+    logger.info(
+        "Converting Results columns into separate columns for Home and Away goals")
     score_strings = df['Result']
     homeResult = []
     awayResult = []
@@ -92,10 +96,10 @@ def go(args):
 
     logger.info("Encoding unique strings")
     encoder = {}
-        
+
     for i in range(0, df['Home'].nunique()):
         encoder[df['Home'].unique()[i]] = i
-        
+
     encoder['Draw'] = df['Home'].nunique() + 1
 
     logger.info("Creating Winner column with the team that won or draw")
@@ -114,7 +118,8 @@ def go(args):
         df = df.replace(encoder)
 
     logger.info("Dropping unnecessary columns")
-    df = df.drop(['Position', 'Sanity check', 'Home-missing', 'Away-missing', 'Result', 'Unnamed: 0'], axis=1)    
+    df = df.drop(['Position', 'Sanity check', 'Home-missing',
+                 'Away-missing', 'Result', 'Unnamed: 0'], axis=1)
 
     logger.info("Saving dataframe as a csv file")
     df.to_csv(f'../{output_folder_path}/trainingdata.csv', index=True)
@@ -128,9 +133,11 @@ def go(args):
     artifact.add_file(f'../{output_folder_path}/trainingdata.csv')
     run.log_artifact(artifact)
 
+
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="This step merges and cleans the data")
+    parser = argparse.ArgumentParser(
+        description="This step merges and cleans the data")
 
     parser.add_argument(
         "--input_artifact",
@@ -143,8 +150,8 @@ if __name__ == "__main__":
         "--output_artifact",
         type=str,
         help='Name of the output artifact',
-        required=True    
-        )    
+        required=True
+    )
 
     parser.add_argument(
         "--output_type",

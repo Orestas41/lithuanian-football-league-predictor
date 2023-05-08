@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/878f6478640245299a41011b7d2de5e3/artifacts
+end_time: 1683548551895
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 878f6478640245299a41011b7d2de5e3
+run_name: bustling-sow-196
+run_uuid: 878f6478640245299a41011b7d2de5e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683548507675
+status: 3
+tags: []
+user_id: orestas41

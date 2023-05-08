@@ -9,7 +9,8 @@ from omegaconf import DictConfig
 
 _steps = [
     "pre-processing",
-    "data_check"
+    "data_check",
+    "data_segregation"
 ]
 
 
@@ -50,6 +51,18 @@ def go(config: DictConfig):
                     "csv": "trainingdata.csv:latest",
                     "ref": "trainingdata.csv:reference",
                     "kl_threshold": config["data_check"]["kl_threshold"]}
+            )
+
+        if "data_segregation" in active_steps:
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "data_segregation"),
+                "main",
+                parameters={
+                    "input": "trainingdata.csv:latest",
+                    "test_size": config["data_segregation"]["test_size"],
+                    "random_seed": config["data_segregation"]["random_seed"]}
             )
 
 

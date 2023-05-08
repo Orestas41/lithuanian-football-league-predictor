@@ -1,0 +1,5 @@
+
+2023-05-08 13:21:59,102 Fetching artifact trainingdata.csv:latest
+2023-05-08 13:22:04,416 Splitting trainval and test
+2023-05-08 13:22:04,433 Uploading trainval_data.csv dataset
+2023-05-08 13:22:06,338 Uploading test_data.csv dataset

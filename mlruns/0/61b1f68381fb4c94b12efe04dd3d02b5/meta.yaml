@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/61b1f68381fb4c94b12efe04dd3d02b5/artifacts
+end_time: 1683663389603
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 61b1f68381fb4c94b12efe04dd3d02b5
+run_name: nervous-stoat-756
+run_uuid: 61b1f68381fb4c94b12efe04dd3d02b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683663342651
+status: 3
+tags: []
+user_id: orestas41

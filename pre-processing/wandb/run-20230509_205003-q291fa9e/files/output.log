@@ -1,0 +1,51 @@
+   Position                Date  ... Home-missing Away-missing
+1         2 2020-11-14 15:00:00  ...     Žalgiris       Sūduva
+2         3 2020-10-31 17:00:00  ...  K. Žalgiris  K. Žalgiris
+3         4 2020-10-31 17:00:00  ...        Banga        Banga
+5         6 2020-10-28 18:30:00  ...     Riteriai    Panevėžys
+6         7 2020-10-20 20:00:00  ...       Sūduva  K. Žalgiris
+[5 rows x 8 columns]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:75: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Home'][i] = df['Home-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:76: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Away'][i] = df['Away-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:82: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Home'][i] = df['Home-missing'][i]
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:83: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['Away'][i] = df['Away-missing'][i]
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 176, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 125, in go
+    df = df.drop(['Position', 'Sanity check', 'Home-missing',
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/frame.py", line 4948, in drop
+    return super().drop(
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/generic.py", line 4279, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/generic.py", line 4323, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['Unnamed: 0'] not found in axis"

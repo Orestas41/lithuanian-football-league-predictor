@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/d6652e52aded4c168fa948013ef3bfce/artifacts
+end_time: 1683664819650
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d6652e52aded4c168fa948013ef3bfce
+run_name: amazing-flea-457
+run_uuid: d6652e52aded4c168fa948013ef3bfce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683664787547
+status: 3
+tags: []
+user_id: orestas41

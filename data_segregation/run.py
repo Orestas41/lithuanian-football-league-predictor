@@ -42,7 +42,7 @@ def go(args):
         logger.info(f"Uploading {k}_data.csv dataset")
         with tempfile.NamedTemporaryFile("w") as fp:
 
-            df.to_csv(fp.name, index=True)
+            df.to_csv(fp.name, index=False)
 
             artifact = wandb.Artifact(
                 f"{k}_data.csv",

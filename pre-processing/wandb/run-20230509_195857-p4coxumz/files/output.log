@@ -1,0 +1,20 @@
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 171, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 60, in go
+    df['Date'] = df['Date'].to_timestamp()
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/series.py", line 5466, in to_timestamp
+    raise TypeError(f"unsupported Type {type(self.index).__name__}")
+TypeError: unsupported Type Int64Index

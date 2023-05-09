@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/d77cbaf399144c0f84d205c2ab0f4550/artifacts
+end_time: 1683631641892
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d77cbaf399144c0f84d205c2ab0f4550
+run_name: overjoyed-vole-699
+run_uuid: d77cbaf399144c0f84d205c2ab0f4550
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683631614116
+status: 4
+tags: []
+user_id: orestas41

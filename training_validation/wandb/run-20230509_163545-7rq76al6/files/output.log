@@ -1,0 +1,24 @@
+   Unnamed: 0                 Date  ...  awayResult  Winner
+0         155  2019-04-27 13:00:00  ...           1      16
+1         210  2019-08-31 17:00:00  ...           0       4
+2         260  2020-06-06 13:00:00  ...           1       4
+3         424  2021-08-07 17:00:00  ...           1      16
+4         539  2022-05-22 17:30:00  ...           2       4
+[5 rows x 7 columns]
+           Date  Home  ...  awayResult  Winner
+0  1.556370e+09     8  ...           1      16
+1  1.567271e+09     4  ...           0       4
+2  1.591448e+09     4  ...           1       4
+3  1.628356e+09    12  ...           1      16
+4  1.653241e+09     3  ...           2       4
+[5 rows x 6 columns]
+[16:35:56] WARNING: ../src/learner.cc:767:
+Parameters: { "criterion", "max_features", "min_samples_leaf", "min_samples_split", "oob_score" } are not used.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 192, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 96, in go
+    mlflow.sklearn.save_model(sk_pipe, 'xgboost_dir')
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/mlflow/sklearn/__init__.py", line 228, in save_model
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'xgboost_dir' already exists

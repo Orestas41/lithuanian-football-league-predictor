@@ -46,7 +46,7 @@ def go(args):
         df = pd.read_csv(data_dir+'/'+input_folder_path+'/'+each_dataset)
         data = data.append(df)
     result = data.drop_duplicates()
-    result.to_csv(f'../{output_folder_path}/raw_data.csv', index=True)
+    result.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
 
     logger.info("Creating dataframe")
     df = pd.read_csv(f'../{output_folder_path}/raw_data.csv')
@@ -60,8 +60,12 @@ def go(args):
     logger.info("Sorting dataframe by date")
     df = df.sort_values(by='Date')
 
+    df['index'] = df['Date'].copy()
+
+    df['Date'] = df['Date'].astype(int) / 10**18
+
     logger.info("Setting Date column as index")
-    df = df.set_index('Date')
+    df = df.set_index('index')
 
     logger.info("Checking if teams are correct. Changing if incorrect")
     for i in range(len(df)):
@@ -119,10 +123,10 @@ def go(args):
 
     logger.info("Dropping unnecessary columns")
     df = df.drop(['Position', 'Sanity check', 'Home-missing',
-                 'Away-missing', 'Result', 'Unnamed: 0'], axis=1)
+                 'Away-missing', 'Result'], axis=1)
 
     logger.info("Saving dataframe as a csv file")
-    df.to_csv(f'../{output_folder_path}/processed_data.csv', index=True)
+    df.to_csv(f'../{output_folder_path}/processed_data.csv', index=None)
 
     logger.info("Uploading processed_data.csv file to W&B")
     artifact = wandb.Artifact(

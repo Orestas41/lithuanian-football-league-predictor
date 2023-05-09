@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/19b70503fea34374bfe8f798c3117480/artifacts
+end_time: 1683662626295
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19b70503fea34374bfe8f798c3117480
+run_name: bustling-flea-382
+run_uuid: 19b70503fea34374bfe8f798c3117480
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683662597607
+status: 4
+tags: []
+user_id: orestas41

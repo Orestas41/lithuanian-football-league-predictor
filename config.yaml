@@ -10,3 +10,20 @@ data_check:
 data_segregation:
   test_size: 0.2
   random_seed: 42
+modeling:
+  # Fraction of data to use for test (the remaining will be used for train and validation)
+  test_size: 0.2
+  # Fraction of remaining data to use for validation
+  val_size: 0.2
+  # Fix this for reproducibility, change to have new splits
+  random_seed: 42
+  xgboost:
+    n_estimators: 100
+    max_depth: 15
+    min_samples_split: 4
+    min_samples_leaf: 3
+    # Here -1 means all available cores
+    n_jobs: -1
+    criterion: mae
+    max_features: 0.5
+    oob_score: true

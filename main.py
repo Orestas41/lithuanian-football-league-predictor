@@ -10,7 +10,8 @@ from omegaconf import DictConfig
 _steps = [
     "pre-processing",
     "data_check",
-    "data_segregation"
+    "data_segregation",
+    "training_validation"
 ]
 
 
@@ -63,6 +64,28 @@ def go(config: DictConfig):
                     "input": "processed_data.csv:latest",
                     "test_size": config["data_segregation"]["test_size"],
                     "random_seed": config["data_segregation"]["random_seed"]}
+            )
+
+        if "training_validation" in active_steps:
+
+            xgb_config = os.path.abspath("config.yaml")
+            with open(xgb_config, "w+") as fp:
+                json.dump(
+                    dict(
+                        config["modeling"]["xgboost"].items()),
+                    fp)
+
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "training_validation"),
+                "main",
+                parameters={
+                    "trainval_artifact": "trainval_data.csv:latest",
+                    "val_size": config["modeling"]["val_size"],
+                    "random_seed": config["modeling"]["random_seed"],
+                    "xgb_config": xgb_config,
+                    "output_artifact": "xgboost_export"},
             )
 
 

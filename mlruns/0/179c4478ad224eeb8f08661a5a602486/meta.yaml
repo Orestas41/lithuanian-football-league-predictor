@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/179c4478ad224eeb8f08661a5a602486/artifacts
+end_time: 1683664498438
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 179c4478ad224eeb8f08661a5a602486
+run_name: suave-smelt-29
+run_uuid: 179c4478ad224eeb8f08661a5a602486
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683664469998
+status: 3
+tags: []
+user_id: orestas41

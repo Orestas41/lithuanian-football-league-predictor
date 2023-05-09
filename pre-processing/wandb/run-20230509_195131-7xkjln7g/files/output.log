@@ -1,0 +1,34 @@
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py:47: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  data = data.append(df)
+Traceback (most recent call last):
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/arrays/datetimes.py", line 2211, in objects_to_datetime64ns
+    values, tz_parsed = conversion.datetime_to_datetime64(data.ravel("K"))
+  File "pandas/_libs/tslibs/conversion.pyx", line 360, in pandas._libs.tslibs.conversion.datetime_to_datetime64
+TypeError: Unrecognized value type: <class 'str'>
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 169, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 58, in go
+    df['Date'] = pd.to_datetime(df['Date'], format="%Y-%m-%d")
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/tools/datetimes.py", line 1051, in to_datetime
+    values = convert_listlike(arg._values, format)
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/tools/datetimes.py", line 402, in _convert_listlike_datetimes
+    result, tz_parsed = objects_to_datetime64ns(
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/arrays/datetimes.py", line 2217, in objects_to_datetime64ns
+    raise err
+  File "/home/orestas41/miniconda3/envs/mlflow-6d5ace4b14cca211b3a6dd9e430543e8bf00f11d/lib/python3.10/site-packages/pandas/core/arrays/datetimes.py", line 2199, in objects_to_datetime64ns
+    result, tz_parsed = tslib.array_to_datetime(
+  File "pandas/_libs/tslib.pyx", line 381, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslib.pyx", line 530, in pandas._libs.tslib.array_to_datetime
+ValueError: time data 2020-11-14, 15:00 doesn't match format specified

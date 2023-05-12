@@ -1,0 +1,26 @@
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py:72: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  perf = perf.append(new_model_pref, ignore_index=True)
+/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/numpy/core/fromnumeric.py:84: FutureWarning: In a future version, DataFrame.min(axis=None) will return a scalar min over the entire DataFrame. To retain the old behavior, use 'frame.min(axis=0)' or just 'frame.min()'
+  return reduction(axis=axis, out=out, **passkwargs)
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 111, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 73, in go
+    raw_comp = r_squared < np.min(perf)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/generic.py", line 2113, in __array_ufunc__
+    return arraylike.array_ufunc(self, ufunc, method, *inputs, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/arraylike.py", line 263, in array_ufunc
+    result = maybe_dispatch_ufunc_to_dunder_op(self, ufunc, method, *inputs, **kwargs)
+  File "pandas/_libs/ops_dispatch.pyx", line 113, in pandas._libs.ops_dispatch.maybe_dispatch_ufunc_to_dunder_op
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/ops/common.py", line 70, in new_method
+    return method(self, other)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/arraylike.py", line 56, in __gt__
+    return self._cmp_method(other, operator.gt)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/series.py", line 5623, in _cmp_method
+    res_values = ops.comparison_op(lvalues, rvalues, op)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/ops/array_ops.py", line 283, in comparison_op
+    res_values = comp_method_OBJECT_ARRAY(op, lvalues, rvalues)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/ops/array_ops.py", line 73, in comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x.ravel(), y, op)
+  File "pandas/_libs/ops.pyx", line 107, in pandas._libs.ops.scalar_compare
+TypeError: '<' not supported between instances of 'numpy.ndarray' and 'str'

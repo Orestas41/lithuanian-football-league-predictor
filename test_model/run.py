@@ -8,6 +8,7 @@ import argparse
 import logging
 import joblib
 import wandb
+import numpy as np
 # import mlflow
 import xgboost as xgb
 import pandas as pd
@@ -53,12 +54,42 @@ def go(args):
 
     mae = mean_absolute_error(y_test, y_pred)
 
+    # Data slice testing
+    # iterate each value and record the metrics
+    slice_mae = {}
+    for val in y_test.unique():
+        # Fix the feature
+        idx = y_test == val
+
+        # Do the inference and Compute the metrics
+        preds = [round(result) for result in sk_pipe.predict(X_test[idx])]
+        slice_mae[val] = mean_absolute_error(y_test[idx], preds)
+
+    # Recording model performace and checking for model drift
+    perf = pd.read_csv('../reports/model_performance.csv')
+    new_model_pref = {'Date': datetime.now().strftime(
+        "%Y-%m-%d"), 'Version': perf['Version'].max()+1, 'Score': r_squared, 'MAE': mae}
+    perf = perf.append(new_model_pref, ignore_index=True)
+    raw_comp = r_squared < np.min(perf['Score'])
+    param_signific = r_squared < np.mean(
+        perf['Score']) - 2*np.std(perf['Score'])
+    iqr = np.quantile(perf['Score'], 0.75) - np.quantile(perf['Score'], 0.25)
+    nonparam = r_squared < np.quantile(perf['Score'], 0.25) - iqr*1.5
+    perf.to_csv('../reports/model_performance.csv', index=True)
+
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")
+    logger.info(f"MAE of slices: {slice_mae}")
+    logger.info(f"Raw comparison: {raw_comp}")
+    logger.info(f"Parametric significance: {param_signific}")
+    logger.info(f"Non-parametric outlier: {nonparam}")
 
     # Logging MAE and r2
     run.summary['r2'] = r_squared
     run.summary['mae'] = mae
+    run.summary["Raw comparison"] = raw_comp
+    run.summary["Parametric significance"] = param_signific
+    run.summary["Non-parametric outlier"] = nonparam
 
 
 if __name__ == "__main__":

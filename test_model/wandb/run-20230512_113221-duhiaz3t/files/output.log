@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 103, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 79, in go
+    run.summary['mae_of_slices'] = slice_mae
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/wandb_summary.py", line 52, in __setitem__
+    self.update({key: val})
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/wandb_summary.py", line 74, in update
+    self._update(record)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/wandb_summary.py", line 128, in _update
+    self._update_callback(record)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 345, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1333, in _summary_update_callback
+    self._backend.interface.publish_summary(summary_record)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 331, in publish_summary
+    pb_summary_record = self._make_summary(summary_record)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 309, in _make_summary
+    json_value = self._summary_encode(item.value, path_from_root)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 277, in _summary_encode
+    value, path_from_root + "." + key
+TypeError: can only concatenate str (not "numpy.int64") to str

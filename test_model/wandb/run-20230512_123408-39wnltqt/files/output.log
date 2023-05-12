@@ -1,0 +1,12 @@
+/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py:72: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  perf = perf.append(new_model_pref, ignore_index=False)
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 116, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 72, in go
+    perf = perf.append(new_model_pref, ignore_index=False)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/frame.py", line 9033, in append
+    return self._append(other, ignore_index, verify_integrity, sort)
+  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/core/frame.py", line 9046, in _append
+    raise TypeError("Can only append a dict if ignore_index=True")
+TypeError: Can only append a dict if ignore_index=True

@@ -1,0 +1,10 @@
+
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 83, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 46, in go
+    sk_pipe = joblib.load(model_local_path)
+  File "/home/orestas41/miniconda3/envs/mlflow-9d17d067faa8110f3e3fb85f180d59bb67a1fff0/lib/python3.10/site-packages/joblib/numpy_pickle.py", line 650, in load
+    with open(filename, 'rb') as f:
+IsADirectoryError: [Errno 21] Is a directory: './artifacts/xgboost_export:v3'

@@ -85,7 +85,7 @@ def go(args):
     logger.info(f"MAE: {mae}")
 
     logger.info("Exporting model")
-    joblib.dump(sk_pipe, "./inference")
+    joblib.dump(sk_pipe, "../inference/trainedmodel")
 
     # Uploading inference pipeline artifact to W&B
     logger.info("Saving and exporting the model")
@@ -95,7 +95,7 @@ def go(args):
         description='XGBoost pipeline',
         metadata=xgb_config
     )
-    artifact.add_dir("./inference/xgboost_dir")
+    artifact.add_dir("../inference")
     run.log_artifact(artifact)
 
     # Saving r_squared under the "r2" key

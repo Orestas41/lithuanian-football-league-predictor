@@ -11,7 +11,8 @@ _steps = [
     "pre-processing",
     "data_check",
     "data_segregation",
-    "training_validation"
+    "training_validation",
+    "test_model"
 ]
 
 
@@ -86,6 +87,18 @@ def go(config: DictConfig):
                     "random_seed": config["modeling"]["random_seed"],
                     "xgb_config": xgb_config,
                     "output_artifact": "xgboost_export"},
+            )
+
+        if "test_model" in active_steps:
+
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "test_model"),
+                "main",
+                parameters={
+                    "mlflow_model": "xgboost_export:prod",
+                    "test_dataset": "test_data.csv:latest"},
             )
 
 

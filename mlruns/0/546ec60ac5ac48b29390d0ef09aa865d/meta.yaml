@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/546ec60ac5ac48b29390d0ef09aa865d/artifacts
+end_time: 1685293706900
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 546ec60ac5ac48b29390d0ef09aa865d
+run_name: clumsy-conch-752
+run_uuid: 546ec60ac5ac48b29390d0ef09aa865d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685293667543
+status: 3
+tags: []
+user_id: orestas41

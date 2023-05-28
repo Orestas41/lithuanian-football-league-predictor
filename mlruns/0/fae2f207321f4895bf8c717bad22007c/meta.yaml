@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/fae2f207321f4895bf8c717bad22007c/artifacts
+end_time: 1685292650798
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fae2f207321f4895bf8c717bad22007c
+run_name: gregarious-moose-181
+run_uuid: fae2f207321f4895bf8c717bad22007c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685292603859
+status: 3
+tags: []
+user_id: orestas41

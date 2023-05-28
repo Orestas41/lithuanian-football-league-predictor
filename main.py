@@ -63,8 +63,7 @@ def go(config: DictConfig):
                 "main",
                 parameters={
                     "input": "processed_data.csv:latest",
-                    "test_size": config["data_segregation"]["test_size"],
-                    "random_seed": config["data_segregation"]["random_seed"]}
+                    "test_size": config["data_segregation"]["test_size"]}
             )
 
         if "training_validation" in active_steps:

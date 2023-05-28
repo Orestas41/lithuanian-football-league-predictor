@@ -34,7 +34,6 @@ def go(args):
     trainval, test = train_test_split(
         df,
         test_size=args.test_size,
-        random_state=args.random_seed
     )
 
     # Saving to output files
@@ -63,13 +62,6 @@ if __name__ == "__main__":
         "test_size",
         type=float,
         help="Size of the test split. Fraction of the dataset, or number of items")
-
-    parser.add_argument(
-        "--random_seed",
-        type=int,
-        help="Seed for random number generator",
-        default=42,
-        required=False)
 
     args = parser.parse_args()
 

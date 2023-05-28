@@ -3,6 +3,7 @@
 This step takes the best model, tagged with the "prod" tag, and tests it against the test dataset
 """
 import os
+import csv
 from datetime import datetime
 import argparse
 import logging
@@ -36,22 +37,17 @@ def go(args):
     model_local_path = run.use_artifact(args.mlflow_model).download()
 
     # Downloading test dataset
-    # test_dataset_path = run.use_artifact(args.test_dataset).file()
+    test_dataset_path = run.use_artifact(args.test_dataset).file()
 
     # Reading test dataset
-    # X_test = pd.read_csv(test_dataset_path)
-    X_test = pd.read_csv('./test.csv')
-    # y_test = X_test.pop(["homeResult", "awayResult", "Winner"])
+    X_test = pd.read_csv(test_dataset_path)
+    y_test = X_test.pop("Winner")
 
     logger.info("Loading model and performing inference on test set")
     xgboost = mlflow.xgboost.load_model(model_local_path)
-    # y_pred = xgboost.predict(X_test)
+    y_pred = xgboost.predict(X_test)
     y_pred = [round(result) for result in xgboost.predict(X_test)]
 
-    print(y_pred)
-
-
-"""
     logger.info("Scoring")
     r_squared = xgboost.score(X_test, y_test)
 
@@ -68,17 +64,17 @@ def go(args):
         preds = [round(result) for result in xgboost.predict(X_test[idx])]
         slice_mae[val] = mean_absolute_error(y_test[idx], preds)
 
-    # Recording model performace and checking for model drift
-    perf = pd.read_csv('../reports/model_performance.csv')
-    new_model_pref = {'Date': datetime.now().strftime(
-        "%Y-%m-%d"), 'Version': perf['Version'].max()+1, 'Score': r_squared, 'MAE': mae}
-    perf = perf.append(new_model_pref, ignore_index=True)
+    date = datetime.now().strftime('%Y-%m-%d')
+    with open('../reports/model_performance.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([date, r_squared, mae])
+
+    perf = pd.read_csv('../reports/model_performance.csv', index_col=0)
     raw_comp = r_squared < np.min(perf['Score'])
     param_signific = r_squared < np.mean(
         perf['Score']) - 2*np.std(perf['Score'])
     iqr = np.quantile(perf['Score'], 0.75) - np.quantile(perf['Score'], 0.25)
     nonparam = r_squared < np.quantile(perf['Score'], 0.25) - iqr*1.5
-    perf.to_csv('../reports/model_performance.csv', index=True)
 
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")
@@ -92,7 +88,7 @@ def go(args):
     run.summary['mae'] = mae
     run.summary["Raw comparison"] = raw_comp
     run.summary["Parametric significance"] = param_signific
-    run.summary["Non-parametric outlier"] = nonparam"""
+    run.summary["Non-parametric outlier"] = nonparam
 
 
 if __name__ == "__main__":

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/8d2632f8f06d431e8b8cf3f97bfb2868/artifacts
+end_time: 1685291295805
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8d2632f8f06d431e8b8cf3f97bfb2868
+run_name: likeable-cow-824
+run_uuid: 8d2632f8f06d431e8b8cf3f97bfb2868
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685291253861
+status: 3
+tags: []
+user_id: orestas41

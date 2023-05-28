@@ -1,0 +1,14 @@
+
+[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 118, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 72, in go
+    perf.loc[len(perf)-1] = [new_model_pref['Date'], new_model_pref['Version'],
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/pandas/core/indexing.py", line 716, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/pandas/core/indexing.py", line 1682, in _setitem_with_indexer
+    self._setitem_with_indexer_missing(indexer, value)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/pandas/core/indexing.py", line 1998, in _setitem_with_indexer_missing
+    raise ValueError("cannot set a row with mismatched columns")
+ValueError: cannot set a row with mismatched columns

@@ -25,7 +25,7 @@ with open('../config.yaml', 'r') as f:
 input_folder_path = config['directories']['input_folder_path']
 output_folder_path = config['directories']['output_folder_path']
 file_record = open(
-    f"../reports/logs/ingestedfiles-{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
+    f"../reports/logs/ingestedfiles/{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
 
 
 def go(args):

@@ -1,0 +1,14 @@
+
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 114, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 47, in go
+    xgboost = mlflow.xgboost.load_model(model_local_path)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/mlflow/xgboost/__init__.py", line 315, in load_model
+    return _load_model(path=local_model_path)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/mlflow/xgboost/__init__.py", line 270, in _load_model
+    flavor_conf = _get_flavor_configuration(model_path=model_dir, flavor_name=FLAVOR_NAME)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/mlflow/utils/model_utils.py", line 24, in _get_flavor_configuration
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Could not find an "MLmodel" configuration file at "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/artifacts/xgboost_export:v3"

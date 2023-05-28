@@ -84,7 +84,7 @@ def go(config: DictConfig):
                 parameters={
                     "trainval_artifact": "trainval_data.csv:latest",
                     "val_size": config["modeling"]["val_size"],
-                    "random_seed": config["modeling"]["random_seed"],
+                    # "nfold": config["modeling"]["nfold"],
                     "xgb_config": xgb_config,
                     "output_artifact": "xgboost_export"},
             )

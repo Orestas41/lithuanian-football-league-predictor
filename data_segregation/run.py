@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{log_folder.split('/')[-1]}-{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
 

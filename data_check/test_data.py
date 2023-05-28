@@ -1,6 +1,17 @@
 import pandas as pd
+import os
+from datetime import datetime
+import logging
 import numpy as np
 import scipy.stats
+
+log_folder = os.getcwd()
+
+logging.basicConfig(
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+logger = logging.getLogger()
+
+logger.info("Testing if the column names are correct")
 
 
 def test_column_names(data):
@@ -22,6 +33,9 @@ def test_column_names(data):
     assert list(expected_colums) == list(these_columns)
 
 
+logger.info("Testing if the format of the values are correct")
+
+
 def test_format(data):
     """
     Test the format of values is correct
@@ -41,12 +55,18 @@ def test_format(data):
             assert data[column].dtype == int
 
 
+logger.info("Testing if number of teams are correct")
+
+
 def test_number_of_teams(data):
     """
     Test if number of unique home teams is same as away
     """
 
     assert data['Home'].nunique() == data['Away'].nunique()
+
+
+logger.info("Testing the results are withing possible limits")
 
 
 def test_result_range(data):
@@ -59,12 +79,18 @@ def test_result_range(data):
         assert 0 <= data[result].any() < 15
 
 
+logger.info("Testing if the values of Winner column are correct")
+
+
 def test_winner_range(data):
     """
     Test the range of winner values
     """
 
-    assert data['Winner'].nunique() == data['Home'].nunique() + 1
+    assert data['Winner'].nunique() == 3
+
+
+logger.info("Testing if the winner column is set up correctly")
 
 
 def test_winner(data):
@@ -74,11 +100,15 @@ def test_winner(data):
 
     for i in range(len(data)):
         if data['homeResult'][i] > data['awayResult'][i]:
-            assert data['Winner'][i] == data['Home'][i]
+            assert data['Winner'][i] == 1
         elif data['homeResult'][i] < data['awayResult'][i]:
-            assert data['Winner'][i] == data['Away'][i]
+            assert data['Winner'][i] == 3
         else:
-            assert data['Winner'][i] == data['Winner'].max()
+            assert data['Winner'][i] == 2
+
+
+logger.info(
+    "Testing of the distribution of the dataset is similar to what is expected")
 
 
 def test_similar_distrib(

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/21101a1ac4b54f898240695398136343/artifacts
+end_time: 1685275288990
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 21101a1ac4b54f898240695398136343
+run_uuid: 21101a1ac4b54f898240695398136343
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685275247568
+status: 3
+tags: []
+user_id: orestas41

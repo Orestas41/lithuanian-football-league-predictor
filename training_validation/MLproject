@@ -12,11 +12,6 @@ entry_points:
         description: Size of the validation split. Fraction of the dataset, or number of items
         type: string
 
-      random_seed:
-        description: Seed for the random number generator. Use this for reproducibility
-        type: string
-        default: 42
-
       xgb_config:
         description:
           XGBoost configuration. A path to a JSON file with the configuration that will
@@ -30,6 +25,5 @@ entry_points:
     command: >-
       python run.py --trainval_artifact {trainval_artifact} \
                     --val_size {val_size} \
-                    --random_seed {random_seed} \
                     --xgb_config {xgb_config} \
                     --output_artifact {output_artifact}

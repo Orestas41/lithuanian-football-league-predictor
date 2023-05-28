@@ -7,6 +7,7 @@ from datetime import datetime
 import argparse
 import logging
 import joblib
+import mlflow
 import wandb
 import numpy as np
 # import mlflow
@@ -14,13 +15,10 @@ import xgboost as xgb
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 
-# from wandb_utils.log_artifact import log_artifact
-
-
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{log_folder.split('/')[-1]}-{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
 
@@ -35,22 +33,27 @@ def go(args):
     logger.info("Downloading artifacts")
 
     # Downloading input artifact
-    # model_local_path = run.use_artifact(args.mlflow_model).download()
-    model_local_path = '../inference/trainedmodel'
+    model_local_path = run.use_artifact(args.mlflow_model).download()
 
     # Downloading test dataset
-    test_dataset_path = run.use_artifact(args.test_dataset).file()
+    # test_dataset_path = run.use_artifact(args.test_dataset).file()
 
     # Reading test dataset
-    X_test = pd.read_csv(test_dataset_path)
-    y_test = X_test.pop("Winner")
+    # X_test = pd.read_csv(test_dataset_path)
+    X_test = pd.read_csv('./test.csv')
+    # y_test = X_test.pop(["homeResult", "awayResult", "Winner"])
 
     logger.info("Loading model and performing inference on test set")
-    sk_pipe = joblib.load(model_local_path)
-    y_pred = sk_pipe.predict(X_test)
+    xgboost = mlflow.xgboost.load_model(model_local_path)
+    # y_pred = xgboost.predict(X_test)
+    y_pred = [round(result) for result in xgboost.predict(X_test)]
 
+    print(y_pred)
+
+
+"""
     logger.info("Scoring")
-    r_squared = sk_pipe.score(X_test, y_test)
+    r_squared = xgboost.score(X_test, y_test)
 
     mae = mean_absolute_error(y_test, y_pred)
 
@@ -62,7 +65,7 @@ def go(args):
         idx = y_test == val
 
         # Do the inference and Compute the metrics
-        preds = [round(result) for result in sk_pipe.predict(X_test[idx])]
+        preds = [round(result) for result in xgboost.predict(X_test[idx])]
         slice_mae[val] = mean_absolute_error(y_test[idx], preds)
 
     # Recording model performace and checking for model drift
@@ -89,7 +92,7 @@ def go(args):
     run.summary['mae'] = mae
     run.summary["Raw comparison"] = raw_comp
     run.summary["Parametric significance"] = param_signific
-    run.summary["Non-parametric outlier"] = nonparam
+    run.summary["Non-parametric outlier"] = nonparam"""
 
 
 if __name__ == "__main__":

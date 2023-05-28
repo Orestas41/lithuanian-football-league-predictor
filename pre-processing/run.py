@@ -13,7 +13,7 @@ import pandas as pd
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{log_folder.split('/')[-1]}-{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
 # Load config.json and get input and output paths
@@ -110,13 +110,14 @@ def go(args):
     Winner = [0] * len(df)
     for i in range(len(df)):
         if df['homeResult'][i] > df['awayResult'][i]:
-            Winner[i] = df['Home'][i]
+            Winner[i] = 1
         elif df['homeResult'][i] < df['awayResult'][i]:
-            Winner[i] = df['Away'][i]
+            Winner[i] = 3
         else:
-            Winner[i] = 'Draw'
+            Winner[i] = 2
 
     df['Winner'] = Winner
+    df['Winner'] = df['Winner'].astype(int)
 
     for i in range(0, df['Home'].nunique()):
         df = df.replace(encoder)

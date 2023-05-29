@@ -102,8 +102,9 @@ def go(args):
 
     logger.info("Encoding unique strings")
     encoder = LabelEncoder()
-    df['Home'] = encoder.fit_transform(df['Home'])
-    df['Away'] = encoder.fit_transform(df['Away'])
+    encoder.fit(df['Home'])
+    df['Home'] = encoder.transform(df['Home'])
+    df['Away'] = encoder.transform(df['Away'])
 
     encoder_file = 'encoder.pkl'
     with open(encoder_file, 'wb') as f:

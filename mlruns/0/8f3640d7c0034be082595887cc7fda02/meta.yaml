@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/8f3640d7c0034be082595887cc7fda02/artifacts
+end_time: 1685306963347
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8f3640d7c0034be082595887cc7fda02
+run_name: vaunted-mare-339
+run_uuid: 8f3640d7c0034be082595887cc7fda02
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685306929432
+status: 4
+tags: []
+user_id: orestas41

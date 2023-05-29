@@ -5,6 +5,7 @@ channels:
 dependencies:
   - pip=22.0.4
   - pandas=1.4.1
+  - scikit-learn=1.0.2
   - pip:
       - wandb
       - protobuf==3.20.*

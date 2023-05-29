@@ -40,7 +40,8 @@ def go(config: DictConfig):
                     "input_artifact": "raw_data.csv:latest",
                     "output_artifact": "processed_data.csv",
                     "output_type": "processed_data",
-                    "output_description": "Merged and cleaned data", },
+                    "output_description": "Merged and cleaned data"
+                },
             )
 
         if "data_check" in active_steps:

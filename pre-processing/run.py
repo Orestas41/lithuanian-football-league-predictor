@@ -7,8 +7,10 @@ import yaml
 from datetime import datetime
 import argparse
 import logging
+import pickle
 import wandb
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 log_folder = os.getcwd()
 
@@ -99,12 +101,20 @@ def go(args):
     df['awayResult'] = awayResult
 
     logger.info("Encoding unique strings")
-    encoder = {}
+    encoder = LabelEncoder()
+    df['Home'] = encoder.fit_transform(df['Home'])
+    df['Away'] = encoder.fit_transform(df['Away'])
 
-    for i in range(0, df['Home'].nunique()):
-        encoder[df['Home'].unique()[i]] = i
+    encoder_file = 'encoder.pkl'
+    with open(encoder_file, 'wb') as f:
+        pickle.dump(encoder, f)
 
-    encoder['Draw'] = df['Home'].nunique() + 1
+    encoder_artifact = wandb.Artifact(
+        'encoder',
+        type='encoder'
+    )
+    encoder_artifact.add_file('encoder.pkl')
+    run.log_artifact(encoder_artifact)
 
     logger.info("Creating Winner column with the team that won or draw")
     Winner = [0] * len(df)
@@ -118,9 +128,6 @@ def go(args):
 
     df['Winner'] = Winner
     df['Winner'] = df['Winner'].astype(int)
-
-    for i in range(0, df['Home'].nunique()):
-        df = df.replace(encoder)
 
     logger.info("Dropping unnecessary columns")
     df = df.drop(['Position', 'Sanity check', 'Home-missing',

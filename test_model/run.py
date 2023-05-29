@@ -40,6 +40,10 @@ def go(args):
     test_dataset_path = run.use_artifact(args.test_dataset).file()
 
     # Reading test dataset
+    """    test_data = pd.read_csv(test_dataset_path)
+    X_test = test_data[['homeResult', 'awayResult']] = ''
+    y_test = test_data.pop("Winner")"""
+
     X_test = pd.read_csv(test_dataset_path)
     y_test = X_test.pop("Winner")
 

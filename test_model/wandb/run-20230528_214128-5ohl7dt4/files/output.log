@@ -1,0 +1,19 @@
+
+[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
+/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/xgboost/data.py:925: UserWarning: Unknown data type: <class 'float'>, trying to convert it to csr_matrix
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 118, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 55, in go
+    r_squared = xgboost.score(X_test, y_test)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/sklearn/base.py", line 706, in score
+    return r2_score(y, y_pred, sample_weight=sample_weight)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/sklearn/metrics/_regression.py", line 789, in r2_score
+    y_type, y_true, y_pred, multioutput = _check_reg_targets(
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/sklearn/metrics/_regression.py", line 94, in _check_reg_targets
+    check_consistent_length(y_true, y_pred)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/sklearn/utils/validation.py", line 332, in check_consistent_length
+    raise ValueError(
+ValueError: Found input variables with inconsistent numbers of samples: [142, 1]
+nan

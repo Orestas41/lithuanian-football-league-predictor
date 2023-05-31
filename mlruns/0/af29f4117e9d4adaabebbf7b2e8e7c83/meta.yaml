@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/af29f4117e9d4adaabebbf7b2e8e7c83/artifacts
+end_time: 1685440900197
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: af29f4117e9d4adaabebbf7b2e8e7c83
+run_name: capricious-dog-875
+run_uuid: af29f4117e9d4adaabebbf7b2e8e7c83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685440851072
+status: 3
+tags: []
+user_id: orestas41

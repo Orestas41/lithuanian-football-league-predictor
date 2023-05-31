@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/e42a3aaea490488f884e3f60faf31339/artifacts
+end_time: 1685466328645
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e42a3aaea490488f884e3f60faf31339
+run_name: auspicious-rat-296
+run_uuid: e42a3aaea490488f884e3f60faf31339
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685466288596
+status: 3
+tags: []
+user_id: orestas41

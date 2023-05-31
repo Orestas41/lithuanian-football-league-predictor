@@ -1,0 +1,198 @@
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Merging multiple dataframes
+INFO:root:Creating dataframe
+INFO:root:Removeing rows with missing values
+INFO:root:Converting Date column into datetime format
+INFO:root:Sorting dataframe by date
+INFO:root:Setting Date column as index
+INFO:root:Checking if teams are correct. Changing if incorrect
+INFO:root:Checking the teams are on the correct side. Changing if incorrect
+INFO:root:Converting Results columns into separate columns for Home and Away goals
+INFO:root:Encoding unique strings
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+INFO:root:Creating Winner column with the team that won or draw
+INFO:root:Dropping unnecessary columns
+INFO:root:Saving dataframe as a csv file
+INFO:root:Uploading processed_data.csv file to W&B
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 1574
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 344
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 392
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 118
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 185
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 560
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/r2058lrb/artifact/470328413/wandb_manifest.json?Expires=1685539733&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=eN7PeZrLRgrxqG7WobQtgzrBTebD%2BQXnpIHR%2FWCmkET%2FAlWX5NEwA0SPtgDr69KzvZ2trg0FnPRJMqRol1ZqYQvLxe1BiaAx3VHKYwAHc7IqYfVUtTGroDwWhc8ZkZev6TKBletN8nrCR4T8P9e2esyLwGigNPf0%2FcPIToD6jLovYCKQd29I87nUhkUgSungC9tTwKd%2BAOVfvwETrwuvGm%2Bw%2BuYASVIQeJbImIPJ9TPGRrCtzE8UI1ldLxAcs4ZvvQTOrHqv5roIvyFYs8BBLp0FL4kTrFt0%2FWyLeAVKkgEvxf7biSFlDEW9iWQqW3AtJxQxkuxidPHXKfSOzf0TCQ%3D%3D HTTP/1.1" 200 329
+INFO:root:Number of outcomes: 3
+INFO:root:Preparing Linear Regression pipeline
+INFO:root:Fitting
+INFO:root:Scoring
+INFO:root:Score: 0.6578032108837273
+INFO:root:MAE: 0.4015522259101333
+INFO:root:Exporting model
+INFO:root:Saving and exporting the model
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 42
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 1574
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 344
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Downloading artifacts
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 438
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 118
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 227
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 561
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/970jawdz/artifact/472170379/wandb_manifest.json?Expires=1685540044&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=azP19nDDTFBKuvTI3ZPEA3hTdjQl6wzIlTQ3EqJeqt7JOdG9sRaMbHiXyoDH55%2Bg7vErTRwYkN0ooMDKRyawF3HBjK0nV%2BIfzr%2B18QgCZiX7VorT%2BUYzE0mIWID9Q%2BvCjw6Wjg6%2BYa2xNrf4Svv%2FwHdt9SH1D2aoNLr%2Bc2xU2avRLA2NCFBpRbhjuIYwm4EW9TZBOTs97h9P1WMOa6xthNZuUbzAvwFmreLb1QMG4Fi3QgItjTuGRCiAVLIsRgwr0HEmz9dyQt3YaDLiKcPdAsF2FwESjoJbxSh1NGxLMPtwjqNqypE9uk3SdKdD0ACMPuu4jnVB%2FBRKp6qbvXeuJg%3D%3D HTTP/1.1" 200 831
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 391
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 118
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 185
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 558
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/r2058lrb/artifact/470328542/wandb_manifest.json?Expires=1685540048&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=iJs4bGP5dIRGJqnqIH9s%2BN3lF3XS7Wh5qoS816ey5b8bksxctCa18JEYHsZKMiP0iZWCJ7Yue5YM10Iws2N4DNV3qzFwHeME7M4YQpXXI5c%2FwnpcGg%2BRRzelzWs1n7gQb5HwoZjIIoH9DUivZ0%2FmE2wSTE8HFlVcEI0jPuwOGaxY1TZRWkBFGA5hSaOvnxj4ZMcgkJCYGuxWxSshdzhKaR%2FmnFHmY3zQxtJD7Xs1MiN8Fh%2FvbAqQESSHzxSZkuM4XghjuzyypXswIGCC0rKD2XwucTRnOhTg8ssDZDh%2F78ZphotdY5hubRbwzLNbzJ%2B7X3TpKq7QeCkOrRstApr%2F3w%3D%3D HTTP/1.1" 200 328
+INFO:root:Loading model and performing inference on test set
+INFO:root:Scoring
+INFO:root:Score: 0.7648079171326458
+INFO:root:MAE: 0.32598422428537277
+INFO:root:MAE of slices: {2: 0.0, 1: 0.46153846153846156, 3: 0.35714285714285715}
+INFO:root:Raw comparison: False
+INFO:root:Parametric significance: False
+INFO:root:Non-parametric outlier: True
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Merging multiple dataframes
+INFO:root:Creating dataframe
+INFO:root:Removeing rows with missing values
+INFO:root:Converting Date column into datetime format
+INFO:root:Sorting dataframe by date
+INFO:root:Setting Date column as index
+INFO:root:Checking if teams are correct. Changing if incorrect
+INFO:root:Checking the teams are on the correct side. Changing if incorrect
+INFO:root:Converting Results columns into separate columns for Home and Away goals
+INFO:root:Encoding unique strings
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+INFO:root:Creating Winner column with the team that won or draw
+INFO:root:Dropping unnecessary columns
+INFO:root:Saving dataframe as a csv file
+INFO:root:Uploading processed_data.csv file to W&B
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Merging multiple dataframes
+INFO:root:Creating dataframe
+INFO:root:Removeing rows with missing values
+INFO:root:Converting Date column into datetime format
+INFO:root:Sorting dataframe by date
+INFO:root:Setting Date column as index
+INFO:root:Checking if teams are correct. Changing if incorrect
+INFO:root:Checking the teams are on the correct side. Changing if incorrect
+INFO:root:Converting Results columns into separate columns for Home and Away goals
+INFO:root:Encoding unique strings
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+INFO:root:Creating Winner column with the team that won or draw
+INFO:root:Dropping unnecessary columns
+INFO:root:Saving dataframe as a csv file
+INFO:root:Uploading processed_data.csv file to W&B
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 1574
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 344
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Fetching artifact processed_data.csv:latest
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 389
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 118
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 184
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 567
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/kppo64nc/artifact/472177536/wandb_manifest.json?Expires=1685540579&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=W4Ux0fWAiffb1L%2FiyoBEoRwfQ8zjXqyNMemManZ7Ms7c1jRQ8aYEhwHUvuY3hdRJcjmm5Uz0LstEZSYP79QBn7Li888K49Gw0NtO0LMKyJuWzwWofodVKYGrs034Wn8Lv8AwLoxh0jnYpxJs4bsz%2FRt9%2B%2FAJBjrvUSHF6Nq%2FmcSJ3iUTIUXKunceUH%2BDvDXK0dim%2FFd8dFcNbmWHTwkr%2FU2jqb%2Ba12ZhYMsJSYkuJ7NWEggcancMyqNdB2e%2FlAoEzB9WooPa16AeH%2BdSnHxL5QIBszb%2FUBu1oeGbsN62Tgqs3vTQu8qKivhQV4kbRLvUKEVs3fBPIfJDeuWVOl%2FDGw%3D%3D HTTP/1.1" 200 336
+INFO:root:Splitting trainval and test
+INFO:root:Uploading trainval_data.csv dataset
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 42
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 887
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/by9bvp8v/artifact/472186519/wandb_manifest.json?Expires=1685540584&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=IbXFpfbirp6BVN52sQxehNMo6OeKymeDjEac6FSdsWaXHzptiiGayAEDRf7TF6%2FtKeb4SK71ThYqsNNhXGKMVYF%2FFn144jFtu2ETN%2BPyy25zK3hPvmcyja5qXbGb8jKK0N72n6DKGR29HwWSK0j0iP0oxxU%2FA6f4UtStlv%2BdwTznZYDyfx%2F7CEisdkX1%2BtYOLhuuRlThDB%2FziT9Qx8aXmH%2FzoiGL5%2Bt9zpnRqdEaEEDdmYYJvcQ6%2BX9wX%2BwGeT6YM2tAtnYDPVl0kGr7HmojPpXZN9yy5fW1IjzMEKnaLW98vNmoBsMwSdaY6ZNvwORsd8rqEGPfVp9DKCwAKGv38Q%3D%3D HTTP/1.1" 200 329
+INFO:root:Uploading test_data.csv dataset
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 42
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 883
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/by9bvp8v/artifact/472186646/wandb_manifest.json?Expires=1685540590&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=jzWF6%2BwfhrT%2BS0aaIPU7Rh13EzJX97%2FtIQbeT1vW%2F1iSi7VmCJjSCC%2FajPpemtDqTa6Z1gLvieraM%2Foq2vSRMXnNGb7%2B2DW3uT%2BhLmxJB5DeVvGdkFBaBv37YAFMxIZf9jDF%2BZGzfKWcD%2FViPW9LMIVWq9N5UroiBQ%2BhhXv1hXw9sEMAtYSVm19LC2JXHdNsmOmmpvugNafDfSGxMlkFz5pL%2BU7u11HUbKZOhdiGsAij42nhmCI78yRzFaHcWrxVzX2wh0Fn%2B7Z%2FkXkA4vJDA7YliJWT7kmAG1PlfMHxE65QFevVvy2r3BTUOAl8WnpepHt7JLOKQehPvzLTpObJiw%3D%3D HTTP/1.1" 200 328
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 1574
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 344
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 392
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 118
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 186
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 567
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): storage.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://storage.googleapis.com:443 "GET /wandb-production.appspot.com/orestas41/project-FootballPredict/by9bvp8v/artifact/472186519/wandb_manifest.json?Expires=1685540618&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=ECisyeDwwq%2Bzbu7M2JSYN2hnEQ8XAw%2ByhxcHz32dlPEeg88Hra%2FC0s0YD8atneUJLLy4q8Zvx%2F9Dnkab5grSdpsJAgwcw6yjE%2BXre3iSBN2lJhxXFiOjB90ozizP61Xtb%2BmYHXyM7KoGxVBW5alzjcNoestFECCw0EmfndAofbaO%2BY5xb3HZJoHzlJDZYI4dXf6Yk0ohVHT0cQwRSR%2FayvWjiD5WCs0bfJfb7Rji8xSf9xD7uKGDyefhX0YCAqftDvzkd55ebTOU4HnIoiUdmlvGZu5OiGE49cQ5ZXeD0bCuo%2Bt%2FnCV%2BS%2B%2F6kJGWiHqHRQMKBBLKdnEmwjuUWXgbVA%3D%3D HTTP/1.1" 200 329
+INFO:root:Number of outcomes: 3
+INFO:root:Preparing Linear Regression pipeline
+INFO:root:Fitting
+INFO:root:Scoring
+INFO:root:Score: 0.055446381355052976
+INFO:root:MAE: 0.3796751900087986
+INFO:root:Exporting model
+INFO:root:Saving and exporting the model
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 42
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2
+DEBUG:git.cmd:Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=None)
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 1574
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 344
+DEBUG:git.cmd:Popen(['git', 'cat-file', '--batch-check'], cwd=/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor, universal_newlines=False, shell=None, istream=<valid stream>)
+INFO:root:Downloading artifacts
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.wandb.ai:443
+DEBUG:urllib3.connectionpool:https://api.wandb.ai:443 "POST /graphql HTTP/1.1" 200 42
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): o151352.ingest.sentry.io:443
+DEBUG:urllib3.connectionpool:https://o151352.ingest.sentry.io:443 "POST /api/4504800232407040/envelope/ HTTP/1.1" 200 2

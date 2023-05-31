@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/d4b03cd7d48a4b2fb44a1ffeb978171e/artifacts
+end_time: 1685440484317
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d4b03cd7d48a4b2fb44a1ffeb978171e
+run_name: angry-smelt-748
+run_uuid: d4b03cd7d48a4b2fb44a1ffeb978171e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685440445327
+status: 3
+tags: []
+user_id: orestas41

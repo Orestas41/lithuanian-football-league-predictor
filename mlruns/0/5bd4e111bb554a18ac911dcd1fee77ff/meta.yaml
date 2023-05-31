@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/5bd4e111bb554a18ac911dcd1fee77ff/artifacts
+end_time: 1685540543334
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5bd4e111bb554a18ac911dcd1fee77ff
+run_name: blushing-roo-185
+run_uuid: 5bd4e111bb554a18ac911dcd1fee77ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685540504315
+status: 3
+tags: []
+user_id: orestas41

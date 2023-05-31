@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/1f6ed371b1a047b893f655e440676f68/artifacts
+end_time: 1685440131622
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1f6ed371b1a047b893f655e440676f68
+run_name: beautiful-bear-183
+run_uuid: 1f6ed371b1a047b893f655e440676f68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685440093704
+status: 3
+tags: []
+user_id: orestas41

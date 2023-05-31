@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/c26729eb60c64ef78875de3872acb9db/artifacts
+end_time: 1685438139487
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c26729eb60c64ef78875de3872acb9db
+run_name: loud-deer-577
+run_uuid: c26729eb60c64ef78875de3872acb9db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685438097310
+status: 3
+tags: []
+user_id: orestas41

@@ -1,0 +1,34 @@
+[34m[1mwandb[39m[22m: [32m[41mERROR[39m[49m Project orestas41/project-FootballPredict does not contain artifact: "xgboost_export:prod"
+Traceback (most recent call last):
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 958, in artifact
+    artifact = Artifact(self.client, entity, project, artifact_name)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 4356, in __init__
+    self._load()
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 5077, in _load
+    raise ValueError(
+ValueError: Project orestas41/project-FootballPredict does not contain artifact: "xgboost_export:prod"
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 119, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 37, in go
+    model_local_path = run.use_artifact(args.mlflow_model).download()
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 345, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 335, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 2676, in use_artifact
+    artifact = public_api.artifact(type=type, name=name)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/normalize.py", line 87, in wrapper
+    raise CommError(message, err).with_traceback(sys.exc_info()[2])
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/normalize.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 958, in artifact
+    artifact = Artifact(self.client, entity, project, artifact_name)
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 4356, in __init__
+    self._load()
+  File "/home/orestas41/miniconda3/envs/mlflow-0f3cd73a3642fabcbe7a5d3994aef20e5536143a/lib/python3.10/site-packages/wandb/apis/public.py", line 5077, in _load
+    raise ValueError(
+wandb.errors.CommError: Project orestas41/project-FootballPredict does not contain artifact: "xgboost_export:prod"

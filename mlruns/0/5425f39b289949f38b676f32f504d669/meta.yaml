@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/5425f39b289949f38b676f32f504d669/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5425f39b289949f38b676f32f504d669
+run_name: rogue-dolphin-386
+run_uuid: 5425f39b289949f38b676f32f504d669
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685465393603
+status: 1
+tags: []
+user_id: orestas41

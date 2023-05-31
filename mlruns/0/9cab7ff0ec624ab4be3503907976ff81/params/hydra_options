@@ -1,0 +1,1 @@
+'modeling.xgboost.n_estimators=range(10,50,20) modeling.xgboost.max_depth=range(5,25,10) modeling.xgboost.max_leaves=range(5,15,5) modeling.xgboost.max_bin=range(5,15,5) modeling.xgboost.alpha=0.01,0.1,1 modeling.xgboost.lambda=0.01,0.1,1 -m'

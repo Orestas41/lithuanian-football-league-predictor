@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/f534baf3f68a4e6f9921deecc6544f56/artifacts
+end_time: 1685440018315
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f534baf3f68a4e6f9921deecc6544f56
+run_name: bustling-moth-795
+run_uuid: f534baf3f68a4e6f9921deecc6544f56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685439978595
+status: 3
+tags: []
+user_id: orestas41

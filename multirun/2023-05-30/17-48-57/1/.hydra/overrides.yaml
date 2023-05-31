@@ -1,0 +1,2 @@
+- main.steps='training_validation'
+- modeling.xgboost.max_depth=7.2

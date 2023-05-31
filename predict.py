@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from pydantic import BaseModel
 from typing import Union, List
 
@@ -6,7 +6,6 @@ import os
 import joblib
 from datetime import datetime
 import wandb
-import xgboost as xgb
 import mlflow
 import pickle
 import pandas as pd
@@ -18,16 +17,15 @@ date = now.timestamp() / 10**18
 
 
 class Predict(BaseModel):
-    date: str
-    home: str
-    away: str
+    Date: str = Query(default=datetime.now().strftime('%Y-%m-%d, %H:%M'))
+    Home: str
+    Away: str
 
     class Config:
         schema_extra = {
             'example': {
-                'date': datetime.now().strftime('%Y-%m-%d, %H:%M'),
-                'home': 'Panevėžys',
-                'away': 'Šiauliai'
+                'Home': 'Panevėžys',
+                'Away': 'Palanga'
             }
         }
 
@@ -44,38 +42,35 @@ async def say_hello():
 async def model_inference(data: Predict):
 
     dirname = os.path.dirname(__file__)
-    xgboost = mlflow.xgboost.load_model(os.path.join(
-        dirname, "training_validation/xgboost_dir/model.xgb"))
+    model = mlflow.sklearn.load_model(os.path.join(
+        dirname, "training_validation/model_dir"))
     with open('pre-processing/encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
 
     sample = pd.DataFrame(data)
     sample = sample.T
+
     sample.columns = sample.iloc[0]
     sample = sample.drop(0, axis=0)
 
-    sample['date'] = (pd.to_datetime(
-        sample['date'], format="%Y-%m-%d, %H:%M")).astype(int) / 10**18
+    home = sample['Home'].iat[0]
+    away = sample['Away'].iat[0]
 
-    sample['home'] = encoder.transform(sample['home'])
-    sample['away'] = encoder.transform(sample['away'])
+    sample['Date'] = (pd.to_datetime(
+        sample['Date'], format="%Y-%m-%d, %H:%M")).astype(int) / 10**18
 
-    sample['homeResult'] = np.nan
-    sample['awayResult'] = np.nan
+    sample['Home'] = encoder.transform(sample['Home'])
+    sample['Away'] = encoder.transform(sample['Away'])
 
-    X = sample
+    pred = model.predict(sample)
 
-    pred = xgboost.predict(X)
-    print(pred)
-    pred = [round(result) for result in pred]
-
-    if pred[0] == 1:
-        pred = sample['home'].iat[0]
-        pred = encoder.inverse_transform([pred])
-    elif pred[0] == 3:
-        pred = sample['away'].iat[0]
-        pred = encoder.inverse_transform([pred])
+    if pred[0] > 0.5:
+        pred[0] = (pred[0]*100).astype(int)
+        winner = away
+        loser = home
     else:
-        pred = 'Draw'
+        pred[0] = (100 - pred[0]*100).astype(int)
+        winner = home
+        loser = away
 
-    return {"Winner": pred[0]}
+    return {f"{winner} has a chance of {pred[0]}% to win against {loser}"}

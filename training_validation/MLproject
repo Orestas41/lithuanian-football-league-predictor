@@ -12,10 +12,10 @@ entry_points:
         description: Size of the validation split. Fraction of the dataset, or number of items
         type: string
 
-      xgb_config:
+      model_config:
         description:
-          XGBoost configuration. A path to a JSON file with the configuration that will
-          be passed to the scikit-learn constructor for XGBRegressor.
+          Linear Regression configuration. A path to a JSON file with the configuration that will
+          be passed to the scikit-learn constructor for Linear Regression.
         type: string
 
       output_artifact:
@@ -25,5 +25,5 @@ entry_points:
     command: >-
       python run.py --trainval_artifact {trainval_artifact} \
                     --val_size {val_size} \
-                    --xgb_config {xgb_config} \
+                    --model_config {model_config} \
                     --output_artifact {output_artifact}

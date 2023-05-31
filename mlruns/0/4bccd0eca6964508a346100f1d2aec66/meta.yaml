@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/4bccd0eca6964508a346100f1d2aec66/artifacts
+end_time: 1685435314559
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4bccd0eca6964508a346100f1d2aec66
+run_name: victorious-smelt-794
+run_uuid: 4bccd0eca6964508a346100f1d2aec66
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685435278714
+status: 4
+tags: []
+user_id: orestas41

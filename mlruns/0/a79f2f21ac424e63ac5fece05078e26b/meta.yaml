@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/a79f2f21ac424e63ac5fece05078e26b/artifacts
+end_time: 1685439712199
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a79f2f21ac424e63ac5fece05078e26b
+run_name: traveling-cow-725
+run_uuid: a79f2f21ac424e63ac5fece05078e26b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685439681274
+status: 3
+tags: []
+user_id: orestas41

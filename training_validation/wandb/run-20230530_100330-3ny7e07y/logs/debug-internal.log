@@ -1,0 +1,216 @@
+2023-05-30 10:03:30,483 INFO    StreamThr :29007 [internal.py:wandb_internal():86] W&B internal server running at pid: 29007, started at: 2023-05-30 10:03:30.482466
+2023-05-30 10:03:30,487 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: status
+2023-05-30 10:03:30,496 INFO    WriterThread:29007 [datastore.py:open_for_write():85] open: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/run-3ny7e07y.wandb
+2023-05-30 10:03:30,538 DEBUG   SenderThread:29007 [sender.py:send():375] send: header
+2023-05-30 10:03:30,538 DEBUG   SenderThread:29007 [sender.py:send():375] send: run
+2023-05-30 10:03:32,462 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: check_version
+2023-05-30 10:03:32,468 INFO    SenderThread:29007 [dir_watcher.py:__init__():219] watching files in: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files
+2023-05-30 10:03:32,468 INFO    SenderThread:29007 [sender.py:_start_run_threads():1124] run started: 3ny7e07y with start time 1685437410.482937
+2023-05-30 10:03:32,468 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: summary_record
+2023-05-30 10:03:32,469 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-30 10:03:32,469 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: check_version
+2023-05-30 10:03:32,583 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: run_start
+2023-05-30 10:03:32,917 DEBUG   HandlerThread:29007 [system_info.py:__init__():31] System info init
+2023-05-30 10:03:32,917 DEBUG   HandlerThread:29007 [system_info.py:__init__():46] System info init done
+2023-05-30 10:03:32,917 INFO    HandlerThread:29007 [system_monitor.py:start():181] Starting system monitor
+2023-05-30 10:03:32,918 INFO    SystemMonitor:29007 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-05-30 10:03:32,918 INFO    HandlerThread:29007 [system_monitor.py:probe():201] Collecting system info
+2023-05-30 10:03:32,920 INFO    SystemMonitor:29007 [interfaces.py:start():190] Started cpu monitoring
+2023-05-30 10:03:32,921 INFO    SystemMonitor:29007 [interfaces.py:start():190] Started disk monitoring
+2023-05-30 10:03:32,922 INFO    SystemMonitor:29007 [interfaces.py:start():190] Started gpu monitoring
+2023-05-30 10:03:32,923 INFO    SystemMonitor:29007 [interfaces.py:start():190] Started memory monitoring
+2023-05-30 10:03:32,925 INFO    SystemMonitor:29007 [interfaces.py:start():190] Started network monitoring
+2023-05-30 10:03:32,945 DEBUG   HandlerThread:29007 [system_info.py:probe():195] Probing system
+2023-05-30 10:03:32,968 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:32,969 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:33,139 DEBUG   HandlerThread:29007 [system_info.py:_probe_git():180] Probing git
+2023-05-30 10:03:33,145 DEBUG   HandlerThread:29007 [system_info.py:_probe_git():188] Probing git done
+2023-05-30 10:03:33,145 DEBUG   HandlerThread:29007 [system_info.py:probe():240] Probing system done
+2023-05-30 10:03:33,145 DEBUG   HandlerThread:29007 [system_monitor.py:probe():210] {'os': 'Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.31', 'python': '3.10.10', 'heartbeatAt': '2023-05-30T09:03:32.945808', 'startedAt': '2023-05-30T09:03:30.465709', 'docker': None, 'cuda': None, 'args': ('--trainval_artifact', 'trainval_data.csv:latest', '--val_size', '0.2', '--xgb_config', '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/outputs/2023-05-30/10-01-37/config.yaml', '--output_artifact', 'xgboost_export'), 'state': 'running', 'program': '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py', 'codePath': 'training_validation/run.py', 'git': {'remote': 'https://github.com/Orestas41/lithuanian-football-league-predictor.git', 'commit': '5b02a1b383b97295a9cb60d7df00f11eb4ec5ce3'}, 'email': 'orestasdulinskas@gmail.com', 'root': '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor', 'host': 'OrestasLaptop', 'username': 'orestas41', 'executable': '/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/bin/python', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1799.9979999999998, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 1006.853931427002, 'used': 22.844688415527344}, 'gpu': 'NVIDIA GeForce MX150', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX150', 'memory_total': 2147483648}], 'memory': {'total': 3.7460365295410156}}
+2023-05-30 10:03:33,146 INFO    HandlerThread:29007 [system_monitor.py:probe():211] Finished collecting system info
+2023-05-30 10:03:33,146 INFO    HandlerThread:29007 [system_monitor.py:probe():214] Publishing system info
+2023-05-30 10:03:33,146 DEBUG   HandlerThread:29007 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-05-30 10:03:33,146 DEBUG   HandlerThread:29007 [system_info.py:_save_pip():67] Saving pip packages done
+2023-05-30 10:03:33,146 DEBUG   HandlerThread:29007 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-05-30 10:03:33,470 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-summary.json
+2023-05-30 10:03:33,470 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/conda-environment.yaml
+2023-05-30 10:03:33,470 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/requirements.txt
+2023-05-30 10:03:34,972 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:34,972 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:35,443 DEBUG   HandlerThread:29007 [system_info.py:_save_conda():86] Saving conda packages done
+2023-05-30 10:03:35,444 INFO    HandlerThread:29007 [system_monitor.py:probe():216] Finished publishing system info
+2023-05-30 10:03:35,447 DEBUG   SenderThread:29007 [sender.py:send():375] send: files
+2023-05-30 10:03:35,447 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-05-30 10:03:35,460 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-30 10:03:35,461 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: stop_status
+2023-05-30 10:03:35,469 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/conda-environment.yaml
+2023-05-30 10:03:35,469 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-metadata.json
+2023-05-30 10:03:36,024 INFO    wandb-upload_0:29007 [upload_job.py:push():137] Uploaded file /tmp/tmphe9_2emzwandb/mrb6wwil-wandb-metadata.json
+2023-05-30 10:03:36,980 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:36,982 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:37,061 DEBUG   SenderThread:29007 [sender.py:send():375] send: telemetry
+2023-05-30 10:03:37,062 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: status_report
+2023-05-30 10:03:37,063 DEBUG   SenderThread:29007 [sender.py:send():375] send: config
+2023-05-30 10:03:37,067 DEBUG   SenderThread:29007 [sender.py:send():375] send: config
+2023-05-30 10:03:38,985 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:38,985 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:39,441 DEBUG   SenderThread:29007 [sender.py:send():375] send: use_artifact
+2023-05-30 10:03:40,989 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:40,989 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:42,442 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: status_report
+2023-05-30 10:03:42,997 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:42,998 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:43,477 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/output.log
+2023-05-30 10:03:44,314 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: log_artifact
+2023-05-30 10:03:44,316 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: log_artifact
+2023-05-30 10:03:45,006 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:45,007 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:45,334 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: poll_exit
+2023-05-30 10:03:45,479 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/output.log
+2023-05-30 10:03:46,012 INFO    wandb-upload_2:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmppwk3yrn_
+2023-05-30 10:03:46,026 INFO    wandb-upload_1:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmpjpm8510q
+2023-05-30 10:03:46,056 INFO    wandb-upload_3:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmpblcg06zy
+2023-05-30 10:03:46,087 INFO    wandb-upload_0:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmpi8guz6kt
+2023-05-30 10:03:47,014 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:47,016 ERROR   gpu       :29007 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-05-30 10:03:47,138 INFO    SenderThread:29007 [sender.py:send_request_log_artifact():1438] logged artifact xgboost_export - {'id': 'QXJ0aWZhY3Q6NDcwMjc3MDE1', 'digest': 'dfd8acde91f48874084cc3245dfec395', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjcyODk2NzM0', 'latestArtifact': None}, 'version': 'latest'}
+2023-05-30 10:03:47,139 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: summary_record
+2023-05-30 10:03:47,147 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-30 10:03:47,148 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: summary_record
+2023-05-30 10:03:47,176 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-30 10:03:47,177 DEBUG   SenderThread:29007 [sender.py:send():375] send: exit
+2023-05-30 10:03:47,177 INFO    SenderThread:29007 [sender.py:send_exit():598] handling exit code: 0
+2023-05-30 10:03:47,177 INFO    SenderThread:29007 [sender.py:send_exit():600] handling runtime: 11
+2023-05-30 10:03:47,178 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-30 10:03:47,178 INFO    SenderThread:29007 [sender.py:send_exit():606] send defer
+2023-05-30 10:03:47,179 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: poll_exit
+2023-05-30 10:03:47,180 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,181 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 0
+2023-05-30 10:03:47,184 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,184 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 0
+2023-05-30 10:03:47,185 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 1
+2023-05-30 10:03:47,185 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,186 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 1
+2023-05-30 10:03:47,187 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,187 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 1
+2023-05-30 10:03:47,188 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 2
+2023-05-30 10:03:47,188 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,189 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 2
+2023-05-30 10:03:47,189 INFO    HandlerThread:29007 [system_monitor.py:finish():190] Stopping system monitor
+2023-05-30 10:03:47,191 DEBUG   SystemMonitor:29007 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-05-30 10:03:47,193 DEBUG   SystemMonitor:29007 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-05-30 10:03:47,195 DEBUG   SystemMonitor:29007 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-05-30 10:03:47,199 INFO    HandlerThread:29007 [interfaces.py:finish():202] Joined cpu monitor
+2023-05-30 10:03:47,200 INFO    HandlerThread:29007 [interfaces.py:finish():202] Joined disk monitor
+2023-05-30 10:03:47,250 ERROR   gpu       :29007 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-05-30 10:03:47,250 INFO    HandlerThread:29007 [interfaces.py:finish():202] Joined gpu monitor
+2023-05-30 10:03:47,251 INFO    HandlerThread:29007 [interfaces.py:finish():202] Joined memory monitor
+2023-05-30 10:03:47,251 INFO    HandlerThread:29007 [interfaces.py:finish():202] Joined network monitor
+2023-05-30 10:03:47,252 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,252 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 2
+2023-05-30 10:03:47,252 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 3
+2023-05-30 10:03:47,252 DEBUG   SenderThread:29007 [sender.py:send():375] send: stats
+2023-05-30 10:03:47,253 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,253 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 3
+2023-05-30 10:03:47,253 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,253 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 3
+2023-05-30 10:03:47,254 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 4
+2023-05-30 10:03:47,254 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,254 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 4
+2023-05-30 10:03:47,254 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,255 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 4
+2023-05-30 10:03:47,255 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 5
+2023-05-30 10:03:47,255 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,255 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 5
+2023-05-30 10:03:47,256 DEBUG   SenderThread:29007 [sender.py:send():375] send: summary
+2023-05-30 10:03:47,256 INFO    SenderThread:29007 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-30 10:03:47,256 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,256 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 5
+2023-05-30 10:03:47,256 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 6
+2023-05-30 10:03:47,257 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,257 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 6
+2023-05-30 10:03:47,257 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,257 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 6
+2023-05-30 10:03:47,261 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: status_report
+2023-05-30 10:03:47,482 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-summary.json
+2023-05-30 10:03:47,713 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 7
+2023-05-30 10:03:47,714 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:47,715 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 7
+2023-05-30 10:03:47,717 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:47,717 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 7
+2023-05-30 10:03:48,483 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/config.yaml
+2023-05-30 10:03:48,533 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 8
+2023-05-30 10:03:48,534 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:48,534 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 8
+2023-05-30 10:03:48,535 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:48,536 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 8
+2023-05-30 10:03:48,580 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 9
+2023-05-30 10:03:48,581 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:48,582 DEBUG   SenderThread:29007 [sender.py:send():375] send: artifact
+2023-05-30 10:03:48,582 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 9
+2023-05-30 10:03:49,484 INFO    Thread-12 :29007 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/output.log
+2023-05-30 10:03:50,339 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-30 10:03:50,488 INFO    wandb-upload_2:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmptjhox7ox
+2023-05-30 10:03:50,503 INFO    wandb-upload_1:29007 [upload_job.py:push():95] Uploaded file /home/orestas41/.local/share/wandb/artifacts/staging/tmp5y8m2gsn
+2023-05-30 10:03:52,507 INFO    SenderThread:29007 [sender.py:send_artifact():1474] sent artifact job-https___github.com_Orestas41_lithuanian-football-league-predictor.git_training_validation_run.py - {'id': 'QXJ0aWZhY3Q6NDcwMjc3MTA0', 'digest': 'e54a7547b68ecdcd49f47050f62df6b9', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjcyODk2Nzc1', 'latestArtifact': None}, 'version': 'latest'}
+2023-05-30 10:03:52,507 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:52,508 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 9
+2023-05-30 10:03:52,508 INFO    SenderThread:29007 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-05-30 10:03:53,489 INFO    SenderThread:29007 [dir_watcher.py:finish():395] scan: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files
+2023-05-30 10:03:53,490 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-summary.json wandb-summary.json
+2023-05-30 10:03:53,491 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/config.yaml config.yaml
+2023-05-30 10:03:53,493 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-metadata.json wandb-metadata.json
+2023-05-30 10:03:53,502 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/conda-environment.yaml conda-environment.yaml
+2023-05-30 10:03:53,513 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/requirements.txt requirements.txt
+2023-05-30 10:03:53,529 INFO    SenderThread:29007 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/output.log output.log
+2023-05-30 10:03:53,535 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 10
+2023-05-30 10:03:53,537 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:53,537 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 10
+2023-05-30 10:03:53,537 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: status_report
+2023-05-30 10:03:53,547 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:53,547 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 10
+2023-05-30 10:03:53,547 INFO    SenderThread:29007 [file_pusher.py:finish():167] shutting down file pusher
+2023-05-30 10:03:53,918 INFO    wandb-upload_0:29007 [upload_job.py:push():137] Uploaded file /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/wandb-summary.json
+2023-05-30 10:03:54,143 INFO    wandb-upload_1:29007 [upload_job.py:push():137] Uploaded file /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/conda-environment.yaml
+2023-05-30 10:03:55,345 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-30 10:03:55,692 INFO    wandb-upload_3:29007 [upload_job.py:push():137] Uploaded file /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/config.yaml
+2023-05-30 10:03:55,695 INFO    wandb-upload_2:29007 [upload_job.py:push():137] Uploaded file /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/output.log
+2023-05-30 10:03:55,698 INFO    wandb-upload_4:29007 [upload_job.py:push():137] Uploaded file /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/files/requirements.txt
+2023-05-30 10:03:55,926 INFO    Thread-11 (_thread_body):29007 [sender.py:transition_state():626] send defer: 11
+2023-05-30 10:03:55,929 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:55,930 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 11
+2023-05-30 10:03:55,933 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:55,934 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 11
+2023-05-30 10:03:55,934 INFO    SenderThread:29007 [file_pusher.py:join():172] waiting for file pusher
+2023-05-30 10:03:55,935 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 12
+2023-05-30 10:03:55,935 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:55,936 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 12
+2023-05-30 10:03:55,937 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:55,938 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 12
+2023-05-30 10:03:56,298 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 13
+2023-05-30 10:03:56,299 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:56,300 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 13
+2023-05-30 10:03:56,302 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:56,303 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 13
+2023-05-30 10:03:56,303 INFO    SenderThread:29007 [sender.py:transition_state():626] send defer: 14
+2023-05-30 10:03:56,305 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: defer
+2023-05-30 10:03:56,307 INFO    HandlerThread:29007 [handler.py:handle_request_defer():170] handle defer: 14
+2023-05-30 10:03:56,308 DEBUG   SenderThread:29007 [sender.py:send():375] send: final
+2023-05-30 10:03:56,310 DEBUG   SenderThread:29007 [sender.py:send():375] send: footer
+2023-05-30 10:03:56,310 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: defer
+2023-05-30 10:03:56,311 INFO    SenderThread:29007 [sender.py:send_request_defer():622] handle sender defer: 14
+2023-05-30 10:03:56,313 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: poll_exit
+2023-05-30 10:03:56,316 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: poll_exit
+2023-05-30 10:03:56,319 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: server_info
+2023-05-30 10:03:56,321 DEBUG   SenderThread:29007 [sender.py:send_request():402] send_request: server_info
+2023-05-30 10:03:56,333 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: get_summary
+2023-05-30 10:03:56,335 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: sampled_history
+2023-05-30 10:03:56,477 INFO    MainThread:29007 [wandb_run.py:_footer_history_summary_info():3469] rendering history
+2023-05-30 10:03:56,477 INFO    MainThread:29007 [wandb_run.py:_footer_history_summary_info():3501] rendering summary
+2023-05-30 10:03:56,478 INFO    MainThread:29007 [wandb_run.py:_footer_sync_info():3428] logging synced files
+2023-05-30 10:03:56,478 DEBUG   HandlerThread:29007 [handler.py:handle_request():144] handle_request: shutdown
+2023-05-30 10:03:56,479 INFO    HandlerThread:29007 [handler.py:finish():845] shutting down handler
+2023-05-30 10:03:57,321 INFO    WriterThread:29007 [datastore.py:close():298] close: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/wandb/run-20230530_100330-3ny7e07y/run-3ny7e07y.wandb
+2023-05-30 10:03:57,477 INFO    SenderThread:29007 [sender.py:finish():1550] shutting down sender
+2023-05-30 10:03:57,477 INFO    SenderThread:29007 [file_pusher.py:finish():167] shutting down file pusher
+2023-05-30 10:03:57,477 INFO    SenderThread:29007 [file_pusher.py:join():172] waiting for file pusher

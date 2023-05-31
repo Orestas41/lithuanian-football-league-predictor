@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/4c27139bf13b404090dfe8c35c5c3e2f/artifacts
+end_time: 1685465205264
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4c27139bf13b404090dfe8c35c5c3e2f
+run_name: dazzling-dolphin-967
+run_uuid: 4c27139bf13b404090dfe8c35c5c3e2f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685465170727
+status: 3
+tags: []
+user_id: orestas41

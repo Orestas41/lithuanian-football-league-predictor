@@ -12,7 +12,6 @@ import mlflow
 import wandb
 import numpy as np
 # import mlflow
-import xgboost as xgb
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 
@@ -26,8 +25,8 @@ logger = logging.getLogger()
 def go(args):
 
     run = wandb.init(
-        project='project-FootballPredict',
-        group='development',
+        # project='project-FootballPredict',
+        # group='development',
         job_type="test_model")
     run.config.update(args)
 
@@ -40,20 +39,15 @@ def go(args):
     test_dataset_path = run.use_artifact(args.test_dataset).file()
 
     # Reading test dataset
-    """    test_data = pd.read_csv(test_dataset_path)
-    X_test = test_data[['homeResult', 'awayResult']] = ''
-    y_test = test_data.pop("Winner")"""
-
     X_test = pd.read_csv(test_dataset_path)
     y_test = X_test.pop("Winner")
 
     logger.info("Loading model and performing inference on test set")
-    xgboost = mlflow.xgboost.load_model(model_local_path)
-    y_pred = xgboost.predict(X_test)
-    y_pred = [round(result) for result in xgboost.predict(X_test)]
+    model = mlflow.sklearn.load_model(model_local_path)
+    y_pred = model.predict(X_test)
 
     logger.info("Scoring")
-    r_squared = xgboost.score(X_test, y_test)
+    r_squared = model.score(X_test, y_test)
 
     mae = mean_absolute_error(y_test, y_pred)
 
@@ -65,7 +59,7 @@ def go(args):
         idx = y_test == val
 
         # Do the inference and Compute the metrics
-        preds = [round(result) for result in xgboost.predict(X_test[idx])]
+        preds = [round(result) for result in model.predict(X_test[idx])]
         slice_mae[val] = mean_absolute_error(y_test[idx], preds)
 
     date = datetime.now().strftime('%Y-%m-%d')

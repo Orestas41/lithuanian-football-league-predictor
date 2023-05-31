@@ -34,8 +34,8 @@ def go(args):
 
     # Creating instance
     run = wandb.init(
-        project='project-FootballPredict',
-        group='development',
+        # project='project-FootballPredict',
+        # group='development',
         job_type="pre-processing")
     run.config.update(args)
 
@@ -97,9 +97,6 @@ def go(args):
         homeResult.append(home)
         awayResult.append(away)
 
-    df['homeResult'] = homeResult
-    df['awayResult'] = awayResult
-
     logger.info("Encoding unique strings")
     encoder = LabelEncoder()
     encoder.fit(df['Home'])
@@ -120,15 +117,14 @@ def go(args):
     logger.info("Creating Winner column with the team that won or draw")
     Winner = [0] * len(df)
     for i in range(len(df)):
-        if df['homeResult'][i] > df['awayResult'][i]:
+        if homeResult[i] > awayResult[i]:
+            Winner[i] = 0
+        elif homeResult[i] < awayResult[i]:
             Winner[i] = 1
-        elif df['homeResult'][i] < df['awayResult'][i]:
-            Winner[i] = 3
         else:
-            Winner[i] = 2
+            Winner[i] = 0.5
 
     df['Winner'] = Winner
-    df['Winner'] = df['Winner'].astype(int)
 
     logger.info("Dropping unnecessary columns")
     df = df.drop(['Position', 'Sanity check', 'Home-missing',

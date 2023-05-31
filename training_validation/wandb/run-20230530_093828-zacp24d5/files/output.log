@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 145, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 49, in go
+    X = X.drop([['homeResult', 'awayResult']], axis=1)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/pandas/core/frame.py", line 4948, in drop
+    return super().drop(
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/pandas/core/generic.py", line 4279, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/pandas/core/generic.py", line 4323, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "[('homeResult', 'awayResult')] not found in axis"

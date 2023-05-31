@@ -1,0 +1,54 @@
+456    1
+195    2
+303    1
+9      3
+148    1
+      ..
+503    3
+324    3
+454    3
+397    2
+59     2
+Name: Winner, Length: 451, dtype: int64
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 150, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 72, in go
+    xgboost.fit(X_train, y_train)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 620, in inner_f
+    return func(**kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/sklearn.py", line 988, in fit
+    train_dmatrix, evals = _wrap_evaluation_matrices(
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/sklearn.py", line 448, in _wrap_evaluation_matrices
+    train_dmatrix = create_dmatrix(
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/sklearn.py", line 908, in _create_dmatrix
+    return DMatrix(**kwargs, nthread=self.n_jobs)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 620, in inner_f
+    return func(**kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 754, in __init__
+    self.set_info(
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 620, in inner_f
+    return func(**kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 819, in set_info
+    self.set_label(label)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 950, in set_label
+    dispatch_meta_backend(self, label, 'label', 'float')
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/data.py", line 1134, in dispatch_meta_backend
+    _meta_from_pandas_series(data, name, dtype, handle)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/data.py", line 443, in _meta_from_pandas_series
+    _meta_from_numpy(data, name, dtype, handle)
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/data.py", line 1050, in _meta_from_numpy
+    _check_call(_LIB.XGDMatrixSetInfoFromInterface(handle, c_str(field), interface_str))
+  File "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/core.py", line 279, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [09:50:48] ../src/data/data.cc:455: Check failed: this->labels.Size() % this->num_row_ == 0 (2 vs. 0) : Incorrect size for labels.
+Stack trace:
+  [bt] (0) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x20b233) [0x7f305877c233]
+  [bt] (1) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x217413) [0x7f3058788413]
+  [bt] (2) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(+0x2196b0) [0x7f305878a6b0]
+  [bt] (3) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/xgboost/lib/libxgboost.so(XGDMatrixSetInfoFromInterface+0xad) [0x7f30586abf3d]
+  [bt] (4) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/lib-dynload/../../libffi.so.8(+0x6a4a) [0x7f30af0b6a4a]
+  [bt] (5) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/lib-dynload/../../libffi.so.8(+0x5fea) [0x7f30af0b5fea]
+  [bt] (6) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so(+0x91c7) [0x7f30af0c51c7]
+  [bt] (7) /home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/lib-dynload/_ctypes.cpython-310-x86_64-linux-gnu.so(+0x867b) [0x7f30af0c467b]
+  [bt] (8) python(_PyObject_MakeTpCall+0x26b) [0x55ffe512bcdb]

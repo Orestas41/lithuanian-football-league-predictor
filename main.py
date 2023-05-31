@@ -69,11 +69,11 @@ def go(config: DictConfig):
 
         if "training_validation" in active_steps:
 
-            xgb_config = os.path.abspath("config.yaml")
-            with open(xgb_config, "w+") as fp:
+            model_config = os.path.abspath("config.yaml")
+            with open(model_config, "w+") as fp:
                 json.dump(
                     dict(
-                        config["modeling"]["xgboost"].items()),
+                        config["modeling"]["linearRegression"].items()),
                     fp)
 
             _ = mlflow.run(
@@ -84,9 +84,8 @@ def go(config: DictConfig):
                 parameters={
                     "trainval_artifact": "trainval_data.csv:latest",
                     "val_size": config["modeling"]["val_size"],
-                    # "nfold": config["modeling"]["nfold"],
-                    "xgb_config": xgb_config,
-                    "output_artifact": "xgboost_export"},
+                    "model_config": model_config,
+                    "output_artifact": "model_export"},
             )
 
         if "test_model" in active_steps:
@@ -97,7 +96,7 @@ def go(config: DictConfig):
                     "test_model"),
                 "main",
                 parameters={
-                    "mlflow_model": "xgboost_export:prod",
+                    "mlflow_model": "model_export:prod",
                     "test_dataset": "test_data.csv:latest"},
             )
 

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/e5c2ce82d96b4c2eb95e0de6e7500cac/artifacts
+end_time: 1685464869397
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e5c2ce82d96b4c2eb95e0de6e7500cac
+run_name: nosy-whale-424
+run_uuid: e5c2ce82d96b4c2eb95e0de6e7500cac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685464834512
+status: 3
+tags: []
+user_id: orestas41

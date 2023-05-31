@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/8b0e2f0a19454200a218ca12a05544b6/artifacts
+end_time: 1685465301415
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8b0e2f0a19454200a218ca12a05544b6
+run_name: vaunted-shrimp-380
+run_uuid: 8b0e2f0a19454200a218ca12a05544b6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685465269519
+status: 3
+tags: []
+user_id: orestas41

@@ -8,5 +8,5 @@ flavors:
     data: model.xgb
     model_class: xgboost.sklearn.XGBRegressor
     xgb_version: 1.7.5
-model_uuid: 6c53740549ce48278b8d131dfd44c996
-utc_time_created: '2023-05-28 17:42:52.263707'
+model_uuid: 85c90fd37d014661ab4d75c375fff4b5
+utc_time_created: '2023-05-30 17:05:47.290557'

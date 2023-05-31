@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/0168963d403141098b7c21c06ceea59a/artifacts
+end_time: 1685440250442
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0168963d403141098b7c21c06ceea59a
+run_name: painted-seal-855
+run_uuid: 0168963d403141098b7c21c06ceea59a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685440207601
+status: 3
+tags: []
+user_id: orestas41

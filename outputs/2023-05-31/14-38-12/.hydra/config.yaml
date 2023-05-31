@@ -1,0 +1,19 @@
+main:
+  project_name: project-FootballPredict
+  experiment_name: development
+  steps: date_checks
+directories:
+  input_folder_path: raw_data
+  output_folder_path: processed_data
+data_check:
+  kl_threshold: 0.2
+data_segregation:
+  test_size: 0.2
+modeling:
+  test_size: 0.2
+  val_size: 0.2
+  linearRegression:
+    fit_intercept: true
+    copy_X: true
+    normalize: true
+    positive: false

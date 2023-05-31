@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/a3cf32365d52473c9cbfe360d213e4e4/artifacts
+end_time: 1685466033296
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a3cf32365d52473c9cbfe360d213e4e4
+run_name: thundering-elk-665
+run_uuid: a3cf32365d52473c9cbfe360d213e4e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685465997475
+status: 3
+tags: []
+user_id: orestas41

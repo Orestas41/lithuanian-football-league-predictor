@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/d38ad7d48d434c9383b3310184bd2db2/artifacts
+end_time: 1685563304523
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d38ad7d48d434c9383b3310184bd2db2
+run_name: adorable-mule-534
+run_uuid: d38ad7d48d434c9383b3310184bd2db2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685563120532
+status: 4
+tags: []
+user_id: orestas41

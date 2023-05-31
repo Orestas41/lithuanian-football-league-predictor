@@ -1,0 +1,12 @@
+name: data_scrape
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+      output_description:
+        description: Description of the output artifact
+        type: string
+        default: Mergining and cleaning the data
+    command: >-
+      python run.py --output_description {output_description}

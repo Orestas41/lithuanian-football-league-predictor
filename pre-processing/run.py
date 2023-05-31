@@ -45,19 +45,25 @@ def go(args):
     datasets = os.listdir(data_dir+'/'+input_folder_path)
     for each_dataset in datasets:
         file_record.write(str(each_dataset)+'\n')
-        df = pd.read_csv(data_dir+'/'+input_folder_path+'/'+each_dataset)
-        data = data.append(df)
+        df = pd.read_csv(data_dir+'/'+input_folder_path +
+                         '/'+each_dataset, header=None)
+        data = pd.concat([data, df], axis=0)
     result = data.drop_duplicates()
     result.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
 
     logger.info("Creating dataframe")
-    df = pd.read_csv(f'../{output_folder_path}/raw_data.csv')
+    df = pd.read_csv(f'../{output_folder_path}/raw_data.csv', header=None)
+
+    logger.info("Adding headers")
+    df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
+
+    df = df.drop(0, axis=0)
 
     logger.info("Removeing rows with missing values")
     df = df.dropna()
 
     logger.info("Converting Date column into datetime format")
-    df['Date'] = pd.to_datetime(df['Date'], format="%Y-%m-%d, %H:%M")
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
 
     logger.info("Sorting dataframe by date")
     df = df.sort_values(by='Date')
@@ -68,21 +74,6 @@ def go(args):
 
     logger.info("Setting Date column as index")
     df = df.set_index('index')
-
-    logger.info("Checking if teams are correct. Changing if incorrect")
-    for i in range(len(df)):
-        if df['Home'][i] != df['Away'][i]:
-            pass
-        else:
-            df['Home'][i] = df['Home-missing'][i]
-            df['Away'][i] = df['Away-missing'][i]
-
-    logger.info(
-        "Checking the teams are on the correct side. Changing if incorrect")
-    for i in range(len(df)):
-        if df['Home'][i] != df['Home-missing'][i] and df['Away'][i] != df['Away-missing'][i]:
-            df['Home'][i] = df['Home-missing'][i]
-            df['Away'][i] = df['Away-missing'][i]
 
     logger.info(
         "Converting Results columns into separate columns for Home and Away goals")
@@ -127,8 +118,7 @@ def go(args):
     df['Winner'] = Winner
 
     logger.info("Dropping unnecessary columns")
-    df = df.drop(['Position', 'Sanity check', 'Home-missing',
-                 'Away-missing', 'Result'], axis=1)
+    df = df.drop(['Blank', 'Location', 'Result'], axis=1)
 
     logger.info("Saving dataframe as a csv file")
     df.to_csv(f'../{output_folder_path}/processed_data.csv', index=None)

@@ -1,0 +1,28 @@
+                    0    1   ...         34                                    35
+0    2023-05-28, 17:55       ...    Džiugas                         LFF stadionas
+1    2023-05-28, 16:00       ...    Dainava  Marijampolės futbolo arenos maniežas
+2    2023-05-27, 19:00       ...  Hegelmann              „Aukštaitijos“ stadionas
+3    2023-05-27, 17:00       ...   Riteriai          Kėdainių centrinis stadionas
+4    2023-05-26, 18:00       ...      Banga      LFF Kauno treniruočių centro st.
+..                 ...  ...  ...        ...                                   ...
+175                NaN  NaN  ...  Hegelmann  Marijampolės futbolo arenos maniežas
+176                NaN  NaN  ...  Panevėžys  Marijampolės futbolo arenos maniežas
+177                NaN  NaN  ...    Nevėžis  Marijampolės futbolo arenos maniežas
+178                NaN  NaN  ...  Hegelmann    „Ateities“ progimnazijos stadionas
+179                NaN  NaN  ...      Banga  Marijampolės futbolo arenos maniežas
+[180 rows x 36 columns]
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 185, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/pre-processing/run.py", line 59, in go
+    df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
+  File "/home/orestas41/miniconda3/envs/mlflow-fe275cdffdb91d423bbbc9efcaa0b6a9fba88e1b/lib/python3.10/site-packages/pandas/core/generic.py", line 5596, in __setattr__
+    return object.__setattr__(self, name, value)
+  File "pandas/_libs/properties.pyx", line 70, in pandas._libs.properties.AxisProperty.__set__
+  File "/home/orestas41/miniconda3/envs/mlflow-fe275cdffdb91d423bbbc9efcaa0b6a9fba88e1b/lib/python3.10/site-packages/pandas/core/generic.py", line 769, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/home/orestas41/miniconda3/envs/mlflow-fe275cdffdb91d423bbbc9efcaa0b6a9fba88e1b/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 214, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/home/orestas41/miniconda3/envs/mlflow-fe275cdffdb91d423bbbc9efcaa0b6a9fba88e1b/lib/python3.10/site-packages/pandas/core/internals/base.py", line 69, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 36 elements, new values have 6 elements

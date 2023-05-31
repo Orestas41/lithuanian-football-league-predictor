@@ -1,4 +1,4 @@
-name: basic_cleaning
+name: pre-processing
 channels:
   - conda-forge
   - defaults

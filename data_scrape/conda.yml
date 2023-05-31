@@ -1,0 +1,9 @@
+name: data_scrape
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - selenium=4.8.3
+  - pip=22.0.4
+  - pip:
+      - wandb

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/f0faaab981764a6b8c52dfaade1bf5bd/artifacts
+end_time: 1685564859454
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f0faaab981764a6b8c52dfaade1bf5bd
+run_name: sincere-cow-226
+run_uuid: f0faaab981764a6b8c52dfaade1bf5bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685564836686
+status: 4
+tags: []
+user_id: orestas41

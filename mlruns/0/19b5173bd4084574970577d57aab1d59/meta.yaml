@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/19b5173bd4084574970577d57aab1d59/artifacts
+end_time: 1685565272547
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19b5173bd4084574970577d57aab1d59
+run_name: secretive-sow-429
+run_uuid: 19b5173bd4084574970577d57aab1d59
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685565247590
+status: 3
+tags: []
+user_id: orestas41

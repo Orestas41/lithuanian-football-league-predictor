@@ -8,6 +8,7 @@ import hydra
 from omegaconf import DictConfig
 
 _steps = [
+    "date_scrape",
     "pre-processing",
     "data_check",
     "data_segregation",
@@ -30,6 +31,18 @@ def go(config: DictConfig):
 
     # Moving to a temporary directory
     with tempfile.TemporaryDirectory() as tmp_dir:
+
+        if "data_scrape" in active_steps:
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "data_scrape"),
+                "main",
+                parameters={
+                    "output_description": "Merged and cleaned data"
+                },
+            )
+
         if "pre-processing" in active_steps:
             _ = mlflow.run(
                 os.path.join(

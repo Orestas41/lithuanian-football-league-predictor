@@ -1,0 +1,30 @@
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Current SDK version is 0.15.1
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Configure stats pid to 18794
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Loading settings from /home/orestas41/.config/wandb/settings
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Loading settings from /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/data_check/wandb/settings
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'run_group': 'development', 'project': 'project-FootballPredict'}
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-05-31 21:34:15,465 WARNING MainThread:18794 [wandb_setup.py:_flush():76] Could not save program above cwd: /home/orestas41/miniconda3/envs/mlflow-d32d0dd11dcb10fa84c823fe7951ab46f767f48f/bin/pytest
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program': '/home/orestas41/miniconda3/envs/mlflow-d32d0dd11dcb10fa84c823fe7951ab46f767f48f/bin/pytest'}
+2023-05-31 21:34:15,465 INFO    MainThread:18794 [wandb_init.py:_log_setup():507] Logging user logs to /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/data_check/wandb/run-20230531_213415-22vz465j/logs/debug.log
+2023-05-31 21:34:15,466 INFO    MainThread:18794 [wandb_init.py:_log_setup():508] Logging internal logs to /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/data_check/wandb/run-20230531_213415-22vz465j/logs/debug-internal.log
+2023-05-31 21:34:15,466 INFO    MainThread:18794 [wandb_init.py:init():547] calling init triggers
+2023-05-31 21:34:15,466 INFO    MainThread:18794 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2023-05-31 21:34:15,466 INFO    MainThread:18794 [wandb_init.py:init():596] starting backend
+2023-05-31 21:34:15,467 INFO    MainThread:18794 [wandb_init.py:init():600] setting up manager
+2023-05-31 21:34:15,471 INFO    MainThread:18794 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-05-31 21:34:15,475 INFO    MainThread:18794 [wandb_init.py:init():606] backend started and connected
+2023-05-31 21:34:15,478 INFO    MainThread:18794 [wandb_init.py:init():700] updated telemetry
+2023-05-31 21:34:15,484 INFO    MainThread:18794 [wandb_init.py:init():737] communicating run to backend with 60.0 second timeout
+2023-05-31 21:34:17,642 INFO    MainThread:18794 [wandb_init.py:init():780] run resumed
+2023-05-31 21:34:17,686 INFO    MainThread:18794 [wandb_run.py:_on_init():2177] communicating current version
+2023-05-31 21:34:18,058 INFO    MainThread:18794 [wandb_run.py:_on_init():2186] got version response upgrade_message: "wandb version 0.15.3 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-05-31 21:34:18,058 INFO    MainThread:18794 [wandb_init.py:init():787] starting run threads in backend
+2023-05-31 21:34:18,701 INFO    MainThread:18794 [wandb_run.py:_console_start():2158] atexit reg
+2023-05-31 21:34:18,701 INFO    MainThread:18794 [wandb_run.py:_redirect():2013] redirect: SettingsConsole.WRAP_RAW
+2023-05-31 21:34:18,702 INFO    MainThread:18794 [wandb_run.py:_redirect():2078] Wrapping output streams.
+2023-05-31 21:34:18,702 INFO    MainThread:18794 [wandb_run.py:_redirect():2103] Redirects installed.
+2023-05-31 21:34:18,702 INFO    MainThread:18794 [wandb_init.py:init():829] run started, returning control to user process
+2023-05-31 21:34:29,178 WARNING MsgRouterThr:18794 [router.py:message_loop():77] message_loop has been closed

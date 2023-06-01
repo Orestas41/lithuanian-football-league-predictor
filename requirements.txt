@@ -1,4 +1,4 @@
-python==3.10.4
+#python==3.10.4
 mlflow==1.23.0
 notebook==6.4.8
 cookiecutter==1.7.3

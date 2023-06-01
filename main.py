@@ -8,7 +8,7 @@ import hydra
 from omegaconf import DictConfig
 
 _steps = [
-    "date_scrape",
+    "data_scrape",
     "pre-processing",
     "data_check",
     "data_segregation",
@@ -39,7 +39,7 @@ def go(config: DictConfig):
                     "data_scrape"),
                 "main",
                 parameters={
-                    "output_description": "Merged and cleaned data"
+                    "step_description": "This step scrapes the latest data from the web"
                 },
             )
 

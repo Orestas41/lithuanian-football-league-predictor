@@ -4,9 +4,7 @@ conda_env: conda.yml
 entry_points:
   main:
     parameters:
-      output_description:
-        description: Description of the output artifact
+      step_description:
+        description: This step scrapes the latest data from the web
         type: string
-        default: Mergining and cleaning the data
-    command: >-
-      python run.py --output_description {output_description}
+    command: "python run.py --step_description {step_description}"

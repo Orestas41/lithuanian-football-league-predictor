@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/f83629dd51c34311816ba95dfff7ea87/artifacts
+end_time: 1685607154645
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f83629dd51c34311816ba95dfff7ea87
+run_name: sneaky-shrike-611
+run_uuid: f83629dd51c34311816ba95dfff7ea87
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685607121755
+status: 3
+tags: []
+user_id: orestas41

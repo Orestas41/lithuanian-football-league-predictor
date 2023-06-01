@@ -34,8 +34,6 @@ def go(args):
 
     # Creating instance
     run = wandb.init(
-        # project='project-FootballPredict',
-        # group='development',
         job_type="pre-processing")
     run.config.update(args)
 

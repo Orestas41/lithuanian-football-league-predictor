@@ -63,19 +63,19 @@ def test_winner_range(data):
     logger.error("Testing if the values of Winner column are correct")
     assert data['Winner'].nunique() == 3
 
-    """def test_similar_distrib(
-            data: pd.DataFrame,
-            ref_data: pd.DataFrame,
-            kl_threshold: float):
-        """
+
+"""def test_similar_distrib(
+        data: pd.DataFrame,
+        ref_data: pd.DataFrame,
+        kl_threshold: float):
+
     # Apply a threshold on the KL divergence to detect if the distribution of the new data is
     # significantly different than that of the reference dataset
-    """
-        logger.errors(
-            "Testing of the distribution of the dataset is similar to what is expected")
 
-        dist1 = data['Winner'].value_counts().sort_index()
-        dist2 = ref_data['Winner'].value_counts().sort_index()
+    logger.errors(
+        "Testing of the distribution of the dataset is similar to what is expected")
 
-        assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold
-    """
+    dist1 = data['Winner'].value_counts().sort_index()
+    dist2 = ref_data['Winner'].value_counts().sort_index()
+
+    assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold"""

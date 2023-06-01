@@ -19,8 +19,6 @@ logger = logging.getLogger()
 def go(args):
 
     run = wandb.init(
-        # project='project-FootballPredict',
-        # group='development',
         job_type="data_scraping")
     run.config.update(args)
 
@@ -61,12 +59,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="This step scrapes the latest data from the web")
 
-    parser.add_argument(
-        "--output_description",
-        type=str,
-        help='Description of the output artifact',
-        required=True
-    )
+    parser.add_argument("--step_description", type=str,
+                        help="Description of the step")
 
     args = parser.parse_args()
 

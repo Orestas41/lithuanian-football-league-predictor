@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/15506efccded4d8bad852c6dc04cae10/artifacts
+end_time: 1685642720096
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 15506efccded4d8bad852c6dc04cae10
+run_name: fearless-fish-904
+run_uuid: 15506efccded4d8bad852c6dc04cae10
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685642682336
+status: 3
+tags: []
+user_id: orestas41

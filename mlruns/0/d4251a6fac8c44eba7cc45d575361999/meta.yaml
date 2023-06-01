@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/d4251a6fac8c44eba7cc45d575361999/artifacts
+end_time: 1685640901662
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d4251a6fac8c44eba7cc45d575361999
+run_name: shivering-goat-800
+run_uuid: d4251a6fac8c44eba7cc45d575361999
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685640900012
+status: 4
+tags: []
+user_id: orestas41

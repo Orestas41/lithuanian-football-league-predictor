@@ -5,6 +5,7 @@ This step takes the best model, tagged with the "prod" tag, and tests it against
 import os
 import csv
 from datetime import datetime
+import matplotlib.pyplot as plt
 import argparse
 import logging
 import joblib
@@ -59,7 +60,7 @@ def go(args):
         idx = y_test == val
 
         # Do the inference and Compute the metrics
-        preds = [round(result) for result in model.predict(X_test[idx])]
+        preds = model.predict(X_test[idx])
         slice_mae[val] = mean_absolute_error(y_test[idx], preds)
 
     date = datetime.now().strftime('%Y-%m-%d')
@@ -73,6 +74,25 @@ def go(args):
         perf['Score']) - 2*np.std(perf['Score'])
     iqr = np.quantile(perf['Score'], 0.75) - np.quantile(perf['Score'], 0.25)
     nonparam = r_squared < np.quantile(perf['Score'], 0.25) - iqr*1.5
+
+    logger.info(
+        "Saving the latest model performance metrics and regenerating figures")
+    date = datetime.now().strftime('%Y-%m-%d')
+    with open('../reports/model_performance.csv', 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([date, r_squared, mae])
+
+    performance = pd.read_csv("../reports/model_performance.csv")
+
+    plt.plot(performance["Date"], performance["Score"], label="Score")
+    plt.plot(performance["Date"], performance["MAE"], label="MAE")
+    plt.legend()
+    plt.xlabel("Date")
+    plt.ylabel("Score/MAE")
+    plt.title("Change in ML Model Performance")
+
+    # Save the plot.
+    plt.savefig("../reports/model_performance.png")
 
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")

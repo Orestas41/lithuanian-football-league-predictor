@@ -19,7 +19,7 @@ selenium==4.8.3
 pytest==7.1.1
 scikit-learn==1.0.2
 uvicorn==0.15.0
-request
+#request
 wandb==0.12.15
 zipp==3.7.0
 hydra-joblib-launcher

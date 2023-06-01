@@ -24,28 +24,30 @@ from sklearn.pipeline import Pipeline, make_pipeline
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
 
 
 def go(args):
 
     run = wandb.init(
-        # project='project-FootballPredict',
-        # group='development',
         job_type="training_validation")
     run.config.update(args)
+
+    logger.info("5 - Running training and validation step")
 
     # Getting the Linear Regression configuration and updating W&B
     with open(args.model_config) as fp:
         model_config = json.load(fp)
     run.config.update(model_config)
 
+    logger.info("Fetching trainval data and setting it as dataframe")
     # Fetching the training/validation artifact
     trainval_local_path = run.use_artifact(args.trainval_artifact).file()
 
     X = pd.read_csv(trainval_local_path)
 
+    logger.info("Setting winner column as target")
     # Removing the column "Winner" from X and putting it into y
     y = X.pop('Winner')
 
@@ -98,6 +100,8 @@ def go(args):
 
     # Logging the variable "mae" under the key "mae".
     run.summary['mae'] = mae
+
+    logger.info("Finished training and valdiation")
 
 
 def inference(model_config):

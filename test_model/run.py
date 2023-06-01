@@ -11,24 +11,23 @@ import joblib
 import mlflow
 import wandb
 import numpy as np
-# import mlflow
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
 
 
 def go(args):
 
     run = wandb.init(
-        # project='project-FootballPredict',
-        # group='development',
         job_type="test_model")
     run.config.update(args)
+
+    logger.info("6 - Running model testing step")
 
     logger.info("Downloading artifacts")
 
@@ -51,6 +50,7 @@ def go(args):
 
     mae = mean_absolute_error(y_test, y_pred)
 
+    logger.info("Running data slice tests")
     # Data slice testing
     # iterate each value and record the metrics
     slice_mae = {}
@@ -87,6 +87,8 @@ def go(args):
     run.summary["Raw comparison"] = raw_comp
     run.summary["Parametric significance"] = param_signific
     run.summary["Non-parametric outlier"] = nonparam
+
+    logger.info("Finished testing the model")
 
 
 if __name__ == "__main__":

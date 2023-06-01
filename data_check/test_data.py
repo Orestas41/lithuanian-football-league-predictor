@@ -7,8 +7,10 @@ import numpy as np
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
+
+logger.info("3 - Running data checks")
 
 
 def test_column_names(data):
@@ -39,8 +41,6 @@ def test_format(data):
     # Check if the index is in correct format
     assert isinstance(data.index, pd.DatetimeIndex)
     assert data.index.dtype == 'datetime64[ns]'
-
-    # assert isinstance(data.index, pd.DatetimeIndex)
 
     for column in data.columns:
         if column != 'Date':
@@ -78,3 +78,5 @@ def test_winner_range(data):
     dist2 = ref_data['Winner'].value_counts().sort_index()
 
     assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold"""
+
+logger.info("Finished data checks")

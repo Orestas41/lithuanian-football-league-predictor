@@ -15,7 +15,7 @@ from sklearn.preprocessing import LabelEncoder
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
 
 # Load config.json and get input and output paths
@@ -36,6 +36,8 @@ def go(args):
     run = wandb.init(
         job_type="pre-processing")
     run.config.update(args)
+
+    logger.info("2 - Running pre-processing step")
 
     logger.info("Merging multiple dataframes")
     data = pd.DataFrame()
@@ -130,6 +132,8 @@ def go(args):
     )
     artifact.add_file(f'../{output_folder_path}/processed_data.csv')
     run.log_artifact(artifact)
+
+    logger.info("Finished pre-processing")
 
 
 if __name__ == "__main__":

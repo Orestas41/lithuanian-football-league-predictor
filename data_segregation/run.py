@@ -13,30 +13,29 @@ from sklearn.model_selection import train_test_split
 log_folder = os.getcwd()
 
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.DEBUG)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
 
 
 def go(args):
 
     run = wandb.init(
-        # project='project-FootballPredict',
-        # group='development',
         job_type="data_segregation")
     run.config.update(args)
+
+    logger.info("4 - Running data segregation step")
 
     logger.info(f"Fetching artifact {args.input}")
     artifact_local_path = run.use_artifact(args.input).file()
 
     df = pd.read_csv(artifact_local_path)
 
-    logger.info("Splitting trainval and test")
+    logger.info("Splitting data into trainval and test")
     trainval, test = train_test_split(
         df,
         test_size=args.test_size,
     )
 
-    # Saving to output files
     for df, k in zip([trainval, test], ['trainval', 'test']):
         logger.info(f"Uploading {k}_data.csv dataset")
         with tempfile.NamedTemporaryFile("w") as fp:
@@ -51,6 +50,8 @@ def go(args):
             artifact.add_file(fp.name)
             run.log_artifact(artifact)
             artifact.wait()
+
+    logger.info("Finished data segregation")
 
 
 if __name__ == "__main__":

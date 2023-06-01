@@ -3,9 +3,11 @@ import json
 import mlflow
 import tempfile
 import os
+
 import wandb
 import hydra
 from omegaconf import DictConfig
+
 
 _steps = [
     "data_scrape",
@@ -30,7 +32,7 @@ def go(config: DictConfig):
     active_steps = steps_par.split(",") if steps_par != "all" else _steps
 
     # Moving to a temporary directory
-    with tempfile.TemporaryDirectory() as tmp_dir:
+    with tempfile.TemporaryDirectory():
 
         if "data_scrape" in active_steps:
             _ = mlflow.run(

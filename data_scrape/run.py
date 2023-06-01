@@ -21,7 +21,7 @@ def go(args):
     run = wandb.init(
         job_type="data_scraping")
     run.config.update(args)
-
+    logger.info("1 - Running data scrape step")
     # Setup chrome options
     logger.info("Configuring webdriver")
     chrome_options = Options()

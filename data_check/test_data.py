@@ -24,6 +24,8 @@ def test_column_names(data):
         "Winner"
     ]
 
+    data = pd.read_csv(data)
+
     these_columns = data.columns.values
 
     assert list(expected_colums) == list(these_columns)
@@ -35,6 +37,7 @@ def test_format(data):
     """
     logger.error("Testing if the format of the values are correct")
     # Convert the index of the DataFrame to a datetime
+    data = pd.read_csv(data)
     data.index = pd.to_datetime(data.index)
 
     # Check if the index is in correct format
@@ -53,6 +56,7 @@ def test_number_of_teams(data):
     Test if number of unique home teams is same as away
     """
     logger.error("Testing if number of teams are correct")
+    data = pd.read_csv(data)
     assert data['Home'].nunique() == data['Away'].nunique()
 
 
@@ -61,6 +65,7 @@ def test_winner_range(data):
     Test the range of winner values
     """
     logger.error("Testing if the values of Winner column are correct")
+    data = pd.read_csv(data)
     assert data['Winner'].nunique() == 3
 
 
@@ -75,6 +80,7 @@ def test_winner_range(data):
     logger.errors(
         "Testing of the distribution of the dataset is similar to what is expected")
 
+    data = pd.read_csv(data)
     dist1 = data['Winner'].value_counts().sort_index()
     dist2 = ref_data['Winner'].value_counts().sort_index()
 

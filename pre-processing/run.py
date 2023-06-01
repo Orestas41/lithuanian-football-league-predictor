@@ -55,6 +55,7 @@ def go(args):
     logger.info("Adding headers")
     df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
 
+    # Removing unnecessary row
     df = df.drop(0, axis=0)
 
     logger.info("Removeing rows with missing values")

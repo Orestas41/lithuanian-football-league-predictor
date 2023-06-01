@@ -17,7 +17,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
+          channels: conda-forge
+            defaults
       - run: pip install -r environment.yml
+      - uses: actions/cache@v2
+        with:
+          path: ${{ runner.workspace }}/.cache/pip
+          key: ${{ runner.os }}-${{ steps.cache-python.outputs.hash }}
+          restore-keys: ${{ runner.os }}-
       - name: Install tox and any other packages
         run: pip install tox
       - name: Run tox

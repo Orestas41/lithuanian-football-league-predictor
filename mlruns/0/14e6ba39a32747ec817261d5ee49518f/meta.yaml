@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/14e6ba39a32747ec817261d5ee49518f/artifacts
+end_time: 1685612654316
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 14e6ba39a32747ec817261d5ee49518f
+run_name: fortunate-lynx-40
+run_uuid: 14e6ba39a32747ec817261d5ee49518f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685612630239
+status: 3
+tags: []
+user_id: orestas41

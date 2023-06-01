@@ -1,5 +1,5 @@
 import pytest
-# import pandas as pd
+import pandas as pd
 import wandb
 
 
@@ -18,9 +18,9 @@ def data(request):
     if data_path is None:
         pytest.fail("You must provide the --csv option on the command line")
 
-    # df = pd.read_csv(data_path)
+    df = pd.read_csv(data_path)
 
-    return data_path
+    return df
 
 
 @pytest.fixture(scope='session')
@@ -32,9 +32,9 @@ def ref_data(request):
     if data_path is None:
         pytest.fail("You must provide the --ref option on the command line")
 
-    # df = pd.read_csv(data_path)
+    df = pd.read_csv(data_path)
 
-    return data_path
+    return df
 
 
 @pytest.fixture(scope='session')

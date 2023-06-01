@@ -4,7 +4,7 @@ notebook==6.4.8
 cookiecutter==1.7.3
 hydra-core==1.1.0
 matplotlib==3.5.1
-git==2.35.1
+#git==2.35.1
 pip==22.0.4
 fastapi==0.75.0
 ipython==7.29.0

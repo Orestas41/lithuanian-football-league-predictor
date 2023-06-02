@@ -1,0 +1,28 @@
+2023-06-02 15:06:42,929 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Current SDK version is 0.15.3
+2023-06-02 15:06:42,929 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Configure stats pid to 9400
+2023-06-02 15:06:42,929 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Loading settings from /home/orestas41/.config/wandb/settings
+2023-06-02 15:06:42,930 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Loading settings from /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/settings
+2023-06-02 15:06:42,930 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'run_group': 'development', 'project': 'project-FootballPredict'}
+2023-06-02 15:06:42,930 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-06-02 15:06:42,930 INFO    MainThread:9400 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'tour_eval_pred/run.py', 'program': '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py'}
+2023-06-02 15:06:42,931 INFO    MainThread:9400 [wandb_init.py:_log_setup():507] Logging user logs to /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_150642-yobn5wq9/logs/debug.log
+2023-06-02 15:06:42,932 INFO    MainThread:9400 [wandb_init.py:_log_setup():508] Logging internal logs to /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_150642-yobn5wq9/logs/debug-internal.log
+2023-06-02 15:06:42,933 INFO    MainThread:9400 [wandb_init.py:init():547] calling init triggers
+2023-06-02 15:06:42,933 INFO    MainThread:9400 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2023-06-02 15:06:42,934 INFO    MainThread:9400 [wandb_init.py:init():596] starting backend
+2023-06-02 15:06:42,935 INFO    MainThread:9400 [wandb_init.py:init():600] setting up manager
+2023-06-02 15:06:42,945 INFO    MainThread:9400 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-06-02 15:06:42,951 INFO    MainThread:9400 [wandb_init.py:init():606] backend started and connected
+2023-06-02 15:06:42,954 INFO    MainThread:9400 [wandb_init.py:init():700] updated telemetry
+2023-06-02 15:06:42,963 INFO    MainThread:9400 [wandb_init.py:init():737] communicating run to backend with 60.0 second timeout
+2023-06-02 15:06:44,880 INFO    MainThread:9400 [wandb_run.py:_on_init():2177] communicating current version
+2023-06-02 15:06:44,997 INFO    MainThread:9400 [wandb_run.py:_on_init():2186] got version response 
+2023-06-02 15:06:44,997 INFO    MainThread:9400 [wandb_init.py:init():787] starting run threads in backend
+2023-06-02 15:06:49,740 INFO    MainThread:9400 [wandb_run.py:_console_start():2158] atexit reg
+2023-06-02 15:06:49,741 INFO    MainThread:9400 [wandb_run.py:_redirect():2013] redirect: SettingsConsole.WRAP_RAW
+2023-06-02 15:06:49,741 INFO    MainThread:9400 [wandb_run.py:_redirect():2078] Wrapping output streams.
+2023-06-02 15:06:49,742 INFO    MainThread:9400 [wandb_run.py:_redirect():2103] Redirects installed.
+2023-06-02 15:06:49,743 INFO    MainThread:9400 [wandb_init.py:init():829] run started, returning control to user process
+2023-06-02 15:06:49,744 INFO    MainThread:9400 [wandb_run.py:_config_callback():1286] config_cb None None {'step_description': 'This step checks if the previous tour predictions were correct and predicts the result of the next tour matches'}
+2023-06-02 15:07:05,424 WARNING MsgRouterThr:9400 [router.py:message_loop():77] message_loop has been closed

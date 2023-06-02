@@ -15,7 +15,8 @@ _steps = [
     "data_check",
     "data_segregation",
     "training_validation",
-    "test_model"
+    "test_model",
+    "tour_eval_pred"
 ]
 
 
@@ -113,6 +114,18 @@ def go(config: DictConfig):
                 parameters={
                     "mlflow_model": "model_export:prod",
                     "test_dataset": "test_data.csv:latest"},
+            )
+
+        if "tour_eval_pred" in active_steps:
+            _ = mlflow.run(
+                os.path.join(
+                    hydra.utils.get_original_cwd(),
+                    "tour_eval_pred"),
+                "main",
+                parameters={
+                    "mlflow_model": "model_export:prod",
+                    "step_description": "This step checks if the previous tour predictions were correct and predicts the result of the next tour matches"
+                },
             )
 
 

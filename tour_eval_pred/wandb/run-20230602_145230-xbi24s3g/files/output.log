@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 182, in _encode
+    return _map_to_integer(values, uniques)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 126, in _map_to_integer
+    return np.array([table[v] for v in values])
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 126, in <listcomp>
+    return np.array([table[v] for v in values])
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 120, in __missing__
+    raise KeyError(key)
+KeyError: 'Panevėžys'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 163, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 84, in go
+    df['Away'] = encoder.transform(df['Away'])
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/preprocessing/_label.py", line 138, in transform
+    return _encode(y, uniques=self.classes_)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/sklearn/utils/_encode.py", line 184, in _encode
+    raise ValueError(f"y contains previously unseen labels: {str(e)}")
+ValueError: y contains previously unseen labels: 'Panevėžys'

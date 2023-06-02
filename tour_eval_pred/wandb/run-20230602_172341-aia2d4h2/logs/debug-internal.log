@@ -1,0 +1,108 @@
+2023-06-02 17:23:41,136 INFO    StreamThr :1336 [internal.py:wandb_internal():86] W&B internal server running at pid: 1336, started at: 2023-06-02 17:23:41.136134
+2023-06-02 17:23:41,146 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: status
+2023-06-02 17:23:41,150 INFO    WriterThread:1336 [datastore.py:open_for_write():85] open: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/run-aia2d4h2.wandb
+2023-06-02 17:23:41,152 DEBUG   SenderThread:1336 [sender.py:send():375] send: header
+2023-06-02 17:23:41,166 DEBUG   SenderThread:1336 [sender.py:send():375] send: run
+2023-06-02 17:23:43,287 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: check_version
+2023-06-02 17:23:43,301 INFO    SenderThread:1336 [dir_watcher.py:__init__():219] watching files in: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files
+2023-06-02 17:23:43,302 INFO    SenderThread:1336 [sender.py:_start_run_threads():1124] run started: aia2d4h2 with start time 1685723021.1337
+2023-06-02 17:23:43,302 DEBUG   SenderThread:1336 [sender.py:send_request():402] send_request: summary_record
+2023-06-02 17:23:43,303 INFO    SenderThread:1336 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-06-02 17:23:43,303 DEBUG   SenderThread:1336 [sender.py:send_request():402] send_request: check_version
+2023-06-02 17:23:43,423 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: run_start
+2023-06-02 17:23:44,303 INFO    Thread-12 :1336 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/wandb-summary.json
+2023-06-02 17:23:44,368 DEBUG   HandlerThread:1336 [system_info.py:__init__():31] System info init
+2023-06-02 17:23:44,369 DEBUG   HandlerThread:1336 [system_info.py:__init__():46] System info init done
+2023-06-02 17:23:44,369 INFO    HandlerThread:1336 [system_monitor.py:start():181] Starting system monitor
+2023-06-02 17:23:44,369 INFO    SystemMonitor:1336 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-02 17:23:44,369 INFO    HandlerThread:1336 [system_monitor.py:probe():201] Collecting system info
+2023-06-02 17:23:44,371 INFO    SystemMonitor:1336 [interfaces.py:start():190] Started cpu monitoring
+2023-06-02 17:23:44,375 INFO    SystemMonitor:1336 [interfaces.py:start():190] Started disk monitoring
+2023-06-02 17:23:44,377 INFO    SystemMonitor:1336 [interfaces.py:start():190] Started gpu monitoring
+2023-06-02 17:23:44,378 INFO    SystemMonitor:1336 [interfaces.py:start():190] Started memory monitoring
+2023-06-02 17:23:44,379 INFO    SystemMonitor:1336 [interfaces.py:start():190] Started network monitoring
+2023-06-02 17:23:44,434 DEBUG   HandlerThread:1336 [system_info.py:probe():195] Probing system
+2023-06-02 17:23:44,494 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:44,495 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:44,677 DEBUG   HandlerThread:1336 [system_info.py:_probe_git():180] Probing git
+2023-06-02 17:23:44,693 DEBUG   HandlerThread:1336 [system_info.py:_probe_git():188] Probing git done
+2023-06-02 17:23:44,693 DEBUG   HandlerThread:1336 [system_info.py:probe():240] Probing system done
+2023-06-02 17:23:44,693 DEBUG   HandlerThread:1336 [system_monitor.py:probe():210] {'os': 'Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.31', 'python': '3.10.11', 'heartbeatAt': '2023-06-02T16:23:44.434592', 'startedAt': '2023-06-02T16:23:41.112939', 'docker': None, 'cuda': None, 'args': ('--mlflow_model', 'model_export:prod', '--step_description', 'This step checks if the previous tour predictions were correct and predicts the result of the next tour matches'), 'state': 'running', 'program': '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py', 'codePath': 'tour_eval_pred/run.py', 'git': {'remote': 'https://github.com/Orestas41/lithuanian-football-league-predictor.git', 'commit': '52a6d983dae9d73cd8e9e37d6aae603b62a85674'}, 'email': 'orestasdulinskas@gmail.com', 'root': '/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor', 'host': 'OrestasLaptop', 'username': 'orestas41', 'executable': '/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/bin/python', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1799.9979999999998, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}, {'current': 1799.998, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 1006.853931427002, 'used': 25.745315551757812}, 'gpu': 'NVIDIA GeForce MX150', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX150', 'memory_total': 2147483648}], 'memory': {'total': 3.7460365295410156}}
+2023-06-02 17:23:44,694 INFO    HandlerThread:1336 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-02 17:23:44,694 INFO    HandlerThread:1336 [system_monitor.py:probe():214] Publishing system info
+2023-06-02 17:23:44,694 DEBUG   HandlerThread:1336 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-02 17:23:44,694 DEBUG   HandlerThread:1336 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-02 17:23:44,695 DEBUG   HandlerThread:1336 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-02 17:23:45,302 INFO    Thread-12 :1336 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/conda-environment.yaml
+2023-06-02 17:23:45,302 INFO    Thread-12 :1336 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/requirements.txt
+2023-06-02 17:23:46,496 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:46,497 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:46,630 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:46,633 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:48,634 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:48,635 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:48,760 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:48,763 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:50,305 INFO    Thread-12 :1336 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/conda-environment.yaml
+2023-06-02 17:23:50,464 DEBUG   HandlerThread:1336 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-02 17:23:50,465 INFO    HandlerThread:1336 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-02 17:23:50,471 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: status_report
+2023-06-02 17:23:50,471 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: keepalive
+2023-06-02 17:23:50,474 DEBUG   SenderThread:1336 [sender.py:send():375] send: files
+2023-06-02 17:23:50,475 INFO    SenderThread:1336 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-06-02 17:23:50,506 DEBUG   SenderThread:1336 [sender.py:send():375] send: telemetry
+2023-06-02 17:23:50,515 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-02 17:23:50,516 DEBUG   SenderThread:1336 [sender.py:send_request():402] send_request: stop_status
+2023-06-02 17:23:50,764 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:50,765 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:50,898 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:50,903 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:51,151 INFO    wandb-upload_0:1336 [upload_job.py:push():137] Uploaded file /tmp/tmp3hrg6wvkwandb/mof6gehm-wandb-metadata.json
+2023-06-02 17:23:51,306 INFO    Thread-12 :1336 [dir_watcher.py:_on_file_created():278] file/dir created: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/wandb-metadata.json
+2023-06-02 17:23:52,177 DEBUG   SenderThread:1336 [sender.py:send():375] send: config
+2023-06-02 17:23:52,179 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: status_report
+2023-06-02 17:23:53,137 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:53,151 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:53,316 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:53,320 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:55,546 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:55,549 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:55,724 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:55,728 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:57,219 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: status_report
+2023-06-02 17:23:57,960 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:57,970 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:23:58,123 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:23:58,127 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:24:01,984 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:24:08,753 DEBUG   HandlerThread:1336 [handler.py:handle_request():144] handle_request: status_report
+2023-06-02 17:24:08,777 WARNING StreamThr :1336 [internal.py:is_dead():414] Internal process exiting, parent pid 1281 disappeared
+2023-06-02 17:24:08,795 ERROR   StreamThr :1336 [internal.py:wandb_internal():152] Internal process shutdown.
+2023-06-02 17:24:08,795 INFO    WriterThread:1336 [datastore.py:close():298] close: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/run-aia2d4h2.wandb
+2023-06-02 17:24:08,781 INFO    memory    :1336 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2023-06-02 17:24:08,798 DEBUG   SystemMonitor:1336 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-02 17:24:08,798 DEBUG   SystemMonitor:1336 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-02 17:24:08,798 DEBUG   SystemMonitor:1336 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-02 17:24:08,782 INFO    cpu       :1336 [interfaces.py:monitor():140] Process proc.cpu.threads has exited.
+2023-06-02 17:24:08,822 INFO    HandlerThread:1336 [handler.py:finish():842] shutting down handler
+2023-06-02 17:24:08,822 INFO    HandlerThread:1336 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-02 17:24:08,822 INFO    HandlerThread:1336 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-02 17:24:08,823 INFO    HandlerThread:1336 [interfaces.py:finish():202] Joined disk monitor
+2023-06-02 17:24:08,961 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2023-06-02 17:24:09,492 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:24:09,495 ERROR   gpu       :1336 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-06-02 17:24:09,496 ERROR   gpu       :1336 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-06-02 17:24:09,496 INFO    HandlerThread:1336 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-02 17:24:09,496 INFO    HandlerThread:1336 [interfaces.py:finish():202] Joined memory monitor
+2023-06-02 17:24:09,497 INFO    HandlerThread:1336 [interfaces.py:finish():202] Joined network monitor
+2023-06-02 17:24:09,751 INFO    SenderThread:1336 [sender.py:finish():1550] shutting down sender
+2023-06-02 17:24:09,751 INFO    SenderThread:1336 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-06-02 17:24:09,795 INFO    MainThread:1336 [internal.py:handle_exit():76] Internal process exited
+2023-06-02 17:24:10,732 INFO    SenderThread:1336 [dir_watcher.py:finish():395] scan: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files
+2023-06-02 17:24:10,733 INFO    SenderThread:1336 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/wandb-summary.json wandb-summary.json
+2023-06-02 17:24:10,733 INFO    SenderThread:1336 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/config.yaml config.yaml
+2023-06-02 17:24:10,734 INFO    SenderThread:1336 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/wandb-metadata.json wandb-metadata.json
+2023-06-02 17:24:10,734 INFO    SenderThread:1336 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/conda-environment.yaml conda-environment.yaml
+2023-06-02 17:24:10,734 INFO    SenderThread:1336 [dir_watcher.py:finish():409] scan save: /home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/wandb/run-20230602_172341-aia2d4h2/files/requirements.txt requirements.txt
+2023-06-02 17:24:10,735 INFO    SenderThread:1336 [file_pusher.py:finish():167] shutting down file pusher
+2023-06-02 17:24:10,736 INFO    SenderThread:1336 [file_pusher.py:join():172] waiting for file pusher

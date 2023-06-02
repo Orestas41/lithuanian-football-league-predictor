@@ -1,0 +1,94 @@
+{
+    "os": "Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.31",
+    "python": "3.10.10",
+    "heartbeatAt": "2023-06-02T14:47:11.697235",
+    "startedAt": "2023-06-02T14:47:08.714454",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--trainval_artifact",
+        "trainval_data.csv:latest",
+        "--val_size",
+        "0.2",
+        "--model_config",
+        "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/outputs/2023-06-02/15-44-24/config.yaml",
+        "--output_artifact",
+        "model_export"
+    ],
+    "state": "running",
+    "program": "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py",
+    "codePath": "training_validation/run.py",
+    "git": {
+        "remote": "https://github.com/Orestas41/lithuanian-football-league-predictor.git",
+        "commit": "52a6d983dae9d73cd8e9e37d6aae603b62a85674"
+    },
+    "email": "orestasdulinskas@gmail.com",
+    "root": "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor",
+    "host": "OrestasLaptop",
+    "username": "orestas41",
+    "executable": "/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1799.9979999999998,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1799.998,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 1006.853931427002,
+        "used": 25.686351776123047
+    },
+    "gpu": "NVIDIA GeForce MX150",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce MX150",
+            "memory_total": 2147483648
+        }
+    ],
+    "memory": {
+        "total": 3.7460365295410156
+    }
+}

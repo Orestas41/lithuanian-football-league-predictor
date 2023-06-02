@@ -1,0 +1,32 @@
+                         Date  Home  ...  Prediction  Model Performance
+index                                ...
+2023-05-28 17:55:00  1.685296    14  ...         NaN                NaN
+2023-05-28 16:00:00  1.685290     6  ...         NaN                NaN
+2023-05-27 19:00:00  1.685214    10  ...         NaN                NaN
+2023-05-27 17:00:00  1.685207    13  ...         NaN                NaN
+2023-05-26 18:00:00  1.685124    12  ...         NaN                NaN
+[5 rows x 6 columns]
+       Date  Home  Away  Prediction
+0  1.685804     2    12    0.680799
+1  1.685812     1    10    0.655860
+2  1.685819     9     4    0.290492
+3  1.685901    14    13    0.389455
+[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 192, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 156, in go
+    all_old = pd.read_csv(
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1217, in _make_engine
+    self.handles = get_handle(  # type: ignore[call-overload]
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/common.py", line 789, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '../reports/tours/tour_eval_pred.csv'

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 163, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 54, in go
+    writer.writerow([datum.text for datum in data])
+ValueError: I/O operation on closed file.

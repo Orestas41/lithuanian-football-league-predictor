@@ -1,0 +1,10 @@
+Date,Home,Away,Winner,Prediction,Model Performance
+1.6852965,Žalgiris,Panevėžys,0.0,1.0,
+1.6852896,K. Žalgiris,Banga,0.5,1.0,
+1.685214,Riteriai,Hegelmann,1.0,0.5,
+1.6852068,Šiauliai,Dainava,0.0,0.5,
+1.685124,Sūduva,Džiugas,0.0,1.0,
+1.6858044,Dainava,Sūduva,,0.6807986328058396,
+1.6858116,Banga,Riteriai,,0.6558604393059728,
+1.6858188,Panevėžys,Hegelmann,,0.29049238028322033,
+1.6859013,Žalgiris,Šiauliai,,0.38945489722930304,

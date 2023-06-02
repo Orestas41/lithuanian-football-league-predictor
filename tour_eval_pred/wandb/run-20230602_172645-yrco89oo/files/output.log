@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 188, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 54, in go
+    data = row.find_elements(By.TAG_NAME, "td")
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py", line 448, in find_elements
+    return self._execute(Command.FIND_CHILD_ELEMENTS, {"using": by, "value": value})["value"]
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/selenium/webdriver/remote/webelement.py", line 404, in _execute
+    return self._parent.execute(command, params)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 438, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/selenium/webdriver/remote/remote_connection.py", line 290, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/selenium/webdriver/remote/remote_connection.py", line 311, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt

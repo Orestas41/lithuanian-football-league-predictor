@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/9d7d30cd46564578943700d09e11788b/artifacts
+end_time: 1685720529950
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9d7d30cd46564578943700d09e11788b
+run_name: bouncy-shrike-508
+run_uuid: 9d7d30cd46564578943700d09e11788b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685720484815
+status: 4
+tags: []
+user_id: orestas41

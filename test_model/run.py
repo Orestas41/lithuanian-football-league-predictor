@@ -24,8 +24,7 @@ logger = logging.getLogger()
 
 def go(args):
 
-    run = wandb.init(
-        job_type="test_model")
+    run = wandb.init(job_type="test_model")
     run.config.update(args)
 
     logger.info("6 - Running model testing step")
@@ -64,9 +63,6 @@ def go(args):
         slice_mae[val] = mean_absolute_error(y_test[idx], preds)
 
     date = datetime.now().strftime('%Y-%m-%d')
-    with open('../reports/model_performance.csv', 'a', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow([date, r_squared, mae])
 
     perf = pd.read_csv('../reports/model_performance.csv', index_col=0)
     raw_comp = r_squared < np.min(perf['Score'])
@@ -81,6 +77,13 @@ def go(args):
     with open('../reports/model_performance.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([date, r_squared, mae])
+
+    # If the MAE score of the latest model is smaller (better performace) than any other models MAE, then this model is promoted to production model
+    if mae < perf['MAE'].min():
+        mlflow.sklearn.save_model(model, "prod_model_dir")
+        artifact = wandb.Artifact(args.mlflow_model)
+        artifact.add_alias("prod")
+        artifact.save()
 
     performance = pd.read_csv("../reports/model_performance.csv")
 
@@ -109,6 +112,9 @@ def go(args):
     run.summary["Non-parametric outlier"] = nonparam
 
     logger.info("Finished testing the model")
+
+    # Finish the run
+    run.finish()
 
 
 if __name__ == "__main__":

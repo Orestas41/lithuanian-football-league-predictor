@@ -43,9 +43,18 @@ async def model_inference(data: Predict):
 
     dirname = os.path.dirname(__file__)
     model = mlflow.sklearn.load_model(os.path.join(
-        dirname, "training_validation/model_dir"))
+        dirname, "prod_model_dir"))
     with open('pre-processing/encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
+
+    """    run = wandb.init(
+        job_type="test_model")
+
+    model_path = run.use_artifact("model_export:prod").download()
+    model = mlflow.sklearn.load_model(model_path)
+
+    encoder_path = run.use_artifact("encoder:latest").download()
+    encoder = pickle.load(encoder_path)"""
 
     sample = pd.DataFrame(data)
     sample = sample.T

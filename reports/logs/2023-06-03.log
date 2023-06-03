@@ -355,3 +355,79 @@ INFO:root:Saving the predictions to csv file
 INFO:root:Writing models predictions to a presentable txt file
 INFO:root:Removing temporary files
 INFO:root:Batch tour evaluations and predictions finished
+INFO:root:1 - Running data scrape step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Scraping finished
+INFO:root:2 - Running pre-processing step
+INFO:root:Merging multiple dataframes
+INFO:root:Creating dataframe
+INFO:root:Adding headers
+INFO:root:Removeing rows with missing values
+INFO:root:Converting Date column into datetime format
+INFO:root:Sorting dataframe by date
+INFO:root:Setting Date column as index
+INFO:root:Converting Results columns into separate columns for Home and Away goals
+INFO:root:Encoding unique strings
+INFO:root:Creating Winner column with the team that won or draw
+INFO:root:Dropping unnecessary columns
+INFO:root:Saving dataframe as a csv file
+INFO:root:Uploading processed_data.csv file to W&B
+INFO:root:Finished pre-processing
+INFO:root:4 - Running data segregation step
+INFO:root:Fetching artifact processed_data.csv:latest
+INFO:root:Splitting data into trainval and test
+INFO:root:Uploading trainval_data.csv dataset
+INFO:root:Uploading test_data.csv dataset
+INFO:root:Finished data segregation
+INFO:root:5 - Running training and validation step
+INFO:root:Fetching trainval data and setting it as dataframe
+INFO:root:Setting winner column as target
+INFO:root:Number of outcomes: 3
+INFO:root:Preparing Linear Regression pipeline
+INFO:root:Fitting
+INFO:root:Scoring
+INFO:root:Score: 0.18035516863687773
+INFO:root:MAE: 0.3522733467318076
+INFO:root:Exporting model
+INFO:root:Saving and exporting the model
+INFO:root:Finished training and valdiation
+INFO:root:6 - Running model testing step
+INFO:root:Downloading artifacts
+INFO:root:Loading model and performing inference on test set
+INFO:root:Scoring
+INFO:root:Running data slice tests
+INFO:root:Saving the latest model performance metrics and regenerating figures
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:root:Score: 0.17777031896936624
+INFO:root:MAE: 0.35644977764338276
+INFO:root:MAE of slices: {1.0: 0.4576270799527562, 0.0: 0.3927759220111675, 0.5: 0.11454065527765046}
+INFO:root:Raw comparison: False
+INFO:root:Parametric significance: False
+INFO:root:Non-parametric outlier: False
+INFO:root:Finished testing the model
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website for of the latest results
+INFO:root:Scraping the data
+INFO:root:Inserting the data to dataframe
+INFO:root:Applying pre-processing
+INFO:root:Reading previous predictions for this tour
+INFO:root:Checking the prediction error
+INFO:root:Saving the report on the latest tour prediction evaluations
+INFO:root:Opening website of the future tour fixtures
+INFO:root:Scraping the data
+INFO:root:Inserting the data into a dataframe
+INFO:root:Applying pre-processing
+INFO:root:Downloading the production model
+INFO:root:Loading the model and predicting the results for next tour fixtures
+INFO:root:Saving the predictions to csv file
+INFO:root:Writing models predictions to a presentable txt file
+INFO:root:Removing temporary files
+INFO:root:Batch tour evaluations and predictions finished

@@ -19,7 +19,6 @@ from sklearn.model_selection import train_test_split
 import wandb
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
-from sklearn.pipeline import Pipeline, make_pipeline
 
 log_folder = os.getcwd()
 
@@ -58,7 +57,7 @@ def go(args):
 
     logger.info("Preparing Linear Regression pipeline")
 
-    model = inference(model_config)
+    model = LinearRegression(**model_config)
 
     # Fitting it to the X_train, y_train data
     logger.info("Fitting")
@@ -102,14 +101,6 @@ def go(args):
     run.summary['mae'] = mae
 
     logger.info("Finished training and valdiation")
-
-
-def inference(model_config):
-
-    # Creating model
-    model = LinearRegression(**model_config)
-
-    return model
 
 
 if __name__ == "__main__":

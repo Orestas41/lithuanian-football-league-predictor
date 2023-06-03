@@ -1,4 +1,4 @@
-For the match between Žalgiris and Šiauliai, model predicts that Žalgiris's chance of winning is 42%.
-For the match between Banga and Sūduva, model predicts that Banga's chance of winning is 73%.
-For the match between Riteriai and K. Žalgiris, model predicts that Riteriai's chance of winning is 36%.
-For the match between Džiugas and Šiauliai, model predicts that Džiugas's chance of winning is 70%.
+For the match between Žalgiris and Šiauliai, model predicts that Žalgiris's chance of winning is 35%.
+For the match between Banga and Sūduva, model predicts that Banga's chance of winning is 72%.
+For the match between Riteriai and K. Žalgiris, model predicts that Riteriai's chance of winning is 32%.
+For the match between Džiugas and Šiauliai, model predicts that Džiugas's chance of winning is 68%.

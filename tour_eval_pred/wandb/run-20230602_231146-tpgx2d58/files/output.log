@@ -1,0 +1,32 @@
+          0         1         2         3
+0  0.710247  0.688304  0.341492  0.427452
+Traceback (most recent call last):
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3621, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 136, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 163, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Prediction'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/frame.py", line 3799, in _set_item_mgr
+    loc = self._info_axis.get_loc(key)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3623, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Prediction'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 187, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 102, in go
+    df['Prediction'] = prev_preds
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/frame.py", line 3645, in __setitem__
+    self._set_item_frame_value(key, value)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/frame.py", line 3788, in _set_item_frame_value
+    self._set_item_mgr(key, arraylike)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/frame.py", line 3802, in _set_item_mgr
+    self._mgr.insert(len(self._info_axis), key, value)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/core/internals/managers.py", line 1235, in insert
+    raise ValueError(
+ValueError: Expected a 1D array, got an array with shape (4, 4)

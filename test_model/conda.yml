@@ -11,3 +11,4 @@ dependencies:
   - matplotlib=3.5.1
   - pip:
       - wandb
+      - xgboost==1.7.5

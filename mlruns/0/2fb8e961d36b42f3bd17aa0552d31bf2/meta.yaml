@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/2fb8e961d36b42f3bd17aa0552d31bf2/artifacts
+end_time: 1685740127751
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2fb8e961d36b42f3bd17aa0552d31bf2
+run_name: bedecked-crow-736
+run_uuid: 2fb8e961d36b42f3bd17aa0552d31bf2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685740103067
+status: 4
+tags: []
+user_id: orestas41

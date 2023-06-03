@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/014ccfcb5ca845ddba12c58805976c96/artifacts
+end_time: 1685750789818
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 014ccfcb5ca845ddba12c58805976c96
+run_name: sneaky-jay-890
+run_uuid: 014ccfcb5ca845ddba12c58805976c96
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685750751222
+status: 3
+tags: []
+user_id: orestas41

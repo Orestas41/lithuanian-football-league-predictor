@@ -69,12 +69,12 @@ def go(args):
     logger.info("Sorting dataframe by date")
     df = df.sort_values(by='Date')
 
-    df['index'] = df['Date'].copy()
+    # df['index'] = df['Date'].copy()
 
     df['Date'] = df['Date'].astype(int) / 10**18
 
     logger.info("Setting Date column as index")
-    df = df.set_index('index')
+    # df = df.set_index('index')
 
     logger.info(
         "Converting Results columns into separate columns for Home and Away goals")

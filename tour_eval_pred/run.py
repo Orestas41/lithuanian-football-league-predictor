@@ -40,7 +40,7 @@ def go(args):
     driver = webdriver.Chrome(
         service=webdriver_service, options=chrome_options)
 
-    logger.info("Opening website")
+    logger.info("Opening website for of the latest results")
     driver.get("https://alyga.lt/rezultatai/1")
 
     logger.info("Scraping the data")
@@ -54,9 +54,11 @@ def go(args):
             data = row.find_elements(By.TAG_NAME, "td")
             writer.writerow([datum.text for datum in data])
 
+    logger.info("Inserting the data to dataframe")
     df = pd.read_csv(
         f"../reports/tours/result.csv", header=None)
 
+    logger.info("Applying pre-processing")
     df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
 
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
@@ -78,12 +80,6 @@ def go(args):
         homeResult.append(home)
         awayResult.append(away)
 
-    with open('../pre-processing/encoder.pkl', 'rb') as f:
-        encoder = pickle.load(f)
-
-    df['Home'] = encoder.transform(df['Home'])
-    df['Away'] = encoder.transform(df['Away'])
-
     Winner = [0] * len(df)
     for i in range(len(df)):
         if homeResult[i] > awayResult[i]:
@@ -95,13 +91,24 @@ def go(args):
 
     df['Winner'] = Winner
 
-    logger.info("Dropping unnecessary columns")
     df = df.drop(['Blank', 'Location', 'Result'], axis=1)
 
-    df['Prediction'] = np.nan
+    logger.info("Reading previous predictions for this tour")
+    prev_preds = pd.read_csv(
+        f"../reports/tours/predictions.csv", header=None)
 
+    prev_preds = prev_preds.values.tolist()
+
+    df['Prediction'] = prev_preds[0]
+
+    logger.info("Checking the prediction error")
     df['Model Performance'] = abs(df['Winner'] - df['Prediction'])
 
+    logger.info("Saving the report on the latest tour prediction evaluations")
+    df.to_csv(
+        f"../reports/tours/{datetime.now().strftime('%Y-%m-%d')}.csv", index=None)
+
+    logger.info("Opening website of the future tour fixtures")
     driver.get("https://alyga.lt/tvarkarastis/1")
 
     logger.info("Scraping the data")
@@ -115,9 +122,11 @@ def go(args):
             data = row.find_elements(By.TAG_NAME, "td")
             writer.writerow([datum.text for datum in data])
 
+    logger.info("Inserting the data into a dataframe")
     df1 = pd.read_csv(
         f"../reports/tours/next_tour.csv", header=None)
 
+    logger.info("Applying pre-processing")
     df1.columns = ["Date", "Blank", "Home", "TV", "Away", "Location"]
 
     df1['Date'] = pd.to_datetime(
@@ -132,39 +141,41 @@ def go(args):
     with open('../pre-processing/encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
 
+    home = df1['Home']
+    away = df1['Away']
+
     df1['Home'] = encoder.transform(df1['Home'])
     df1['Away'] = encoder.transform(df1['Away'])
 
     df1 = df1.drop(['Blank', 'Location', 'TV'], axis=1)
 
+    logger.info("Downloading the production model")
     model_local_path = run.use_artifact(args.mlflow_model).download()
 
+    logger.info(
+        "Loading the model and predicting the results for next tour fixtures")
     model = mlflow.sklearn.load_model(model_local_path)
     pred = model.predict(df1)
 
-    df1['Prediction'] = pred
+    preds = [pred]
+    logger.info("Saving the predictions to csv file")
+    with open("../reports/tours/predictions.csv", "w") as f:
+        writer = csv.writer(f)
 
-    df['Home'] = encoder.inverse_transform(df['Home'])
-    df['Away'] = encoder.inverse_transform(df['Away'])
-    df1['Home'] = encoder.inverse_transform(df1['Home'])
-    df1['Away'] = encoder.inverse_transform(df1['Away'])
+        for pred in preds:
+            writer.writerow(pred)
 
-    all_old = pd.read_csv(
-        f"../reports/tours/tour_eval_pred.csv")
+    logger.info("Writing models predictions to a presentable txt file")
+    with open("../reports/tours/predictions_for_next_tour.txt", "w") as f:
+        for i in range(len(pred)):
+            f.write(
+                f"For the match between {home[i]} and {away[i]}, model predicts that {home[i]}'s chance of winning is {(pred[i]*100).astype(int)}%.\n")
 
-    all = pd.merge(all_old, df, on='Date', how='inner')
-
-    all = pd.concat([all, df1], axis=0)
-
-    all.to_csv(
-        f"../reports/tours/tour_eval_pred.csv", index=None)
-
-    print(all)
-
-    os.remove("../reports/tours/result.csv")
+    logger.info("Removing temporary files")
     os.remove("../reports/tours/next_tour.csv")
+    os.remove("../reports/tours/result.csv")
 
-    logger.info("Scraping finished")
+    logger.info("Batch tour evaluations and predictions finished")
     driver.close()
 
 

@@ -287,3 +287,144 @@ INFO:root:Configuring webdriver
 INFO:root:Setting browser
 INFO:root:Opening website
 INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:2 - Running pre-processing step
+INFO:root:Merging multiple dataframes
+INFO:root:Creating dataframe
+INFO:root:Adding headers
+INFO:root:Removeing rows with missing values
+INFO:root:Converting Date column into datetime format
+INFO:root:Sorting dataframe by date
+INFO:root:Setting Date column as index
+INFO:root:Converting Results columns into separate columns for Home and Away goals
+INFO:root:Encoding unique strings
+INFO:root:Creating Winner column with the team that won or draw
+INFO:root:Dropping unnecessary columns
+INFO:root:Saving dataframe as a csv file
+INFO:root:Uploading processed_data.csv file to W&B
+INFO:root:Finished pre-processing
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:Scraping finished
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:Scraping finished
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:7 - Running tour evaluation and prediction step
+INFO:root:Configuring webdriver
+INFO:root:Setting browser
+INFO:root:Opening website
+INFO:root:Scraping the data
+INFO:root:Dropping unnecessary columns
+INFO:root:Scraping the data
+INFO:root:Scraping finished

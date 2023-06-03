@@ -1,0 +1,13 @@
+          0
+0  0.710247
+1  0.688304
+2  0.341492
+3  0.427452
+[0.71024695 0.68830434 0.34149181 0.42745208]
+[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 180, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 155, in go
+    writer.writerow(row)
+_csv.Error: iterable expected, not numpy.float64

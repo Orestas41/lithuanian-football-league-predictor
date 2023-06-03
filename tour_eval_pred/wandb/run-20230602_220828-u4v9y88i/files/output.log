@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 182, in <module>
+    go(args)
+  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 95, in go
+    prev_preds = pd.read_csv(
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1231, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/home/orestas41/miniconda3/envs/mlflow-179e34a71618ccb1126551092a7decef1effd393/lib/python3.10/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 75, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 551, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file

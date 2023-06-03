@@ -79,4 +79,5 @@ def test_winner_range(data):
 
     assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold"""
 
+
 logger.info("Finished data checks")

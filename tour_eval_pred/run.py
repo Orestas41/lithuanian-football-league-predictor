@@ -1,3 +1,7 @@
+"""
+Evaluating previous tour results against models predictions and batch predicting next tour match results
+"""
+
 import csv
 import os.path
 import logging
@@ -15,6 +19,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
+# Set up logging
 logging.basicConfig(
     filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
@@ -26,7 +31,7 @@ def go(args):
         job_type="data_scraping")
     run.config.update(args)
     logger.info("7 - Running tour evaluation and prediction step")
-    # Setup chrome options
+
     logger.info("Configuring webdriver")
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Ensure GUI is off
@@ -35,17 +40,19 @@ def go(args):
     homedir = os.path.expanduser("~")
     webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
 
-    # Choose Chrome Browser
     logger.info("Setting browser")
     driver = webdriver.Chrome(
         service=webdriver_service, options=chrome_options)
 
-    logger.info("Opening website for of the latest results")
-    driver.get("https://alyga.lt/rezultatai/1")
+    result_website = "https://alyga.lt/rezultatai/1"
+    logger.info(
+        f"Opening website for of the latest results - {result_website}")
+    driver.get(result_website)
 
     logger.info("Scraping the data")
     rows = driver.find_elements(By.TAG_NAME, "tr")
 
+    # Saving the data to results csv file
     with open(f"../reports/tours/result.csv", 'w', newline='') as f:
         writer = csv.writer(f)
 
@@ -61,14 +68,13 @@ def go(args):
     logger.info("Applying pre-processing")
     df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
 
+    # Converting dates to datetime format
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
 
-    df['index'] = df['Date'].copy()
-
+    # Converting dates to timestamps
     df['Date'] = df['Date'].astype(int) / 10**18
 
-    df = df.set_index('index')
-
+    # Converting Results columns into separate columns for Home and Away goals
     score_strings = df['Result']
     homeResult = []
     awayResult = []
@@ -80,6 +86,7 @@ def go(args):
         homeResult.append(home)
         awayResult.append(away)
 
+    logger.info("Creating Winner column with the team that won or draw")
     Winner = [0] * len(df)
     for i in range(len(df)):
         if homeResult[i] > awayResult[i]:
@@ -91,9 +98,10 @@ def go(args):
 
     df['Winner'] = Winner
 
+    # Removing uneccessary columns
     df = df.drop(['Blank', 'Location', 'Result'], axis=1)
 
-    logger.info("Reading previous predictions for this tour")
+    logger.info("Adding previous predictions for this tour")
     prev_preds = pd.read_csv(
         f"../reports/tours/predictions.csv", header=None)
 
@@ -101,19 +109,22 @@ def go(args):
 
     df['Prediction'] = prev_preds[0]
 
-    logger.info("Checking the prediction error")
+    logger.info("Calculating prediction error")
     df['Model Performance'] = abs(df['Winner'] - df['Prediction'])
 
     logger.info("Saving the report on the latest tour prediction evaluations")
     df.to_csv(
         f"../reports/tours/{datetime.now().strftime('%Y-%m-%d')}.csv", index=None)
 
-    logger.info("Opening website of the future tour fixtures")
-    driver.get("https://alyga.lt/tvarkarastis/1")
+    fixture_website = "https://alyga.lt/tvarkarastis/1"
+    logger.info(
+        f"Opening website of the future tour fixtures - {fixture_website}")
+    driver.get(fixture_website)
 
     logger.info("Scraping the data")
     rows = driver.find_elements(By.TAG_NAME, "tr")
 
+    # Saving the data to next_tour csv file
     with open(f"../reports/tours/next_tour.csv", 'w', newline='') as f:
         writer = csv.writer(f)
 
@@ -129,27 +140,27 @@ def go(args):
     logger.info("Applying pre-processing")
     df1.columns = ["Date", "Blank", "Home", "TV", "Away", "Location"]
 
-    df1['Date'] = pd.to_datetime(
-        df1['Date'], format='%Y-%m-%d, %H:%M')
+    # Converting dates to datetime format
+    df1['Date'] = pd.to_datetime(df1['Date'], format='%Y-%m-%d, %H:%M')
 
-    df['index'] = df['Date'].copy()
-
+    # Converting dates to timestamps
     df1['Date'] = df1['Date'].astype(int) / 10**18
 
-    df = df.set_index('index')
-
+    logger.info("Loading the encoder")
     with open('../pre-processing/encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
 
     home = df1['Home']
     away = df1['Away']
 
+    logger.info("Encoding home and away team names")
     df1['Home'] = encoder.transform(df1['Home'])
     df1['Away'] = encoder.transform(df1['Away'])
 
+    # Removing unecessary
     df1 = df1.drop(['Blank', 'Location', 'TV'], axis=1)
 
-    logger.info("Downloading the production model")
+    logger.info(f"Downloading the production model-{args.mlflow_model}")
     model_local_path = run.use_artifact(args.mlflow_model).download()
 
     logger.info(

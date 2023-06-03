@@ -8,14 +8,13 @@ import wandb
 import hydra
 from omegaconf import DictConfig
 
-
 _steps = [
     "data_scrape",
     "pre-processing",
     "data_check",
     "data_segregation",
     "training_validation",
-    "test_model",
+    "model_test",
     "tour_eval_pred"
 ]
 
@@ -104,12 +103,12 @@ def go(config: DictConfig):
                     "output_artifact": "model_export"},
             )
 
-        if "test_model" in active_steps:
+        if "model_test" in active_steps:
 
             _ = mlflow.run(
                 os.path.join(
                     hydra.utils.get_original_cwd(),
-                    "test_model"),
+                    "model_test"),
                 "main",
                 parameters={
                     "mlflow_model": "model_export:latest",

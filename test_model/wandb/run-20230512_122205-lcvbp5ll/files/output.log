@@ -1,2 +1,0 @@
-/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py:72: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-  perf = perf.append(new_model_pref, ignore_index=True)

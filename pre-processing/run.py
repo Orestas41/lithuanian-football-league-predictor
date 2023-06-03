@@ -13,7 +13,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 log_folder = os.getcwd()
-
+# Set up logging
 logging.basicConfig(
     filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
@@ -23,9 +23,10 @@ with open('../config.yaml', 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
 
-# Setting-up the wandb experiment
+# Setting-up directory paths
 input_folder_path = config['directories']['input_folder_path']
 output_folder_path = config['directories']['output_folder_path']
+# Setting-up ingested file recording
 file_record = open(
     f"../reports/ingestedfiles/{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
 
@@ -43,12 +44,16 @@ def go(args):
     data = pd.DataFrame()
     data_dir = os.path.abspath('..')
     datasets = os.listdir(data_dir+'/'+input_folder_path)
+    # Iterating through each dataset
     for each_dataset in datasets:
         file_record.write(str(each_dataset)+'\n')
         df = pd.read_csv(data_dir+'/'+input_folder_path +
                          '/'+each_dataset, header=None)
+        # Concatinating all datasets into one
         data = pd.concat([data, df], axis=0)
+    # Removing dublicates
     result = data.drop_duplicates()
+    # Saving merged datasets as one file
     result.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
 
     logger.info("Creating dataframe")
@@ -69,15 +74,10 @@ def go(args):
     logger.info("Sorting dataframe by date")
     df = df.sort_values(by='Date')
 
-    # df['index'] = df['Date'].copy()
-
+    # Converting dates to  timestamps
     df['Date'] = df['Date'].astype(int) / 10**18
 
-    logger.info("Setting Date column as index")
-    # df = df.set_index('index')
-
-    logger.info(
-        "Converting Results columns into separate columns for Home and Away goals")
+    # Converting Results columns into separate columns for Home and Away goals
     score_strings = df['Result']
     homeResult = []
     awayResult = []
@@ -88,23 +88,6 @@ def go(args):
         away = int(scores[1])
         homeResult.append(home)
         awayResult.append(away)
-
-    logger.info("Encoding unique strings")
-    encoder = LabelEncoder()
-    encoder.fit(df['Home'])
-    df['Home'] = encoder.transform(df['Home'])
-    df['Away'] = encoder.transform(df['Away'])
-
-    encoder_file = 'encoder.pkl'
-    with open(encoder_file, 'wb') as f:
-        pickle.dump(encoder, f)
-
-    encoder_artifact = wandb.Artifact(
-        'encoder',
-        type='encoder'
-    )
-    encoder_artifact.add_file('encoder.pkl')
-    run.log_artifact(encoder_artifact)
 
     logger.info("Creating Winner column with the team that won or draw")
     Winner = [0] * len(df)
@@ -117,6 +100,25 @@ def go(args):
             Winner[i] = 0.5
 
     df['Winner'] = Winner
+
+    logger.info("Encoding unique strings")
+    encoder = LabelEncoder()
+    encoder.fit(df['Home'])
+    df['Home'] = encoder.transform(df['Home'])
+    df['Away'] = encoder.transform(df['Away'])
+
+    logger.info('Saving encoder locally')
+    encoder_file = 'encoder.pkl'
+    with open(encoder_file, 'wb') as f:
+        pickle.dump(encoder, f)
+
+    logger.info('Saving encoder to wandb')
+    encoder_artifact = wandb.Artifact(
+        'encoder',
+        type='encoder'
+    )
+    encoder_artifact.add_file('encoder.pkl')
+    run.log_artifact(encoder_artifact)
 
     logger.info("Dropping unnecessary columns")
     df = df.drop(['Blank', 'Location', 'Result'], axis=1)

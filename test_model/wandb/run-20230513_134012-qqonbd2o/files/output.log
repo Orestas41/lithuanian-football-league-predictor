@@ -1,8 +1,0 @@
-
-[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 113, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 46, in go
-    xgboost = xgb.load(model_local_path)
-AttributeError: module 'xgboost' has no attribute 'load'

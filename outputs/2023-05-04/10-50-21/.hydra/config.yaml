@@ -1,7 +1,0 @@
-main:
-  project_name: project-FootballPredict
-  experiment_name: development
-  steps: pre-processing
-directoroes:
-  input_folder_path: raw_data
-  output_folder_path: final_data

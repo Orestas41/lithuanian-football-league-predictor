@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 116, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 69, in go
-    perf = pd.read_csv('../reports/model_performance.csv', index=True)
-  File "/home/orestas41/miniconda3/envs/mlflow-44a929a1c46f97e39a2501033d38f3c97ee52c31/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
-    return func(*args, **kwargs)
-TypeError: read_csv() got an unexpected keyword argument 'index'

@@ -1,7 +1,0 @@
-- main.steps='training_validation'
-- modeling.xgboost.n_estimators=10
-- modeling.xgboost.max_depth=5
-- modeling.xgboost.max_leaves=10
-- modeling.xgboost.max_bin=5
-- modeling.xgboost.alpha=0.01
-- modeling.xgboost.lambda=0.01

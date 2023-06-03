@@ -10,7 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-
+# Setting up logging
 logging.basicConfig(
     filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
@@ -22,7 +22,7 @@ def go(args):
         job_type="data_scraping")
     run.config.update(args)
     logger.info("1 - Running data scrape step")
-    # Setup chrome options
+
     logger.info("Configuring webdriver")
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Ensure GUI is off
@@ -31,17 +31,18 @@ def go(args):
     homedir = os.path.expanduser("~")
     webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
 
-    # Choose Chrome Browser
     logger.info("Setting browser")
     driver = webdriver.Chrome(
         service=webdriver_service, options=chrome_options)
 
-    logger.info("Opening website")
-    driver.get("https://alyga.lt/rezultatai/1")
+    website = "https://alyga.lt/rezultatai/1"
+    logger.info(f"Opening {website}")
+    driver.get(website)
 
     logger.info("Scraping the data")
     rows = driver.find_elements(By.TAG_NAME, "tr")
 
+    # Opening csv file with today's date as name
     with open(f"../raw_data/{datetime.now().strftime('%Y-%m-%d')}.csv", 'w', newline='') as f:
         writer = csv.writer(f)
 

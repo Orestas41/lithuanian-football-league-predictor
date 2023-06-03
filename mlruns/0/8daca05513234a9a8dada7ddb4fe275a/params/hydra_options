@@ -1,1 +1,0 @@
-'-m lithuanian-football-league-predictor.n_estimators=range(10, 100, 10)'

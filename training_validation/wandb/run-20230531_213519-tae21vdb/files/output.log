@@ -1,9 +1,0 @@
-/home/orestas41/miniconda3/envs/mlflow-2607edbc4612998530e14928de78596a3fc9fc6f/lib/python3.10/site-packages/sklearn/linear_model/_base.py:141: FutureWarning: 'normalize' was deprecated in version 1.0 and will be removed in 1.2.
-If you wish to scale the data, use Pipeline with a StandardScaler in a preprocessing stage. To reproduce the previous behavior:
-from sklearn.pipeline import make_pipeline
-model = make_pipeline(StandardScaler(with_mean=False), LinearRegression())
-If you wish to pass a sample_weight parameter, you need to pass it as a fit parameter to each step of the pipeline as follows:
-kwargs = {s[0] + '__sample_weight': sample_weight for s in model.steps}
-model.fit(X, y, **kwargs)
-  warnings.warn(
-[34m[1mwandb[39m[22m: Adding directory to artifact (./model_dir)... Done. 0.0s

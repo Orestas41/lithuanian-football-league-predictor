@@ -1,8 +1,0 @@
-
-[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 140, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 84, in go
-    artifact = run.artifact(args.mlflow_model)
-AttributeError: 'Run' object has no attribute 'artifact'

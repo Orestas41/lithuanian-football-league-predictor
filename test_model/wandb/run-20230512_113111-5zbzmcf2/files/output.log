@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 103, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/test_model/run.py", line 79, in go
-    run.summery['mae_of_slices'] = slice_mae
-AttributeError: 'Run' object has no attribute 'summery'

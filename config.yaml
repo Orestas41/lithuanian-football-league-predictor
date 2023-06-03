@@ -8,13 +8,11 @@ directories:
 data_check:
   kl_threshold: 0.2
 data_segregation:
-  test_size: 0.2
-modeling:
   # Fraction of data to use for test (the remaining will be used for train and validation)
   test_size: 0.2
+modeling:
   # Fraction of remaining data to use for validation
   val_size: 0.2
-  #nfold: 3
   linearRegression:
     fit_intercept: True
     copy_X: True

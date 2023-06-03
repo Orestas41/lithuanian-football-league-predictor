@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 156, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/training_validation/run.py", line 53, in go
-    y = X(["homeResult", "awayResult", "Winner"])
-TypeError: 'DataFrame' object is not callable

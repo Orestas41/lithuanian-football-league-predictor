@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 This script trains and validates the model
 """
@@ -21,7 +20,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 
 log_folder = os.getcwd()
-
+# Set up logging
 logging.basicConfig(
     filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
@@ -40,7 +39,8 @@ def go(args):
         model_config = json.load(fp)
     run.config.update(model_config)
 
-    logger.info("Fetching trainval data and setting it as dataframe")
+    logger.info(
+        f"Fetching {args.trainval_artifact} and setting it as dataframe")
     # Fetching the training/validation artifact
     trainval_local_path = run.use_artifact(args.trainval_artifact).file()
 
@@ -55,7 +55,7 @@ def go(args):
     X_train, X_val, y_train, y_val = train_test_split(
         X, y, test_size=args.val_size)
 
-    logger.info("Preparing Linear Regression pipeline")
+    logger.info("Preparing Linear Regression model")
 
     model = LinearRegression(**model_config)
 

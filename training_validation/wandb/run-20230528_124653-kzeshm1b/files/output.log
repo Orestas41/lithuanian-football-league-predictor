@@ -1,3 +1,0 @@
-[12:47:06] WARNING: ../src/learner.cc:767:
-Parameters: { "criterion", "max_features", "min_samples_leaf", "min_samples_split", "oob_score" } are not used.
-[34m[1mwandb[39m[22m: Adding directory to artifact (./xgboost_dir)... Done. 0.0s

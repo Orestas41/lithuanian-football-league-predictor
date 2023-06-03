@@ -1,7 +1,0 @@
-[34m[1mwandb[39m[22m:   4 of 4 files downloaded.
-Traceback (most recent call last):
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 188, in <module>
-    go(args)
-  File "/home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/tour_eval_pred/run.py", line 161, in go
-    f.write(
-TypeError: write() argument must be str, not generator

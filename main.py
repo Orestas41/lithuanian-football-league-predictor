@@ -112,7 +112,7 @@ def go(config: DictConfig):
                     "test_model"),
                 "main",
                 parameters={
-                    "mlflow_model": "model_export:prod",
+                    "mlflow_model": "model_export:latest",
                     "test_dataset": "test_data.csv:latest"},
             )
 

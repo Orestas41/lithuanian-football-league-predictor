@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import argparse
 import logging
 import joblib
+import shutil
 import mlflow
 import wandb
 import numpy as np
@@ -79,11 +80,16 @@ def go(args):
         writer.writerow([date, r_squared, mae])
 
     # If the MAE score of the latest model is smaller (better performace) than any other models MAE, then this model is promoted to production model
-    if mae < perf['MAE'].min():
-        mlflow.sklearn.save_model(model, "prod_model_dir")
-        artifact = wandb.Artifact(args.mlflow_model)
+    if mae <= perf['MAE'].min():
+        if os.path.exists("../prod_model_dir"):
+            shutil.rmtree("prod_model_dir")
+        mlflow.sklearn.save_model(model, "../prod_model_dir")
+        artifact = wandb.Artifact(
+            args.mlflow_model, type='wandb.Artifact', name='model_export')
         artifact.add_alias("prod")
         artifact.save()
+    else:
+        pass
 
     performance = pd.read_csv("../reports/model_performance.csv")
 

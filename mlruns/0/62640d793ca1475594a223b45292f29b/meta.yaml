@@ -1,0 +1,15 @@
+artifact_uri: file:///home/orestas41/project-FootballPredict/lithuanian-football-league-predictor/mlruns/0/62640d793ca1475594a223b45292f29b/artifacts
+end_time: 1685811169267
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 62640d793ca1475594a223b45292f29b
+run_name: salty-smelt-151
+run_uuid: 62640d793ca1475594a223b45292f29b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1685811121278
+status: 3
+tags: []
+user_id: orestas41

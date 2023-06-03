@@ -1,13 +1,13 @@
 """
 This script splits the provided dataframe in test and remainder
 """
-import os
-import argparse
-from datetime import datetime
-import logging
-import pandas as pd
-import wandb
 import tempfile
+import wandb
+import pandas as pd
+import logging
+from datetime import datetime
+import argparse
+import os
 from sklearn.model_selection import train_test_split
 
 log_folder = os.getcwd()

@@ -1,0 +1,24 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.3
+    cli_version: 0.15.3
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1685810974.57418
+    t:
+      1:
+      - 55
+      2:
+      - 55
+      3:
+      - 23
+      4: 3.11.3
+      5: 0.15.3
+      8:
+      - 5
+step_description:
+  desc: null
+  value: This step scrapes the latest data from the web

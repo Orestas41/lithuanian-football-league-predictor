@@ -7,6 +7,7 @@ import os.path
 import logging
 import wandb
 import mlflow
+import json
 import argparse
 import matplotlib.pyplot as plt
 import pickle
@@ -26,11 +27,11 @@ logger = logging.getLogger()
 
 
 def go(args):
+    logger.info("7 - Running tour evaluation and prediction step")
 
     run = wandb.init(
         job_type="data_scraping")
     run.config.update(args)
-    logger.info("7 - Running tour evaluation and prediction step")
 
     logger.info("Configuring webdriver")
     chrome_options = Options()
@@ -41,153 +42,126 @@ def go(args):
     webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
 
     logger.info("Setting browser")
-    driver = webdriver.Chrome(
-        service=webdriver_service, options=chrome_options)
+    with webdriver.Chrome(service=webdriver_service, options=chrome_options) as driver:
 
-    result_website = "https://alyga.lt/rezultatai/1"
-    logger.info(
-        f"Opening website for of the latest results - {result_website}")
-    driver.get(result_website)
+        result_website = "https://alyga.lt/rezultatai/1"
+        logger.info(
+            f"Opening website for of the latest results - {result_website}")
+        driver.get(result_website)
 
-    logger.info("Scraping the data")
-    rows = driver.find_elements(By.TAG_NAME, "tr")
+        logger.info("Scraping the data")
+        rows = driver.find_elements(By.TAG_NAME, "tr")
 
-    # Saving the data to results csv file
-    with open(f"../reports/tours/result.csv", 'w', newline='') as f:
-        writer = csv.writer(f)
+        # Saving the data to results csv file
+        with open(f"../reports/tours/result.csv", 'w', newline='') as f:
+            writer = csv.writer(f)
 
-        # Write the data rows
-        for row in rows[1:6]:
-            data = row.find_elements(By.TAG_NAME, "td")
-            writer.writerow([datum.text for datum in data])
+            # Write the data rows
+            for row in rows[1:6]:
+                data = row.find_elements(By.TAG_NAME, "td")
+                writer.writerow([datum.text for datum in data])
 
-    logger.info("Inserting the data to dataframe")
-    df = pd.read_csv(
-        f"../reports/tours/result.csv", header=None)
+        logger.info("Inserting the data to dataframe")
+        df = pd.read_csv("../reports/tours/result.csv", header=None)
 
-    logger.info("Applying pre-processing")
-    df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
+        logger.info("Applying pre-processing")
+        df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
 
-    # Converting dates to datetime format
-    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
+        # Convert dates to datetime format and timestamps
+        df['Date'] = pd.to_datetime(
+            df['Date'], format='%Y-%m-%d, %H:%M').astype(int) / 10**18
 
-    # Converting dates to timestamps
-    df['Date'] = df['Date'].astype(int) / 10**18
+        # Convert Result column into separate columns for Home and Away goals
+        df[['Home Result', 'Away Result']] = df['Result'].str.split(
+            ' : ', expand=True).astype(int)
 
-    # Converting Results columns into separate columns for Home and Away goals
-    score_strings = df['Result']
-    homeResult = []
-    awayResult = []
+        # Create Winner column with the team that won or draw
+        df['Winner'] = np.where(df['Home Result'] > df['Away Result'], 0, np.where(
+            df['Home Result'] < df['Away Result'], 1, 0.5))
 
-    for score_string in score_strings:
-        scores = score_string.split(' : ')
-        home = int(scores[0])
-        away = int(scores[1])
-        homeResult.append(home)
-        awayResult.append(away)
+        # Removing uneccessary columns
+        df = df.drop(['Blank', 'Location', 'Result',
+                     'Home Result', 'Away Result'], axis=1)
 
-    logger.info("Creating Winner column with the team that won or draw")
-    Winner = [0] * len(df)
-    for i in range(len(df)):
-        if homeResult[i] > awayResult[i]:
-            Winner[i] = 0
-        elif homeResult[i] < awayResult[i]:
-            Winner[i] = 1
-        else:
-            Winner[i] = 0.5
+        logger.info("Adding previous predictions for this tour")
+        with open('../reports/tours/predictions.json') as f:
+            prev_preds = pd.DataFrame(json.load(f))
 
-    df['Winner'] = Winner
+        df = pd.merge(df, prev_preds, on='Date', how='outer')
 
-    # Removing uneccessary columns
-    df = df.drop(['Blank', 'Location', 'Result'], axis=1)
+        logger.info("Calculating prediction error")
+        df['Model Performance'] = abs(df['Winner'] - df['Prediction'])
 
-    logger.info("Adding previous predictions for this tour")
-    prev_preds = pd.read_csv(
-        f"../reports/tours/predictions.csv", header=None)
+        logger.info(
+            "Saving the report on the latest tour prediction evaluations")
+        df.to_csv(
+            f"../reports/tours/{datetime.now().strftime('%Y-%m-%d')}.csv", index=None)
 
-    prev_preds = prev_preds.values.tolist()
+        fixture_website = "https://alyga.lt/tvarkarastis/1"
+        logger.info(
+            f"Opening website of the future tour fixtures - {fixture_website}")
+        driver.get(fixture_website)
 
-    df['Prediction'] = prev_preds[0]
+        logger.info("Scraping the data")
+        rows = driver.find_elements(By.TAG_NAME, "tr")
 
-    logger.info("Calculating prediction error")
-    df['Model Performance'] = abs(df['Winner'] - df['Prediction'])
+        # Saving the data to next_tour csv file
+        with open(f"../reports/tours/next_tour.csv", 'w', newline='') as f:
+            writer = csv.writer(f)
 
-    logger.info("Saving the report on the latest tour prediction evaluations")
-    df.to_csv(
-        f"../reports/tours/{datetime.now().strftime('%Y-%m-%d')}.csv", index=None)
+            # Write the data rows
+            for row in rows[1:6]:
+                data = row.find_elements(By.TAG_NAME, "td")
+                writer.writerow([datum.text for datum in data])
 
-    fixture_website = "https://alyga.lt/tvarkarastis/1"
-    logger.info(
-        f"Opening website of the future tour fixtures - {fixture_website}")
-    driver.get(fixture_website)
+        logger.info("Inserting the data into a dataframe")
+        df1 = pd.read_csv("../reports/tours/next_tour.csv", header=None)
 
-    logger.info("Scraping the data")
-    rows = driver.find_elements(By.TAG_NAME, "tr")
+        logger.info("Applying pre-processing")
+        df1.columns = ["Date", "Blank", "Home", "TV", "Away", "Location"]
+        df1['Date'] = pd.to_datetime(
+            df1['Date'], format='%Y-%m-%d, %H:%M').astype(int) / 10**18
 
-    # Saving the data to next_tour csv file
-    with open(f"../reports/tours/next_tour.csv", 'w', newline='') as f:
-        writer = csv.writer(f)
+        logger.info("Loading the encoder")
+        with open('../pre-processing/encoder.pkl', 'rb') as f:
+            encoder = pickle.load(f)
 
-        # Write the data rows
-        for row in rows[1:6]:
-            data = row.find_elements(By.TAG_NAME, "td")
-            writer.writerow([datum.text for datum in data])
+        home = df1['Home']
+        away = df1['Away']
 
-    logger.info("Inserting the data into a dataframe")
-    df1 = pd.read_csv(
-        f"../reports/tours/next_tour.csv", header=None)
+        logger.info("Encoding home and away team names")
+        df1['Home'] = encoder.transform(df1['Home'])
+        df1['Away'] = encoder.transform(df1['Away'])
 
-    logger.info("Applying pre-processing")
-    df1.columns = ["Date", "Blank", "Home", "TV", "Away", "Location"]
+        # Removing unecessary
+        df1 = df1.drop(['Blank', 'Location', 'TV'], axis=1)
 
-    # Converting dates to datetime format
-    df1['Date'] = pd.to_datetime(df1['Date'], format='%Y-%m-%d, %H:%M')
+        logger.info(f"Downloading the production model-{args.mlflow_model}")
+        model_local_path = run.use_artifact(args.mlflow_model).download()
 
-    # Converting dates to timestamps
-    df1['Date'] = df1['Date'].astype(int) / 10**18
+        logger.info(
+            "Loading the model and predicting the results for next tour fixtures")
+        model = mlflow.sklearn.load_model(model_local_path)
+        pred = model.predict(df1)
 
-    logger.info("Loading the encoder")
-    with open('../pre-processing/encoder.pkl', 'rb') as f:
-        encoder = pickle.load(f)
+        preds_json = dict(Date=df1["Date"].tolist(), Prediction=pred.tolist())
 
-    home = df1['Home']
-    away = df1['Away']
+        logger.info("Saving the predictions to json file")
+        with open('../reports/tours/predictions.json', 'w') as f:
+            json.dump(preds_json, f, indent=4)
 
-    logger.info("Encoding home and away team names")
-    df1['Home'] = encoder.transform(df1['Home'])
-    df1['Away'] = encoder.transform(df1['Away'])
+        logger.info("Writing models predictions to a presentable txt file")
+        with open("../reports/tours/predictions_for_next_tour.txt", "w") as f:
+            for i in range(len(pred)):
+                f.write(
+                    f"For the match between {home[i]} and {away[i]}, model predicts that {home[i]}'s chance of winning is {(pred[i]*100).astype(int)}%.\n")
 
-    # Removing unecessary
-    df1 = df1.drop(['Blank', 'Location', 'TV'], axis=1)
+        logger.info("Removing temporary files")
+        os.remove("../reports/tours/next_tour.csv")
+        os.remove("../reports/tours/result.csv")
 
-    logger.info(f"Downloading the production model-{args.mlflow_model}")
-    model_local_path = run.use_artifact(args.mlflow_model).download()
-
-    logger.info(
-        "Loading the model and predicting the results for next tour fixtures")
-    model = mlflow.sklearn.load_model(model_local_path)
-    pred = model.predict(df1)
-
-    preds = [pred]
-    logger.info("Saving the predictions to csv file")
-    with open("../reports/tours/predictions.csv", "w") as f:
-        writer = csv.writer(f)
-
-        for pred in preds:
-            writer.writerow(pred)
-
-    logger.info("Writing models predictions to a presentable txt file")
-    with open("../reports/tours/predictions_for_next_tour.txt", "w") as f:
-        for i in range(len(pred)):
-            f.write(
-                f"For the match between {home[i]} and {away[i]}, model predicts that {home[i]}'s chance of winning is {(pred[i]*100).astype(int)}%.\n")
-
-    logger.info("Removing temporary files")
-    os.remove("../reports/tours/next_tour.csv")
-    os.remove("../reports/tours/result.csv")
-
-    logger.info("Batch tour evaluations and predictions finished")
-    driver.close()
+        logger.info("Batch tour evaluations and predictions finished")
+        driver.close()
 
 
 if __name__ == "__main__":

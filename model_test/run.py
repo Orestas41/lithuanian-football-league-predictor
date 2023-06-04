@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 This step takes the latest model and tests it against the test dataset. If it performs better than previous models, it is promoted to a production.
 """
@@ -31,7 +30,7 @@ def go(args):
     logger.info("6 - Running model testing step")
 
     logger.info(
-        f"Downloading model-{args.mlflow_model} and data{args.test_dataset} artifacts")
+        f"Downloading model- {args.mlflow_model} and data- {args.test_dataset} artifacts")
 
     # Downloading input artifact
     model_local_path = run.use_artifact(args.mlflow_model).download()
@@ -100,11 +99,11 @@ def go(args):
     # If the MAE score of the latest model is smaller (better performace) than any other models MAE, then this model is promoted to production model
     if mae <= perf['MAE'].min() or raw_comp == True or param_signific == True or nonparam == True:
         if os.path.exists("../prod_model_dir"):
-            shutil.rmtree("prod_model_dir")
+            shutil.rmtree("../prod_model_dir")
         logger.info("Saving model locally")
         mlflow.sklearn.save_model(model, "../prod_model_dir")
         artifact = wandb.Artifact(
-            args.mlflow_model, type='wandb.Artifact', name='model_export')
+            args.mlflow_model, type='wandb.Artifact')
         logger.info("Promoting model to production in wandb")
         artifact.add_alias("prod")
         artifact.save()

@@ -14,10 +14,10 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 from sklearn.model_selection import train_test_split
-
-import wandb
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
+
+import wandb
 
 log_folder = os.getcwd()
 # Set up logging
@@ -27,13 +27,12 @@ logger = logging.getLogger()
 
 
 def go(args):
+    logger.info("5 - Running training and validation step")
 
     run = wandb.init(
         project="project-FootballPredict",
         job_type="training_validation")
     run.config.update(args)
-
-    logger.info("5 - Running training and validation step")
 
     # Getting the Linear Regression configuration and updating W&B
     with open(args.model_config) as fp:
@@ -42,13 +41,11 @@ def go(args):
 
     logger.info(
         f"Fetching {args.trainval_artifact} and setting it as dataframe")
-    # Fetching the training/validation artifact
     trainval_local_path = run.use_artifact(args.trainval_artifact).file()
 
     X = pd.read_csv(trainval_local_path)
 
     logger.info("Setting winner column as target")
-    # Removing the column "Winner" from X and putting it into y
     y = X.pop('Winner')
 
     logger.info(f"Number of outcomes: {y.nunique()}")
@@ -57,28 +54,22 @@ def go(args):
         X, y, test_size=args.val_size)
 
     logger.info("Preparing Linear Regression model")
-
     model = LinearRegression(**model_config)
 
     # Fitting it to the X_train, y_train data
     logger.info("Fitting")
-
-    # Fitting the inference pipeline
     model.fit(X_train, y_train)
 
-    # Computing r2 and MAE
-    logger.info("Scoring")
+    # Evaluating the model
+    logger.info("Scoring the model")
     r_squared = model.score(X_val, y_val)
-
     y_pred = model.predict(X_val)
-
     mae = mean_absolute_error(y_val, y_pred)
 
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")
 
     logger.info("Exporting model")
-
     if os.path.exists("model_dir"):
         shutil.rmtree("model_dir")
 
@@ -95,13 +86,13 @@ def go(args):
     artifact.add_dir("model_dir")
     run.log_artifact(artifact)
 
-    # Saving r_squared under the "r2" key
+    # Saving r_squared as a summary
     run.summary['r2'] = r_squared
 
-    # Logging the variable "mae" under the key "mae".
+    # Logging the variable "mae" as a summary
     run.summary['mae'] = mae
 
-    logger.info("Finished training and valdiation")
+    logger.info("Finished training and validation")
 
 
 if __name__ == "__main__":
@@ -122,7 +113,7 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--model_config",
-        help="model configuration. A JSON dict that will be passed to the "
+        help="Model configuration. A JSON dict that will be passed to the "
         "scikit-learn constructor for Linear Regression.",
         default="{}",
     )

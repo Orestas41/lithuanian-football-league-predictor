@@ -19,21 +19,104 @@ logging.basicConfig(
 logger = logging.getLogger()
 
 
+def merge_datasets(df1, df2):
+    """
+    Merges two DataFrames.
+
+    Args:
+        df1: The first DataFrame.
+        df2: The second DataFrame.
+
+    Returns:
+        The merged DataFrame.
+    """
+    return pd.concat([df1, df2], axis=0)
+
+
+def drop_duplicates(df):
+    """
+    Drops duplicate rows from a DataFrame.
+
+    Args:
+        df: The DataFrame.
+
+    Returns:
+        The DataFrame with duplicate rows dropped.
+    """
+    return df.drop_duplicates()
+
+
+def remove_na(df):
+    """
+    Removes rows with missing values from a DataFrame.
+
+    Args:
+        df: The DataFrame.
+
+    Returns:
+        The DataFrame with missing values removed.
+    """
+    return df.dropna()
+
+
+def convert_date_column(df):
+    """
+    Convert a date column in a DataFrame to a datetime object.
+
+    Args:
+        df: The DataFrame.
+        format: The format of the date column.
+
+    Returns:
+        The DataFrame with the date column converted to a datetime object.
+    """
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
+    return df
+
+
+def sort_dataframe(df, col):
+    """
+    Sorts a DataFrame by a column.
+
+    Args:
+        df: The DataFrame.
+        col: The column to sort by.
+
+    Returns:
+        The sorted DataFrame.
+    """
+    return df.sort_values(by=col)
+
+
+def encode_team_names(df, encoder):
+    """
+    Encodes the team names in a DataFrame using a LabelEncoder.
+
+    Args:
+        df: The DataFrame.
+        encoder: A LabelEncoder object.
+
+    Returns:
+        The DataFrame with the team names encoded.
+    """
+    df['Home'] = encoder.transform(df['Home'])
+    df['Away'] = encoder.transform(df['Away'])
+    return df
+
 
 def go(args):
 
-    # Load config.json and get input and output paths
+    # Load config.yaml and get input and output paths
     with open('../config.yaml', 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
-
 
     # Setting-up directory paths
     input_folder_path = config['directories']['input_folder_path']
     output_folder_path = config['directories']['output_folder_path']
+
     # Setting-up ingested file recording
     file_record = open(
         f"../reports/ingestedfiles/{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
-
 
     # Creating instance
     run = wandb.init(
@@ -43,45 +126,44 @@ def go(args):
     logger.info("2 - Running pre-processing step")
 
     logger.info("Merging multiple dataframes")
-    data = pd.DataFrame()
-    data_dir = os.path.abspath('..')
-    datasets = os.listdir(data_dir+'/'+input_folder_path)
-    # Iterating through each dataset
-    for each_dataset in datasets:
-        file_record.write(str(each_dataset)+'\n')
-        df = pd.read_csv(data_dir+'/'+input_folder_path +
-                         '/'+each_dataset, header=None)
-        # Concatinating all datasets into one
-        # data = pd.concat([data, df], axis=0)
-        data = merge_datasets(data, df)
-    # Removing dublicates
-    result = drop_duplicates(data)
-    # Saving merged datasets as one file
-    result.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
+    # Get the datasets
+    raw_data = pd.DataFrame()
+    raw_datasets = []
+    for dataset in os.listdir('../'+input_folder_path):
+        raw_datasets.append(pd.read_csv(os.path.join(
+            '../'+input_folder_path, dataset), header=None))
+        file_record.write(str(dataset)+'\n')
 
-    logger.info("Creating dataframe")
-    df = pd.read_csv(f'../{output_folder_path}/raw_data.csv', header=None)
+    # Merge the datasets
+    for i in range(len(raw_datasets)):
+        raw_data = merge_datasets(raw_data, raw_datasets[i])
+
+    # Remove duplicate rows
+    raw_data = drop_duplicates(raw_data)
+
+    # Save merged datasets as one file
+    raw_data.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
 
     logger.info("Adding headers")
-    df.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
+    raw_data.columns = ["Date", "Blank", "Home", "Result", "Away", "Location"]
 
     # Removing unnecessary row
-    df = df.drop(0, axis=0)
+    # df = df.drop(0, axis=0)
 
     logger.info("Removeing rows with missing values")
-    df = remove_na(df)
+    raw_data = remove_na(raw_data)
 
     logger.info("Converting Date column into datetime format")
-    df = convert_date_column(df)
+    raw_data = convert_date_column(raw_data)
 
     logger.info("Sorting dataframe by date")
-    df = sort_dataframe(df)
+    raw_data = sort_dataframe(raw_data, 'Date')
 
     # Converting dates to  timestamps
-    df['Date'] = df['Date'].astype(int) / 10**18
+    raw_data['Date'] = raw_data['Date'].astype(int) / 10**18
 
     # Converting Results columns into separate columns for Home and Away goals
-    score_strings = df['Result']
+    score_strings = raw_data['Result']
     homeResult = []
     awayResult = []
 
@@ -93,8 +175,8 @@ def go(args):
         awayResult.append(away)
 
     logger.info("Creating Winner column with the team that won or draw")
-    Winner = [0] * len(df)
-    for i in range(len(df)):
+    Winner = [0] * len(raw_data)
+    for i in range(len(raw_data)):
         if homeResult[i] > awayResult[i]:
             Winner[i] = 0
         elif homeResult[i] < awayResult[i]:
@@ -102,12 +184,12 @@ def go(args):
         else:
             Winner[i] = 0.5
 
-    df['Winner'] = Winner
+    raw_data['Winner'] = Winner
 
     logger.info("Encoding unique strings")
     encoder = LabelEncoder()
-    encoder.fit(df['Home'])
-    df = encode_team_names(df, encoder)
+    encoder.fit(raw_data['Home'])
+    raw_data = encode_team_names(raw_data, encoder)
 
     logger.info('Saving encoder locally')
     encoder_file = 'encoder.pkl'
@@ -123,10 +205,10 @@ def go(args):
     run.log_artifact(encoder_artifact)
 
     logger.info("Dropping unnecessary columns")
-    df = df.drop(['Blank', 'Location', 'Result'], axis=1)
+    raw_data = raw_data.drop(['Blank', 'Location', 'Result'], axis=1)
 
     logger.info("Saving dataframe as a csv file")
-    df.to_csv(f'../{output_folder_path}/processed_data.csv', index=None)
+    raw_data.to_csv(f'../{output_folder_path}/processed_data.csv', index=None)
 
     logger.info("Uploading processed_data.csv file to W&B")
     artifact = wandb.Artifact(
@@ -137,38 +219,7 @@ def go(args):
     artifact.add_file(f'../{output_folder_path}/processed_data.csv')
     run.log_artifact(artifact)
 
-    logger.info("Finished pre-processing")
-
-
-def merge_datasets(df1, df2):
-    data = pd.concat([df1, df2], axis=0)
-    return data
-
-
-def drop_duplicates(df):
-    result = df.drop_duplicates()
-    return result
-
-
-def remove_na(df):
-    df = df.dropna()
-    return df
-
-
-def convert_date_column(df):
-    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
-    return df
-
-
-def sort_dataframe(df):
-    df = df.sort_values(by='Date')
-    return df
-
-
-def encode_team_names(df, encoder):
-    df['Home'] = encoder.transform(df['Home'])
-    df['Away'] = encoder.transform(df['Away'])
-    return df
+    logger.info("Successfully pre-processed the data")
 
 
 if __name__ == "__main__":

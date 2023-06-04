@@ -5,7 +5,6 @@ import logging
 import wandb
 import argparse
 from datetime import datetime
-import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -32,27 +31,25 @@ def go(args):
     webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
 
     logger.info("Setting browser")
-    driver = webdriver.Chrome(
-        service=webdriver_service, options=chrome_options)
+    with webdriver.Chrome(service=webdriver_service, options=chrome_options) as driver:
+        website = "https://alyga.lt/rezultatai/1"
+        logger.info(f"Opening {website}")
+        driver.get(website)
 
-    website = "https://alyga.lt/rezultatai/1"
-    logger.info(f"Opening {website}")
-    driver.get(website)
+        logger.info("Scraping the data")
+        rows = driver.find_elements(By.TAG_NAME, "tr")
 
-    logger.info("Scraping the data")
-    rows = driver.find_elements(By.TAG_NAME, "tr")
+        # Opening csv file with today's date as name
+        with open(f"../raw_data/{datetime.now().strftime('%Y-%m-%d')}.csv", 'w', newline='') as f:
+            writer = csv.writer(f)
 
-    # Opening csv file with today's date as name
-    with open(f"../raw_data/{datetime.now().strftime('%Y-%m-%d')}.csv", 'w', newline='') as f:
-        writer = csv.writer(f)
+            # Write the data rows
+            for row in rows[1:]:
+                data = row.find_elements(By.TAG_NAME, "td")
+                writer.writerow([datum.text for datum in data])
 
-        # Write the data rows
-        for row in rows[1:]:
-            data = row.find_elements(By.TAG_NAME, "td")
-            writer.writerow([datum.text for datum in data])
-
-    logger.info("Scraping finished")
-    driver.close()
+        logger.info("Scraping finished")
+        driver.close()
 
 
 if __name__ == "__main__":

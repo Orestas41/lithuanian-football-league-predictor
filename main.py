@@ -1,9 +1,8 @@
 import json
-
-import mlflow
 import tempfile
 import os
 
+import mlflow
 import wandb
 import hydra
 from omegaconf import DictConfig
@@ -87,10 +86,7 @@ def go(config: DictConfig):
             model_config = os.path.abspath("config.yaml")
             with open(model_config, "w+") as fp:
                 json.dump(
-                    dict(
-                        config["modeling"]["linearRegression"].items()),
-                    fp)
-
+                    dict(config["modeling"]["linearRegression"].items()), fp)
             _ = mlflow.run(
                 os.path.join(
                     hydra.utils.get_original_cwd(),

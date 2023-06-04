@@ -54,8 +54,6 @@ def go(args):
 
     logger.info("Finished data segregation")
 
-    return trainval, test
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Split test and remainder")

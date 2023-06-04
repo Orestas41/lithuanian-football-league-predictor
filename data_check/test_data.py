@@ -1,15 +1,14 @@
 import pandas as pd
 import os
-from datetime import datetime
-import logging
-import numpy as np
 import wandb
+import logging
+from datetime import datetime
 import scipy
 
 log_folder = os.getcwd()
 # Setting up logging
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.ERROR)
 logger = logging.getLogger()
 
 run = wandb.init(
@@ -29,9 +28,7 @@ def test_column_names(data):
         "Away",
         "Winner"
     ]
-    # Getting the column names from existing data
     these_columns = data.columns.values
-
     assert list(expected_colums) == list(these_columns)
 
 
@@ -49,7 +46,7 @@ def test_format(data):
     # Checking if columns that are not dates have either integer or float values
     for column in data.columns:
         if column != 'Date':
-            assert data[column].dtype == int or float
+            assert data[column].dtype in (int, float)
 
 
 def test_number_of_teams(data):
@@ -67,9 +64,7 @@ def test_winner_range(data):
     logger.info("Testing if the values of Winner column are correct")
     assert data['Winner'].nunique() == 3
     # Checking that winner values are between 0 and 1
-    values = data['Winner'].values
-    for value in values:
-        assert 0 <= value <= 1
+    assert data['Winner'].min() >= 0 and data['Winner'].max() <= 1
 
 
 def test_similar_distrib(
@@ -83,11 +78,9 @@ def test_similar_distrib(
 
     logger.info(
         "Testing of the distribution of the dataset is similar to what is expected")
-    # Preparing the distributions
     dist1 = data['Winner'].value_counts().sort_index()
     dist2 = ref_data['Winner'].value_counts().sort_index()
     # Checking if the distirbution difference is less than the k1 threshold
     assert scipy.stats.entropy(dist1, dist2, base=2) < kl_threshold
 
-
-logger.info("Finished data checks")
+    logger.info("Finished data checks")

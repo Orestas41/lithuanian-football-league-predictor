@@ -47,14 +47,9 @@ async def model_inference(data: Predict):
     with open('pre-processing/encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
 
-    sample = pd.DataFrame(data)
-    sample = sample.T
-
+    sample = pd.DataFrame(data).transpose()
     sample.columns = sample.iloc[0]
     sample = sample.drop(0, axis=0)
-
-    home = sample['Home'].iat[0]
-    away = sample['Away'].iat[0]
 
     sample['Date'] = (pd.to_datetime(
         sample['Date'], format="%Y-%m-%d, %H:%M")).astype(int) / 10**18
@@ -65,12 +60,12 @@ async def model_inference(data: Predict):
     pred = model.predict(sample)
 
     if pred[0] > 0.5:
-        pred[0] = (pred[0]*100).astype(int)
-        winner = away
-        loser = home
+        pred[0] = int(pred[0] * 100)
+        winner = data.Away
+        loser = data.Home
     else:
-        pred[0] = (100 - pred[0]*100).astype(int)
-        winner = home
-        loser = away
+        pred[0] = int((100 - pred[0] * 100))
+        winner = data.Home
+        loser = data.Away
 
     return {f"{winner} has a chance of {pred[0]}% to win against {loser}"}

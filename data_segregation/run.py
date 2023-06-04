@@ -20,6 +20,7 @@ logger = logging.getLogger()
 def go(args):
 
     run = wandb.init(
+        project="project-FootballPredict",
         job_type="data_segregation")
     run.config.update(args)
 
@@ -52,6 +53,8 @@ def go(args):
             artifact.wait()
 
     logger.info("Finished data segregation")
+
+    return trainval, test
 
 
 if __name__ == "__main__":

@@ -29,6 +29,7 @@ logger = logging.getLogger()
 def go(args):
 
     run = wandb.init(
+        project="project-FootballPredict",
         job_type="training_validation")
     run.config.update(args)
 

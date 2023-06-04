@@ -18,20 +18,22 @@ logging.basicConfig(
     filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
 logger = logging.getLogger()
 
-# Load config.json and get input and output paths
-with open('../config.yaml', 'r') as f:
-    config = yaml.load(f, Loader=yaml.FullLoader)
-
-
-# Setting-up directory paths
-input_folder_path = config['directories']['input_folder_path']
-output_folder_path = config['directories']['output_folder_path']
-# Setting-up ingested file recording
-file_record = open(
-    f"../reports/ingestedfiles/{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
 
 
 def go(args):
+
+    # Load config.json and get input and output paths
+    with open('../config.yaml', 'r') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+
+
+    # Setting-up directory paths
+    input_folder_path = config['directories']['input_folder_path']
+    output_folder_path = config['directories']['output_folder_path']
+    # Setting-up ingested file recording
+    file_record = open(
+        f"../reports/ingestedfiles/{datetime.now().strftime('%Y-%m-%d')}.txt", "w")
+
 
     # Creating instance
     run = wandb.init(
@@ -50,9 +52,10 @@ def go(args):
         df = pd.read_csv(data_dir+'/'+input_folder_path +
                          '/'+each_dataset, header=None)
         # Concatinating all datasets into one
-        data = pd.concat([data, df], axis=0)
+        # data = pd.concat([data, df], axis=0)
+        data = merge_datasets(data, df)
     # Removing dublicates
-    result = data.drop_duplicates()
+    result = drop_duplicates(data)
     # Saving merged datasets as one file
     result.to_csv(f'../{output_folder_path}/raw_data.csv', index=None)
 
@@ -66,13 +69,13 @@ def go(args):
     df = df.drop(0, axis=0)
 
     logger.info("Removeing rows with missing values")
-    df = df.dropna()
+    df = remove_na(df)
 
     logger.info("Converting Date column into datetime format")
-    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
+    df = convert_date_column(df)
 
     logger.info("Sorting dataframe by date")
-    df = df.sort_values(by='Date')
+    df = sort_dataframe(df)
 
     # Converting dates to  timestamps
     df['Date'] = df['Date'].astype(int) / 10**18
@@ -104,8 +107,7 @@ def go(args):
     logger.info("Encoding unique strings")
     encoder = LabelEncoder()
     encoder.fit(df['Home'])
-    df['Home'] = encoder.transform(df['Home'])
-    df['Away'] = encoder.transform(df['Away'])
+    df = encode_team_names(df, encoder)
 
     logger.info('Saving encoder locally')
     encoder_file = 'encoder.pkl'
@@ -136,6 +138,37 @@ def go(args):
     run.log_artifact(artifact)
 
     logger.info("Finished pre-processing")
+
+
+def merge_datasets(df1, df2):
+    data = pd.concat([df1, df2], axis=0)
+    return data
+
+
+def drop_duplicates(df):
+    result = df.drop_duplicates()
+    return result
+
+
+def remove_na(df):
+    df = df.dropna()
+    return df
+
+
+def convert_date_column(df):
+    df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d, %H:%M')
+    return df
+
+
+def sort_dataframe(df):
+    df = df.sort_values(by='Date')
+    return df
+
+
+def encode_team_names(df, encoder):
+    df['Home'] = encoder.transform(df['Home'])
+    df['Away'] = encoder.transform(df['Away'])
+    return df
 
 
 if __name__ == "__main__":

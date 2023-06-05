@@ -1,70 +1,71 @@
 """
-This script splits the provided dataframe in test and remainder
+This script splits the provided dataframe into a test set and a remainder set
 """
+# pylint: disable=E0401, W0621, C0103, E1101
 import tempfile
-import wandb
-import pandas as pd
 import logging
 from datetime import datetime
 import argparse
-import os
+import pandas as pd
 from sklearn.model_selection import train_test_split
+import wandb
 
-log_folder = os.getcwd()
 # Setting up logging
 logging.basicConfig(
-    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log", level=logging.INFO)
-logger = logging.getLogger()
+    filename=f"../reports/logs/{datetime.now().strftime('%Y-%m-%d')}.log",
+    level=logging.INFO)
+LOGGER = logging.getLogger()
 
 
-def go(args):
+def go(ARGS):
+    """
+    Splits the provided dataframe into test and remainder sets
+    """
 
-    run = wandb.init(
-        project="project-FootballPredict",
-        job_type="data_segregation")
-    run.config.update(args)
+    run = wandb.init(project="project-FootballPredict",
+                     job_type="data_segregation")
+    run.config.update(ARGS)
 
-    logger.info("4 - Running data segregation step")
+    LOGGER.info("4 - Running data segregation step")
 
-    logger.info(f"Fetching artifact {args.input}")
-    artifact_local_path = run.use_artifact(args.input).file()
+    LOGGER.info("Fetching artifact %s", ARGS.input)
+    artifact_local_path = run.use_artifact(ARGS.input).file()
 
-    df = pd.read_csv(artifact_local_path)
+    data_frame = pd.read_csv(artifact_local_path)
 
-    logger.info("Splitting data into trainval and test")
+    LOGGER.info("Splitting data into trainval and test")
     trainval, test = train_test_split(
-        df,
-        test_size=args.test_size,
+        data_frame,
+        test_size=ARGS.test_size,
     )
 
-    for df, k in zip([trainval, test], ['trainval', 'test']):
-        logger.info(f"Uploading {k}_data.csv dataset")
-        with tempfile.NamedTemporaryFile("w") as fp:
-
-            df.to_csv(fp.name, index=False)
+    for data_frame, k in zip([trainval, test], ['trainval', 'test']):
+        LOGGER.info("Uploading %s_data.csv dataset", k)
+        with tempfile.NamedTemporaryFile("w") as file:
+            data_frame.to_csv(file.name, index=False)
 
             artifact = wandb.Artifact(
                 f"{k}_data.csv",
                 type=f"{k}_data",
                 description=f"{k} split of dataset",
             )
-            artifact.add_file(fp.name)
+            artifact.add_file(file.name)
             run.log_artifact(artifact)
             artifact.wait()
 
-    logger.info("Finished data segregation")
+    LOGGER.info("Finished data segregation")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Split test and remainder")
+    PARSER = argparse.ArgumentParser(description="Split test and remainder")
 
-    parser.add_argument("input", type=str, help="Input artifact to split")
+    PARSER.add_argument("input", type=str, help="Input artifact to split")
 
-    parser.add_argument(
+    PARSER.add_argument(
         "test_size",
         type=float,
         help="Size of the test split. Fraction of the dataset, or number of items")
 
-    args = parser.parse_args()
+    ARGS = PARSER.parse_args()
 
-    go(args)
+    go(ARGS)

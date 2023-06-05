@@ -1,27 +1,33 @@
-from fastapi import FastAPI, Query
-from pydantic import BaseModel
-from typing import Union, List
-
+"""
+The script defines a FastAPI application with two endpoints,
+where the "/predict" endpoint performs predictions using a trained machine learning model
+based on the input data received in a POST request.
+"""
+# pylint: disable=E0401, R0903, C0103
 import os
-import joblib
 from datetime import datetime
-import wandb
-import mlflow
 import pickle
 import pandas as pd
-import numpy as np
+from fastapi import FastAPI, Query
+from pydantic import BaseModel
+import mlflow
 
-
-now = pd.Timestamp.now()
-date = now.timestamp() / 10**18
+NOW = pd.Timestamp.now()
+DATE = NOW.timestamp() / 10**18
 
 
 class Predict(BaseModel):
+    """
+    Structure and validation rules for the input data used in the prediction endpoint of an API.
+    """
     Date: str = Query(default=datetime.now().strftime('%Y-%m-%d, %H:%M'))
     Home: str
     Away: str
 
     class Config:
+        """
+        Provide additional configuration options and metadata
+        """
         schema_extra = {
             'example': {
                 'Home': 'Panevėžys',
@@ -35,17 +41,23 @@ app = FastAPI()
 
 @app.get('/')
 async def say_hello():
+    """
+    Return a greeting message when the root URL is accessed.
+    """
     return {'greeting': 'Hello World!'}
 
 
 @app.post("/predict")
 async def model_inference(data: Predict):
+    """
+    Perform inference using a trained model on the input data and generate a prediction result.
+    """
 
     dirname = os.path.dirname(__file__)
     model = mlflow.sklearn.load_model(os.path.join(
         dirname, "prod_model_dir"))
-    with open('pre-processing/encoder.pkl', 'rb') as f:
-        encoder = pickle.load(f)
+    with open('pre-processing/encoder.pkl', 'rb') as file:
+        encoder = pickle.load(file)
 
     sample = pd.DataFrame(data).transpose()
     sample.columns = sample.iloc[0]

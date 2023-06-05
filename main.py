@@ -1,9 +1,12 @@
+"""
+This script represents a pipeline for machine learning tasks,
+where each step can be executed independently based on the provided configuration
+"""
+# pylint: disable=E0401, C0103, E1120
 import json
 import tempfile
 import os
-
 import mlflow
-import wandb
 import hydra
 from omegaconf import DictConfig
 
@@ -21,6 +24,9 @@ _steps = [
 # Reading the configuration
 @hydra.main(config_name='config')
 def go(config: DictConfig):
+    """
+    Run the pipeline for machine learning tasks
+    """
 
     # Setting-up the wandb experiment
     os.environ["WANDB_PROJECT"] = config["main"]["project_name"]
@@ -40,8 +46,7 @@ def go(config: DictConfig):
                     "data_scrape"),
                 "main",
                 parameters={
-                    "step_description": "This step scrapes the latest data from the web"
-                },
+                    "step_description": "This step scrapes the latest data from the web"},
             )
 
         if "pre-processing" in active_steps:
@@ -84,9 +89,9 @@ def go(config: DictConfig):
         if "training_validation" in active_steps:
 
             model_config = os.path.abspath("config.yaml")
-            with open(model_config, "w+") as fp:
+            with open(model_config, "w+") as file:
                 json.dump(
-                    dict(config["modeling"]["linearRegression"].items()), fp)
+                    dict(config["modeling"]["linearRegression"].items()), file)
             _ = mlflow.run(
                 os.path.join(
                     hydra.utils.get_original_cwd(),
@@ -118,8 +123,7 @@ def go(config: DictConfig):
                     "tour_eval_pred"),
                 "main",
                 parameters={
-                    "mlflow_model": "model_export:prod",
-                    "step_description": "This step checks if the previous tour predictions were correct and predicts the result of the next tour matches"
+                    "mlflow_model": "model_export:prod"
                 },
             )
 

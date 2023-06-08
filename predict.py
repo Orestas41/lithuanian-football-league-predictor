@@ -10,7 +10,6 @@ import pickle
 import pandas as pd
 from fastapi import FastAPI, Query
 from pydantic import BaseModel
-import mlflow
 
 NOW = pd.Timestamp.now()
 DATE = NOW.timestamp() / 10**18
@@ -38,7 +37,6 @@ class Predict(BaseModel):
 
 app = FastAPI()
 
-
 @app.get('/')
 async def say_hello():
     """
@@ -53,10 +51,9 @@ async def model_inference(data: Predict):
     Perform inference using a trained model on the input data and generate a prediction result.
     """
 
-    dirname = os.path.dirname(__file__)
-    model = mlflow.sklearn.load_model(os.path.join(
-        dirname, "prod_model_dir"))
-    with open('pre-processing/encoder.pkl', 'rb') as file:
+    with open("model.pkl", "rb") as file:
+        model = pickle.load(file)
+    with open('encoder.pkl', 'rb') as file:
         encoder = pickle.load(file)
 
     sample = pd.DataFrame(data).transpose()

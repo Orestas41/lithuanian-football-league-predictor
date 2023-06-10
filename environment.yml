@@ -32,4 +32,3 @@ dependencies:
       - httpcore
       - httpx
       - rfc3986==1.5.0
-      - xgboost==1.7.5

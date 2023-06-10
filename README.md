@@ -8,16 +8,6 @@ The Lithuanian Football League Match Result Predictor is a machine learning proj
 
 ## Table of contents
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [1. Download and install Miniconda](#1-download-and-install-miniconda)
-  - [2. Clone the project and set up the environment](#2-clone-the-project-and-set-up-the-environment)
-  - [3. Set up Weights and Biases authorization](#3-set-up-weights-and-biases-authorization)
-- [Usage](#usage)
-  - [API](#api)
-    - [Input](#input)
-    - [Output](#output)
-  - [Retrain Model](#retrain-model)
 - [Pipeline](#pipeline)
   - [1. Data Scrape](#1-data-scrape)
   - [2. Pre-processing](#2-pre-processing)
@@ -26,12 +16,79 @@ The Lithuanian Football League Match Result Predictor is a machine learning proj
   - [5. Training and Validation](#5-training-and-validation)
   - [6. Model Testing](#6-model-testing)
   - [7. Tour Prediction Evaluations and Next Tour Predictions](#7-tour-prediction-evaluations-and-next-tour-predictions)
-- [Deployment on AWS EC2](#Deployment-on-AWS-EC2)
+- [Reports](#reports)
+- [Requirements](#requirements)
+- [Tools](#tools)
+- [Installation](#installation)
+  - [1. Download and install Miniconda](#1-download-and-install-miniconda)
+  - [2. Clone the project and set up the environment](#2-clone-the-project-and-set-up-the-environment)
+  - [3. Set up Weights and Biases authorization](#3-set-up-weights-and-biases-authorization)
+  - [4. Set-up Selenium webdriver for data scraping](#4-set-up-selenium-webdriver-for-data-scraping)
+    - [Install Chrome browser on Ubuntu](#install-chrome-browser-on-ubuntu)
+    - [Install Chromedriver](#install-chromedriver)
+- [Usage](#usage)
+  - [API](#api)
+    - [Input](#input)
+    - [Output](#output)
+  - [Retrain Model](#retrain-model)
 - [Contact](#contact)
+
+## Pipeline
+
+![Pipeline](./readme_files/pipeline.png)
+
+#### 1. Data scrape
+
+This script scrapes the latest match data from the website https://alyga.lt/rezultatai/1.
+
+##### 2. Pre-processing
+
+This step merges all available data and performs data cleaning.
+
+##### 3. Data testing
+
+The script runs deterministic and statistical tests on the data to ensure its integrity.
+
+##### 4. Data segregation
+
+This script splits the provided dataframe into a test set and a remaining set.
+
+##### 5. Training and Validation
+
+This script trains and validates the model
+
+##### 6. Model testing
+
+The trained model is tested against the test dataset. If the model demonstrates better performance in terms of R-squared score and Mean Absolute Error (MAE) compared to previous models, it is promoted for production use. Data slice and model drift tests are also conducted to validate the model's performance.
+
+##### 7. Tour prediction evaluations and next tour predictions
+
+This step compares the model predictions made in the previous week with the actual match results of the latest tour, providing insights into the model's real-time performance. Additionally, the step scrapes the internet to retrieve the matches for the upcoming tour and the model predicts the results of those matches. These predictions will be compared to the actual results after the next tour concludes.
+
+## Reports
+
+The pipeline generates various metrics to track model performance and logs pipeline steps to track the pipeline is running accordingly
+
+- Ingested files: The reports are generated with the date of the run as the file name. It lists all the data files that were used during the run to train the model.
+- Logs: This report is generated with the date of the run as the file name. It lists all the detailed steps in the pipeline run to track it and trace back the issue in case of an error.
+- Predictions for the next tour: This report writes the predictions for the match result in the upcoming tour. Each prediction looks like this: `For the match between Banga and Sūduva, model predicts that Banga's chance of winning is 75%.`
+- Model performance: New model performance metric (r2 and MAE) are added to the list in the report in order to keep track and changes of the performace. This report is then used to generate a plot.
+
+![model performance](./reports/model_performance.png)
 
 ## Requirements
 
 The project requires Python 3.10.4 running on Ubuntu OS. It utilizes the latest version of Miniconda for environment management. Once all dependencies are installed, the project occupies approximately 45 GB of storage.
+
+## Tools
+
+- `Github` - Code tracking
+- `Weights & Biases` - Experiment, Artifact tracking and model repository
+- `MLflow + Hydra` - ML pipelines and orchestration
+- `conda` - Environemnt isolation
+- `Scikit-learn` - Modeling
+- `FastAPI` - API
+- `Selenium` - Web scraping
 
 ## Installation
 
@@ -62,6 +119,53 @@ To run the pipeline successfully, you need to set up authorization for Weights &
 
 ```bash
 > wandb login [your API key]
+```
+
+### 4. Set-up Selenium webdriver for data scraping
+
+Selenium webdriver is used to scrape data from the internet. To use it, webdriver needs to be downloaded and installed.
+
+#### Install Chrome browser on Ubuntu
+
+Download the browser:
+
+```bash
+> wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
+Install the browser:
+
+```bash
+> sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+#### Install Chromedriver
+
+Get the latest version of the driver:
+
+```bash
+> chrome_driver=$(curl "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
+```
+
+Download the driver:
+
+```bash
+> curl -Lo chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/\
+${chrome_driver}/chromedriver_linux64.zip"
+```
+
+Unzip:
+
+```bash
+> sudo apt install unzip
+```
+
+Unzip the binary file and make it executable:
+
+```bash
+> mkdir -p "chromedriver/stable" && \
+> unzip -q "chromedriver_linux64.zip" -d "chromedriver/stable" && \
+> chmod +x "chromedriver/stable/chromedriver"
 ```
 
 ## Usage
@@ -104,47 +208,6 @@ To train or retrain the model, navigate to the root directory and run the follow
 ```
 
 The pipeline will scrape the latest match results from https://alyga.lt/rezultatai/1, merge them with the existing data, and perform model retraining from scratch. If the new model outperforms the previous versions based on metrics such as R-squared score and Mean Absolute Error (MAE), it will be promoted for use in the API.
-
-## Reports
-
-The pipeline generates various metrics to track model performance and logs pipeline steps to track the pipeline is running accordingly
-
-- Ingested files: The reports are generated with the date of the run as the file name. It lists all the data files that were used during the run to train the model.
-- Logs: This report is generated with the date of the run as the file name. It lists all the detailed steps in the pipeline run to track it and trace back the issue in case of an error.
-- Predictions for the next tour: This report writes the predictions for the match result in the upcoming tour. Each prediction looks like this: `For the match between Banga and Sūduva, model predicts that Banga's chance of winning is 75%.`
-- Model performance: New model performance metric (r2 and MAE) are added to the list in the report in order to keep track and changes of the performace. This report is then used to generate a plot.
-
-![model performance](./reports/model_performance.png)
-
-## Pipeline
-
-#### 1. Data scrape
-
-This script scrapes the latest match data from the website https://alyga.lt/rezultatai/1.
-
-##### 2. Pre-processing
-
-This step merges all available data and performs data cleaning.
-
-##### 3. Data testing
-
-The script runs deterministic and statistical tests on the data to ensure its integrity.
-
-##### 4. Data segregation
-
-This script splits the provided dataframe into a test set and a remaining set.
-
-##### 5. Training and Validation
-
-This script trains and validates the model
-
-##### 6. Model testing
-
-The trained model is tested against the test dataset. If the model demonstrates better performance in terms of R-squared score and Mean Absolute Error (MAE) compared to previous models, it is promoted for production use. Data slice and model drift tests are also conducted to validate the model's performance.
-
-##### 7. Tour prediction evaluations and next tour predictions
-
-This step compares the model predictions made in the previous week with the actual match results of the latest tour, providing insights into the model's real-time performance. Additionally, the step scrapes the internet to retrieve the matches for the upcoming tour and the model predicts the results of those matches. These predictions will be compared to the actual results after the next tour concludes.
 
 ## Contact
 

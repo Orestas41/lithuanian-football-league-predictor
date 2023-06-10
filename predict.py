@@ -8,7 +8,7 @@ import os
 from datetime import datetime
 import pickle
 import pandas as pd
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 from pydantic import BaseModel
 
 NOW = pd.Timestamp.now()
@@ -38,11 +38,16 @@ class Predict(BaseModel):
 app = FastAPI()
 
 @app.get('/')
-async def say_hello():
+async def say_hello(request:Request):
     """
     Return a greeting message when the root URL is accessed.
     """
-    return {'greeting': 'Hello World!'}
+    return {'The API is available as a POST request at': 'http://'+request.client.host+':8000/predict',
+            'API accepts input in a JSON format with the following structure':'',
+            "Home": "Šiauliai",
+            "Away": "Džiugas",
+            'Full capabilities are dipalyed at':'http://'+request.client.host+':8000/docs'
+            }
 
 
 @app.post("/predict")
@@ -51,9 +56,9 @@ async def model_inference(data: Predict):
     Perform inference using a trained model on the input data and generate a prediction result.
     """
 
-    with open("model.pkl", "rb") as file:
+    with open("./prod_model_dir/model.pkl", "rb") as file:
         model = pickle.load(file)
-    with open('encoder.pkl', 'rb') as file:
+    with open('./pre-processing/encoder.pkl', 'rb') as file:
         encoder = pickle.load(file)
 
     sample = pd.DataFrame(data).transpose()

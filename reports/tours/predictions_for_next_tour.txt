@@ -1,5 +1,4 @@
-For the match between Banga and Sūduva, model predicts that Banga's chance of winning is 75%.
-For the match between Riteriai and K. Žalgiris, model predicts that Riteriai's chance of winning is 34%.
-For the match between Džiugas and Šiauliai, model predicts that Džiugas's chance of winning is 72%.
-For the match between Dainava and Panevėžys, model predicts that Dainava's chance of winning is 64%.
-For the match between Hegelmann and Žalgiris, model predicts that Hegelmann's chance of winning is 72%.
+For the match between Sūduva and Riteriai, model predicts that Sūduva's chance of winning is 40%.
+For the match between Šiauliai and Banga, model predicts that Šiauliai's chance of winning is 12%.
+For the match between Žalgiris and Dainava, model predicts that Žalgiris's chance of winning is 13%.
+For the match between Panevėžys and Džiugas, model predicts that Panevėžys's chance of winning is 29%.
